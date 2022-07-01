@@ -1,0 +1,56 @@
+@import "../scss/Variables.scss";
+
+.Head {
+  min-width: $MINWIDTH;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 80px;
+
+  .Head-Header {
+    min-width: $MINWIDTH;
+    background-color: $blackColor;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 70%;
+    background-color: aquamarine;
+    height: 50px;
+    z-index: 10000;
+
+    a {
+      color: $blackColor;
+      font-size: 15px;
+      text-decoration: none;
+      font-family: $bluy-Font;
+    }
+  }
+  .Head-Header-map {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background-color: aquamarine;
+    height: 50px;
+    z-index: 2;
+  }
+
+  .Head-subHeader {
+    min-width: $MINWIDTH;
+    position: absolute;
+    top: 50px;
+    width: 70%;
+    background-color: aqua;
+    height: 30px;
+  }
+  .Head-subHeader-map {
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    background-color: aqua;
+    height: 30px;
+  }
+}

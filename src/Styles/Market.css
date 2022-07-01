@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap");
+.Market .Banner {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.Market .Banner .slick-slider {
+  min-width: 890px;
+}
+.Market .Banner div {
+  background-color: cornflowerblue;
+  width: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.Market .Banner div img {
+  background-color: blue;
+  width: 100%;
+  min-width: none;
+  height: auto;
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+.Market .Banner .nextArrow {
+  opacity: 0;
+}
+.Market .eventCategori {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 30px 0px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.Market .eventCategori .eventCategori-View {
+  min-width: 890px;
+  width: 70%;
+  height: 100px;
+  background-color: goldenrod;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.Market .recommandDeal {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 30px 0px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.Market .recommandDeal .recommandDeal-View {
+  width: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.Market .recommandDeal .recommandDeal-View .head {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.Market .recommandDeal .recommandDeal-View .product {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-columns: minmax(300px, auto);
+  grid-auto-rows: 400px;
+  gap: 30px;
+  width: 100%;
+  min-width: 890px;
+  background-color: antiquewhite;
+}
+.Market .recommandDeal .recommandDeal-View .product .product-model {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 400px;
+  min-width: 200px;
+  height: 400px;
+  background-color: rgb(175, 129, 73);
+}
+.Market .recommandDeal .recommandDeal-View .product .product-model .img {
+  width: 50%;
+  min-height: 200px;
+  position: relative;
+}
+.Market .recommandDeal .recommandDeal-View .product .product-model .img:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+.Market .recommandDeal .recommandDeal-View .product .product-model img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.Market .recommandDeal .recommandDeal-View .product .product-model .detail {
+  width: 90%;
+  background-color: thistle;
+}
+.Market .recommandDeal .recommandDeal-View .product .product-model span {
+  display: block;
+}
+.Market .recommandDeal .recommandDeal-View .product .product-model .price {
+  width: 50%;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: aqua;
+}

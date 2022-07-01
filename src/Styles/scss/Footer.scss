@@ -1,0 +1,18 @@
+@import "./Variables.scss";
+
+.footer {
+  position: absolute;
+  bottom: -1;
+  background-color: gainsboro;
+  width: 100%;
+  height: 20%;
+
+  display: flex;
+  justify-content: center;
+
+  .footer-footer {
+    display: flex;
+    width: 70%;
+    margin-top: 15px;
+  }
+}

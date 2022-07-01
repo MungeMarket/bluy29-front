@@ -1,0 +1,23 @@
+// color
+$blackColor: rgb(0, 0, 0);
+$whiteColor: rgb(255, 255, 255);
+$lightGray: #aaaaaa;
+$DarkGray: #444444;
+
+//font
+$titleFont: Arial, Helvetica, sans-serif;
+$bodyFont: "Times New Roman", Times, serif;
+$bluy-Font: "Noto Sans KR", sans-serif;
+
+@mixin buttonStyleLogin($color, $backgroundColor, $fontSize, $width, $height) {
+  width: $width;
+  height: $height;
+  color: $color;
+  background-color: $backgroundColor;
+  font-size: $fontSize;
+  font-family: $bluy-Font;
+  border-radius: 10px;
+}
+$MINWIDTH: 890px;
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap");

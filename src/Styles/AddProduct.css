@@ -1,0 +1,58 @@
+.addPd {
+  min-width: 900px;
+  width: 100%;
+  height: 150vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.addPd .addPd-addrSearch {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 70%;
+  height: 80%;
+}
+.addPd .addPd-view {
+  width: 70%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #aaaaaa;
+}
+.addPd .addition {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.addPd .addPd-Contraction,
+.addPd .addPd-building,
+.addPd .addPd-houseType,
+.addPd .addpd-price,
+.addPd .addPd-isparking {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.addPd ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
