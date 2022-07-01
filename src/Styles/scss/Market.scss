@@ -1,0 +1,122 @@
+@import "./Variables.scss";
+
+.Market {
+  .Banner {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    .slick-slider {
+      min-width: $MINWIDTH;
+    }
+    div {
+      background-color: cornflowerblue;
+      width: 70%;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        background-color: blue;
+        width: 100%;
+        min-width: none;
+        height: auto;
+        object-fit: fill;
+      }
+    }
+
+    .nextArrow {
+      opacity: 0;
+    }
+  }
+
+  .eventCategori {
+    width: 100%;
+    display: flex;
+    margin: 30px 0px;
+    justify-content: center;
+    .eventCategori-View {
+      min-width: $MINWIDTH;
+      width: 70%;
+      height: 100px;
+      background-color: goldenrod;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+  }
+
+  .recommandDeal {
+    width: 100%;
+    display: flex;
+    margin: 30px 0px;
+    justify-content: center;
+    .recommandDeal-View {
+      width: 70%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .head {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
+      .product {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-columns: minmax(300px, auto);
+        grid-auto-rows: 400px;
+        gap: 30px;
+        width: 100%;
+        min-width: 890px;
+
+        background-color: antiquewhite;
+
+        .product-model {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+          align-items: center;
+          min-height: 400px;
+          min-width: 200px;
+          height: 400px;
+          background-color: rgb(175, 129, 73);
+
+          .img {
+            width: 50%;
+            min-height: 200px;
+            position: relative;
+          }
+          .img:after {
+            content: "";
+            display: block;
+            padding-bottom: 100%;
+          }
+          img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+          .detail {
+            width: 90%;
+            background-color: thistle;
+          }
+          span {
+            display: block;
+          }
+          .price {
+            width: 50%;
+            justify-content: space-evenly;
+            display: flex;
+            background-color: aqua;
+          }
+        }
+      }
+    }
+  }
+}

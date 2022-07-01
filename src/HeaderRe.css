@@ -1,0 +1,67 @@
+.Head {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 80px;
+}
+.Head .Head-Header {
+  background-color: rgb(0, 0, 0);
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 70%;
+  background-color: aquamarine;
+  height: 50px;
+  z-index: 10000;
+}
+.Head .Head-Header a {
+  color: rgb(0, 0, 0);
+  font-size: 15px;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.Head .Head-Header-map {
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  background-color: aquamarine;
+  height: 50px;
+  z-index: 2;
+}
+.Head .Head-subHeader {
+  position: absolute;
+  top: 50px;
+  width: 70%;
+  background-color: aqua;
+  height: 30px;
+}
+.Head .Head-subHeader-map {
+  position: absolute;
+  top: 50px;
+  width: 100%;
+  background-color: aqua;
+  height: 30px;
+}
