@@ -9,6 +9,7 @@ import Login from "./Screen/Login";
 import AddProduct from "./Screen/AddProduct";
 import SignUp from "./Screen/SignUp";
 import Market from "./Screen/Market";
+import MyInfo from "./Screen/MyInfo";
 
 function router() {
   return (
@@ -24,6 +25,7 @@ function router() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/addProduct" element={<AddProduct />} />
           <Route path="/market" element={<Market />} />
+          <Route path="/myInfo" element={<MyInfo />} />
           <Route path="/*" element={<ErrorPage />} />
         </Routes>
       </Router>

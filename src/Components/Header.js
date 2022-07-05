@@ -30,7 +30,8 @@ function Header() {
         {/* <FontAwesomeIcon icon="fa-regular fa-cart-shopping" /> */}
         <a href="/login">로그인</a>
         <a href="/signup">회원가입</a>
-        <div>고객센터</div>
+        <a href="/myInfo">마이페이지</a>
+
         <div>글쓰기</div>
       </div>
       <div

@@ -1,12 +1,12 @@
 import React from "react";
 import Slider from "react-slick";
+import image from "../libs/image";
+import { NextArrow, PrevArrow } from "../Components/Arrow";
 
 // Import css files
 import "../Styles/Market.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import image from "../libs/image";
-import { NextArrow, PrevArrow } from "../Components/Arrow";
 
 function Market() {
   const settings = {

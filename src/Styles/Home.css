@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap");
 .Home {
-  width: 100%;
+  font-family: "Noto Sans KR", sans-serif;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11,11 +11,129 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
-.Home h1 {
-  margin-top: 20px;
-  color: rgb(0, 0, 0);
-  font-family: "Noto Sans KR", sans-serif;
-  font-size: 30px;
-  letter-spacing: 0.025em;
+.Home .Banner {
+  width: 100%;
+  height: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+}
+.Home .Banner .slick-slider {
+  min-width: 890px;
+  width: 100%;
+  height: 30vh;
+}
+.Home .Banner .slick-slider .slick-list {
+  height: 100%;
+}
+.Home .Banner .slick-slider .slick-list .slick-track {
+  height: 100%;
+}
+.Home .Banner .slick-slider .slick-list .slick-track div {
+  background-color: cornflowerblue;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.Home .Banner .slick-slider .slick-list .slick-track div img {
+  background-color: blue;
+  min-width: 890px;
+  width: 100%;
+  height: 100%;
+  min-width: none;
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+.Home .Banner .nextArrow {
+  opacity: 0;
+}
+.Home .Banner .bottom {
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  bottom: 45px;
+  opacity: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: azure;
+}
+.Home .Banner .bottom .btn {
+  width: 70%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.Home .Banner .bottom .btn div {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.Home .Banner .bottom .btn div:nth-child(2) {
+  border-left: 1px black solid;
+}
+.Home .Banner .bottom .btn div:nth-child(3) {
+  border-left: 1px black solid;
+}
+.Home .Banner .bottom .btn div:nth-child(4) {
+  border-left: 1px black solid;
+}
+.Home .main-Btn {
+  width: 70%;
+  height: 250px;
+  background-color: cornflowerblue;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 30px;
+}
+.Home .main-Btn div {
+  width: 48%;
+  height: 100%;
+  background-color: aqua;
+  border-radius: 20px;
+}
+.Home .Solution-Area {
+  width: 70%;
+  height: 200px;
+  background-color: burlywood;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }

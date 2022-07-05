@@ -1,9 +1,38 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../Styles/SignUp.css";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import DaumPostcode from "react-daum-postcode";
-import axios from "axios";
+import { gql, useMutation } from "@apollo/client";
+
+const SIGN_UP = gql`
+  mutation signUpMutation(
+    $id: String!
+    $pw: String!
+    $nickname: String!
+    $phone: String!
+    $mAgree: Boolean!
+    $zipCode: String!
+    $addr: String!
+    $addrDetail: String!
+  ) {
+    createAccount(
+      input: {
+        id: $id
+        pw: $pw
+        nickname: $nickname
+        phone: $phone
+        mAgree: $mAgree
+        zipCode: $zipCode
+        addr: $addr
+        addrDetail: $addrDetail
+      }
+    ) {
+      status
+      error
+    }
+  }
+`;
 
 function SignUp() {
   const [idEmail, setIdEmail] = useState("");
@@ -11,11 +40,55 @@ function SignUp() {
   const [password, setPassword] = useState("");
   const [passwordCheck, setPasswordCheck] = useState("");
   const [nickName, setNickName] = useState("");
-  const [agree, setAgree] = useState("");
+  const [magree, setMAgree] = useState(true);
   const [addr, setAddr] = useState("");
-  const [addrDeatail, setAddrDeatail] = useState("");
-  const [finalAddr, setFinalAddr] = useState(); //주소
-  const [addrFind, setAddrFind] = useState(false);
+  const [addrDetail, setAddrDetail] = useState("");
+  const [zonecode, setZonecode] = useState(""); //우편번호
+  const [finalAddr, setFinalAddr] = useState(""); //주소
+  const [addrFind, setAddrFind] = useState(false); //우편번호 검색 켜기
+
+  const [signUpMutation, { data, loading, error }] = useMutation(SIGN_UP);
+
+  const SignUpHandler = () => {
+    console.log(
+      "id:",
+      idEmail,
+      "phone:",
+      phone,
+      "pw:",
+      password,
+      "nick:",
+      nickName,
+      "addr:",
+      finalAddr,
+      "addr:",
+      addrDetail,
+      "agree:",
+      magree,
+      "zonecode:",
+      zonecode
+    );
+    try {
+      signUpMutation({
+        variables: {
+          id: idEmail,
+          pw: password,
+          nickname: nickName,
+          phone: phone,
+          mAgree: magree,
+          zipCode: zonecode,
+          addr: finalAddr,
+          addrDetail: addrDetail,
+        },
+      });
+
+      console.log(data, loading, error);
+    } catch (error) {
+      console.log("회원가입에러 : ", error);
+    }
+
+    return data;
+  };
 
   const options = [
     "naver.com",
@@ -29,36 +102,29 @@ function SignUp() {
     "직접입력",
   ];
 
-  const pwCheckHandler = (e) => {
-    console.log(e.target.value);
-  };
+  const pwCheckHandler = (e) => {};
   const pwHandler = (e) => {
-    console.log(e.target.value);
     setPassword(e.target.value);
   };
 
   const emailHandler = (e) => {
-    console.log(e.target.value);
     setIdEmail(e.target.value);
   };
 
   const phoneHandler = (e) => {
-    console.log(e.target.value);
     setPhone(e.target.value);
   };
 
   const nickNameHandler = (e) => {
-    console.log(e.target.value);
     setNickName(e.target.value);
   };
   const addrDetailHandler = (e) => {
-    console.log(e.target.value);
-    setAddrDeatail(e.target.value);
+    setAddrDetail(e.target.value);
   };
   const handleComplete = (data) => {
     let fullAddress = data.address;
     let extraAddress = "";
-    // console.log(data);
+
     if (data.addressType === "R") {
       if (data.bname !== "") {
         extraAddress += data.bname;
@@ -71,6 +137,8 @@ function SignUp() {
     }
     setAddrFind(false);
     setFinalAddr(fullAddress); // e.g. '서울 성동구 왕십리로2길 20 (성수동1가)'
+
+    setZonecode(data.zonecode);
   };
   const postCodeStyle = {
     width: "50%",
@@ -79,8 +147,6 @@ function SignUp() {
   const findAddr = () => {
     setAddrFind(true);
   };
-
-  const signUpHandler = () => {};
 
   return (
     <div className="signUp">
@@ -149,8 +215,11 @@ function SignUp() {
           <input placeholder="상세주소" onChange={addrDetailHandler}></input>
         </div>
         <div>약관동의</div>
-        <button onClick={signUpHandler}>회원가입하기 버튼</button>
-        <div>이미 아이디가 있으신가요? 로그인</div>
+        <button onClick={SignUpHandler}>회원가입하기 버튼</button>
+
+        <div>이미 아이디가 있으신가요?</div>
+        <a href="/login">로그인</a>
+        <div>{loading ? "" : data ? `${data.createAccount.status}` : ""}</div>
       </div>
     </div>
   );
