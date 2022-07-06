@@ -2,7 +2,6 @@
 
 .signUp {
   width: 100%;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -61,12 +60,26 @@
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
+      input {
+        font-family: $bluy-Font;
+      }
       .email-input {
         display: flex;
       }
       button {
         height: 40px;
       }
+      .Dropdown-root {
+        font-family: $bluy-Font;
+      }
     }
+  }
+  .phone {
+    span {
+      font-family: $bluy-Font;
+    }
+  }
+  input {
+    font-family: $bluy-Font;
   }
 }

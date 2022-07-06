@@ -13,4 +13,22 @@ export default {
 
   cuteDuck: require("../assets/images/cuteduck.jpg"),
   fishbowl: require("../assets/images/fishbowl.jpg"),
+
+  sigong: require("../assets/images/sigong.png"),
+  search: require("../assets/images/search.png"),
+  hlaf_arrow: require("../assets/images/half-arrow.png"),
+  phone: require("../assets/images/phone.png"),
+  snsflag: require("../assets/images/snsflag.png"),
+  i_youtube: require("../assets/images/youtube.png"),
+  i_naverBlog: require("../assets/images/naverBlog.png"),
+  i_facebook: require("../assets/images/facebook.png"),
+  i_kakaotalk: require("../assets/images/kakaotalk.png"),
+  i_instagram: require("../assets/images/instagram.png"),
+  i_icon: require("../assets/images/icon.png"),
+  solution3: require("../assets/images/solution3.gif"),
+  solution2: require("../assets/images/solution2.gif"),
+  solution1: require("../assets/images/solution1.gif"),
+  interior: require("../assets/images/interior.gif"),
+  building: require("../assets/images/building.gif"),
+  banner: require("../assets/images/banner.png"),
 };

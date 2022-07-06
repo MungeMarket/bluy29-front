@@ -1,6 +1,7 @@
 import React from "react";
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { BrowserRouter as Router, Link } from "react-router-dom";
+import image from "../libs/image";
 import "../Styles/HeaderRe.css";
 function Header() {
   if (
@@ -8,32 +9,54 @@ function Header() {
     window.location.pathname === "/signup"
   )
     return (
-      <header className="Head-login">
+      <div className="Head-login">
         <a href="/">홈으로</a>
-      </header>
+      </div>
     );
 
   return (
-    <header className="Head">
-      <div
-        className={
-          window.location.pathname === "/landmap"
-            ? "Head-Header-map"
-            : "Head-Header"
-        }
-      >
-        <a href="/">Bluy29</a>
-        <a href="/landmap">매물검색</a>
-        <a href="/addProduct">매물 등록</a>
-        <a href="/market">마켓</a>
-        <input placeholder="검색"></input>
-        {/* <FontAwesomeIcon icon="fa-regular fa-cart-shopping" /> */}
-        <a href="/login">로그인</a>
-        <a href="/signup">회원가입</a>
-        <a href="/myInfo">마이페이지</a>
-
-        <div>글쓰기</div>
+    <div className="Head">
+      <div className="Head-View">
+        <div
+          className={
+            window.location.pathname === "/landmap"
+              ? "Head-Header-map"
+              : "Head-Header"
+          }
+        >
+          <div>
+            <a href="/">
+              <img src={image.i_icon} width={"40px"}></img>
+            </a>
+          </div>
+          <div>
+            <a href="/market">펫 인테리어</a>
+          </div>
+          <div>
+            <a href="/landmap">부동산 정보</a>
+          </div>
+          <div>
+            <a href="/addproduct">부동산 등록</a>
+          </div>
+          <div>
+            <a href="/sns">시공 후기</a>
+          </div>
+          <div></div>
+          <div>
+            <a href="/login">로그인</a>
+          </div>
+          <div>
+            <a href="/signup">회원가입</a>
+          </div>
+          <div className="sigong">
+            <a href="/myInfo">
+              <img src={image.sigong} width="15px"></img>
+              <span>시공문의</span>
+            </a>
+          </div>
+        </div>
       </div>
+
       <div
         className={
           window.location.pathname === "/landmap"
@@ -41,7 +64,7 @@ function Header() {
             : "Head-subHeader"
         }
       ></div>
-    </header>
+    </div>
   );
 }
 

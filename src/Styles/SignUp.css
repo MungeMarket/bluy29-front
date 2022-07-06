@@ -98,6 +98,9 @@
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
 }
+.signUp .signUpView .email input {
+  font-family: "Noto Sans KR", sans-serif;
+}
 .signUp .signUpView .email .email-input {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -105,4 +108,13 @@
 }
 .signUp .signUpView .email button {
   height: 40px;
+}
+.signUp .signUpView .email .Dropdown-root {
+  font-family: "Noto Sans KR", sans-serif;
+}
+.signUp .phone span {
+  font-family: "Noto Sans KR", sans-serif;
+}
+.signUp input {
+  font-family: "Noto Sans KR", sans-serif;
 }

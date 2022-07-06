@@ -2,9 +2,9 @@
 .footer {
   position: absolute;
   bottom: -1;
-  background-color: gainsboro;
+  background-color: rgb(53, 53, 53);
   width: 100%;
-  height: 20%;
+  height: 30%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -17,5 +17,94 @@
   display: -ms-flexbox;
   display: flex;
   width: 70%;
-  margin-top: 15px;
+  margin-top: 50px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.footer .footer-footer .detail {
+  width: 70%;
+  height: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+.footer .footer-footer .detail .title {
+  width: 100%;
+  height: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.footer .footer-footer .detail .title .title-phone-img {
+  width: 5%;
+  padding-bottom: 5%;
+  position: relative;
+}
+.footer .footer-footer .detail .title .title-phone-img img {
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.footer .footer-footer .detail .detail-company {
+  height: 40%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+.footer .footer-footer .detail h1 {
+  font-size: 50px;
+  color: white;
+  font-weight: 600;
+}
+.footer .footer-footer .detail h3 {
+  font-size: 18px;
+  color: white;
+  font-weight: 600;
+}
+.footer .footer-footer .detail h4 {
+  font-size: 16px;
+  color: white;
+  font-weight: 600;
+}
+.footer .footer-footer .contact {
+  width: 30%;
+  height: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.footer .footer-footer .contact div {
+  position: relative;
+  width: 10%;
+  padding-bottom: 20%;
+  margin-right: 9px;
+}
+.footer .footer-footer .contact div img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -o-object-fit: contain;
+     object-fit: contain;
 }

@@ -14,52 +14,156 @@
           align-items: center;
   margin-bottom: 80px;
 }
-.Head .Head-Header {
-  min-width: 890px;
-  background-color: rgb(0, 0, 0);
+.Head .Head-View {
+  width: 100%;
+  height: 50px;
   position: fixed;
+  z-index: 10000;
+  min-width: 890px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  width: 70%;
-  background-color: aquamarine;
-  height: 50px;
-  z-index: 10000;
+  background-color: white;
 }
-.Head .Head-Header a {
+.Head .Head-View .sigong {
+  width: 100%;
+  height: 50%;
+  background-color: rgb(101, 205, 231);
+}
+.Head .Head-View .Head-Header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 4fr 1fr 1fr 2fr;
+  -webkit-column-gap: 20px;
+     -moz-column-gap: 20px;
+          column-gap: 20px;
+  min-width: 890px;
+  width: 70%;
+  height: 50px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.Head .Head-View .Head-Header div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.Head .Head-View .Head-Header a {
   color: rgb(0, 0, 0);
   font-size: 15px;
   text-decoration: none;
   font-family: "Noto Sans KR", sans-serif;
 }
-.Head .Head-Header-map {
-  position: fixed;
+.Head .Head-View .Head-Header .sigong {
+  background-color: rgb(141, 206, 243);
+  width: 80%;
+  height: 80%;
+  border-radius: 30px;
+  text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: 600;
+}
+.Head .Head-View .Head-Header .sigong a {
+  width: 60%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  width: 100%;
-  background-color: aquamarine;
+}
+.Head .Head-View .Head-Header .sigong span {
+  color: white;
+}
+.Head .Head-View .Head-Header-map {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 4fr 1fr 1fr 2fr;
+  -webkit-column-gap: 20px;
+     -moz-column-gap: 20px;
+          column-gap: 20px;
+  min-width: 890px;
+  width: 70%;
   height: 50px;
-  z-index: 2;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.Head .Head-View .Head-Header-map div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.Head .Head-View .Head-Header-map a {
+  color: rgb(0, 0, 0);
+  font-size: 15px;
+  text-decoration: none;
+  font-family: "Noto Sans KR", sans-serif;
+}
+.Head .Head-View .Head-Header-map .sigong {
+  background-color: rgb(141, 206, 243);
+  width: 80%;
+  height: 80%;
+  border-radius: 30px;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: 600;
+}
+.Head .Head-View .Head-Header-map .sigong a {
+  width: 60%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.Head .Head-View .Head-Header-map .sigong span {
+  color: white;
 }
 .Head .Head-subHeader {
   min-width: 890px;
   position: absolute;
   top: 50px;
   width: 70%;
-  background-color: aqua;
   height: 30px;
 }
 .Head .Head-subHeader-map {
