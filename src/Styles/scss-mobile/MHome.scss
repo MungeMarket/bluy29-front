@@ -1,0 +1,208 @@
+@import "../scss/Variables.scss";
+@media (max-width: 900px) {
+  .Home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .HomeView {
+      display: none;
+    }
+    .MHome {
+      width: 100%;
+      .slide {
+        //468 * 1920
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        position: relative;
+
+        .slick-slider {
+          width: 100%;
+          .slick-list {
+            .slick-track {
+              .imgView {
+                width: 100%;
+                padding-bottom: 40%;
+                position: inherit;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img {
+                  position: absolute;
+                  width: 100%;
+                  height: 100%;
+                  min-width: none;
+                  object-fit: fill;
+                }
+              }
+            }
+          }
+        }
+        .nextArrow {
+          opacity: 0;
+        }
+      }
+      .Main-Btn {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 40px;
+        div {
+          position: relative;
+          width: 90%;
+          padding-bottom: 40%;
+          margin-bottom: 40px;
+
+          img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            object-fit: cover;
+          }
+        }
+      }
+      .Solution-Area {
+        .Solution-View {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          .Solution-TextBox {
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            background-color: azure;
+            h1 {
+              font-size: 23px;
+              font-weight: 500;
+
+              margin-bottom: 10px;
+            }
+
+            .Solution-Text {
+              display: flex;
+              justify-content: space-between;
+              .more {
+                color: rgb(103, 207, 255);
+                font-weight: 500;
+              }
+              span {
+                font-size: 17px;
+                margin-bottom: 20px;
+              }
+            }
+          }
+        }
+        .slick-slider {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          padding: 0;
+          .slick-list {
+            width: 100%;
+            padding-left: 30px;
+
+            div {
+              width: 90%;
+            }
+            .slick-track {
+              .imgView {
+                width: 100%;
+                padding-right: 30%;
+                padding-bottom: 60%;
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                img {
+                  position: absolute;
+                  width: 80%;
+                  height: 100%;
+                  min-width: none;
+                  object-fit: fill;
+                  border-radius: 15px;
+                }
+                .TextBox {
+                  bottom: 25px;
+                  left: 25px;
+                  position: absolute;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: flex-end;
+                  h2 {
+                    font-size: 24px;
+                    font-weight: 500;
+                    color: white;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .Sns-View {
+        margin: 40px 0px;
+
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        .Sns-TextBox {
+          width: 90%;
+          display: flex;
+          flex-direction: column;
+          h1 {
+            font-size: 23px;
+            font-weight: 500;
+
+            margin-bottom: 10px;
+          }
+
+          .Sns-Text {
+            display: flex;
+            justify-content: space-between;
+            .more {
+              color: rgb(103, 207, 255);
+              font-weight: 500;
+            }
+            span {
+              font-size: 17px;
+              margin-bottom: 20px;
+            }
+          }
+        }
+
+        .Object {
+          width: 90%;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          column-gap: 20px;
+          row-gap: 20px;
+
+          div {
+            width: 100%;
+            padding-bottom: 90%;
+            position: relative;
+            img {
+              top: 0;
+              border-radius: 15px;
+              width: 100%;
+              height: 100%;
+              object-fit: fill;
+              position: absolute;
+            }
+          }
+        }
+      }
+    }
+
+    .nextArrow {
+      opacity: 0;
+    }
+  }
+}

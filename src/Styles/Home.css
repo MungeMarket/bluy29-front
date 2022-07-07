@@ -1,358 +1,378 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap");
-.Home {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-.Home .Banner {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  position: relative;
-}
-.Home .Banner .slick-slider {
-  min-width: 890px;
-  width: 100%;
-  height: 100%;
-}
-.Home .Banner .slick-slider .slick-list {
-  height: 100%;
-}
-.Home .Banner .slick-slider .slick-list .slick-track div {
-  width: 100%;
-  padding-bottom: 24%;
-  position: inherit;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-.Home .Banner .slick-slider .slick-list .slick-track div img {
-  position: absolute;
-  top: 0;
-  min-width: 890px;
-  width: 100%;
-  height: 100%;
-  min-width: none;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-.Home .Banner .nextArrow {
-  opacity: 0;
-}
-.Home .Banner .bottom {
-  width: 100%;
-  height: 40px;
-  position: absolute;
-  bottom: 0px;
-  opacity: 70%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  background-color: azure;
-}
-.Home .Banner .bottom .btn {
-  width: 70%;
-  height: 100%;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-}
-.Home .Banner .bottom .btn div {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-.Home .Banner .bottom .btn div:nth-child(2) {
-  border-left: 1px black solid;
-}
-.Home .Banner .bottom .btn div:nth-child(3) {
-  border-left: 1px black solid;
-}
-.Home .Banner .bottom .btn div:nth-child(4) {
-  border-left: 1px black solid;
-}
-.Home .main-Btn {
-  margin-top: 30px;
-  width: 70%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin-bottom: 30px;
-  min-width: 890px;
-}
-.Home .main-Btn .BtnBox {
-  width: 48%;
-  padding-bottom: 30%;
-  background-color: aqua;
-  border-radius: 30px;
-  position: relative;
-}
-.Home .main-Btn .BtnBox .BoxImg {
-  border-radius: 30px;
-  width: 100%;
-  height: 100%;
-  -o-object-fit: fill;
-     object-fit: fill;
-  position: absolute;
-  top: 0;
-}
-.Home .main-Btn .BtnBox .TextBox {
-  bottom: 30px;
-  left: 30px;
-  position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  color: white;
-  width: 70%;
-  height: 20%;
-}
-.Home .main-Btn .BtnBox .TextBox h1 {
-  font-family: "Noto Sans KR", sans-serif;
-  font-size: 30px;
-}
-.Home .main-Btn .BtnBox .TextBox span {
-  font-family: "Noto Sans KR", sans-serif;
-  font-size: 15px;
-}
-.Home .main-Btn .BtnBox .TextBox div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-.Home .Solution-Area {
-  min-width: 890px;
-  width: 70%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-.Home .Solution-Area .TextBox {
-  padding-top: 15px;
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-.Home .Solution-Area h1 {
-  font-size: 24px;
-  font-weight: 600;
-}
-.Home .Solution-Area span {
-  font-size: 16px;
-}
-.Home .Solution-Area .more {
-  color: rgb(103, 207, 255);
-  font-size: 16px;
-  font-weight: 600;
-}
-.Home .Solution-Area .Solution {
-  margin-top: 20px;
-  width: 100%;
-  min-width: 890px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-.Home .Solution-Area .Solution .SolutionBox {
-  width: 32%;
-  padding-bottom: 25%;
-  position: relative;
-}
-.Home .Solution-Area .Solution .SolutionBox .BoxImg {
-  border-radius: 30px;
-  width: 100%;
-  height: 100%;
-  -o-object-fit: fill;
-     object-fit: fill;
-  position: absolute;
-  top: 0;
-}
-.Home .Solution-Area .Solution .SolutionBox .TextBox {
-  bottom: 25px;
-  left: 25px;
-  position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  width: 70%;
-  height: 30%;
-}
-.Home .Solution-Area .Solution .SolutionBox .TextBox h2 {
-  font-size: 25px;
-  color: white;
-  font-weight: 600;
-}
-.Home .SNS-Area {
-  margin-top: 30px;
-  margin-bottom: 50px;
-  min-width: 890px;
-  width: 70%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-.Home .SNS-Area .TextBox {
-  padding-top: 15px;
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-.Home .SNS-Area h1 {
-  font-size: 24px;
-  font-weight: 600;
-}
-.Home .SNS-Area span {
-  font-size: 16px;
-}
-.Home .SNS-Area .more {
-  color: rgb(103, 207, 255);
-  font-size: 16px;
-  font-weight: 600;
-}
-.Home .SNS-Area .Object {
-  width: 100%;
-  min-width: 890px;
-  margin-top: 20px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  -webkit-column-gap: 20px;
-     -moz-column-gap: 20px;
-          column-gap: 20px;
-  row-gap: 20px;
-}
-.Home .SNS-Area .Object .ObjectBox:nth-child(1) .PopBox,
-.Home .SNS-Area .Object .ObjectBox:nth-child(2) .PopBox,
-.Home .SNS-Area .Object .ObjectBox:nth-child(3) .PopBox {
-  top: 0px;
-  left: 30px;
-  position: absolute;
-  width: 10%;
-  height: 20%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-.Home .SNS-Area .Object .ObjectBox:nth-child(1) .PopBox h2,
-.Home .SNS-Area .Object .ObjectBox:nth-child(2) .PopBox h2,
-.Home .SNS-Area .Object .ObjectBox:nth-child(3) .PopBox h2 {
-  font-size: 20px;
-  color: white;
-  z-index: 1000;
-}
-.Home .SNS-Area .Object .ObjectBox {
-  width: 100%;
-  padding-bottom: 90%;
-  position: relative;
-}
-.Home .SNS-Area .Object .ObjectBox .BoxImg {
-  border-radius: 30px;
-  width: 100%;
-  height: 100%;
-  -o-object-fit: fill;
-     object-fit: fill;
-  position: absolute;
-  top: 0;
-}
-.Home .SNS-Area .Object .ObjectBox .PopBox {
-  display: none;
-}
-.Home .SNS-Area .Object .ObjectBox .TextBox {
-  bottom: 20px;
-  left: 20px;
-  position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  width: 70%;
-  height: 30%;
-}
-.Home .SNS-Area .Object .ObjectBox .TextBox h2 {
-  font-size: 20px;
-  color: white;
+@media (min-width: 900px) {
+  .Home {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .Home .MHome {
+    width: 0%;
+    height: 0%;
+    display: none;
+  }
+  .Home .HomeView {
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .Home .HomeView .Banner {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    position: relative;
+  }
+  .Home .HomeView .Banner .slick-slider {
+    min-width: 890px;
+    width: 100%;
+  }
+  .Home .HomeView .Banner .slick-slider .slick-list .slick-track .imgView {
+    width: 100%;
+    padding-bottom: 24%;
+    position: inherit;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .Home .HomeView .Banner .slick-slider .slick-list .slick-track .imgView img {
+    position: absolute;
+    top: 0;
+    min-width: 890px;
+    width: 100%;
+    height: 100%;
+    min-width: none;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .Home .HomeView .Banner .nextArrow {
+    opacity: 0;
+  }
+  .Home .HomeView .Banner .bottom {
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    bottom: 0px;
+    opacity: 70%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    background-color: azure;
+  }
+  .Home .HomeView .Banner .bottom .btn {
+    width: 70%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .Home .HomeView .Banner .bottom .btn div {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .Home .HomeView .Banner .bottom .btn div:nth-child(2) {
+    border-left: 1px black solid;
+  }
+  .Home .HomeView .Banner .bottom .btn div:nth-child(3) {
+    border-left: 1px black solid;
+  }
+  .Home .HomeView .Banner .bottom .btn div:nth-child(4) {
+    border-left: 1px black solid;
+  }
+  .Home .HomeView .main-Btn {
+    margin-top: 30px;
+    width: 70%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin-bottom: 30px;
+    min-width: 890px;
+  }
+  .Home .HomeView .main-Btn .BtnBox {
+    width: 48%;
+    padding-bottom: 30%;
+    background-color: aqua;
+    border-radius: 30px;
+    position: relative;
+  }
+  .Home .HomeView .main-Btn .BtnBox .BoxImg {
+    border-radius: 30px;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: fill;
+       object-fit: fill;
+    position: absolute;
+    top: 0;
+  }
+  .Home .HomeView .main-Btn .BtnBox .TextBox {
+    bottom: 30px;
+    left: 30px;
+    position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    color: white;
+    width: 70%;
+    height: 20%;
+  }
+  .Home .HomeView .main-Btn .BtnBox .TextBox h1 {
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 30px;
+  }
+  .Home .HomeView .main-Btn .BtnBox .TextBox span {
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 15px;
+  }
+  .Home .HomeView .main-Btn .BtnBox .TextBox div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .Home .HomeView .Solution-Area {
+    min-width: 890px;
+    width: 70%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .Home .HomeView .Solution-Area .TextBox {
+    padding-top: 15px;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .Home .HomeView .Solution-Area h1 {
+    font-size: 24px;
+    font-weight: 600;
+  }
+  .Home .HomeView .Solution-Area span {
+    font-size: 16px;
+  }
+  .Home .HomeView .Solution-Area .more {
+    color: rgb(103, 207, 255);
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .Home .HomeView .Solution-Area .Solution {
+    margin-top: 20px;
+    width: 100%;
+    min-width: 890px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .Home .HomeView .Solution-Area .Solution .SolutionBox {
+    width: 32%;
+    padding-bottom: 25%;
+    position: relative;
+  }
+  .Home .HomeView .Solution-Area .Solution .SolutionBox .BoxImg {
+    border-radius: 30px;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: fill;
+       object-fit: fill;
+    position: absolute;
+    top: 0;
+  }
+  .Home .HomeView .Solution-Area .Solution .SolutionBox .TextBox {
+    bottom: 25px;
+    left: 25px;
+    position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    width: 70%;
+    height: 30%;
+  }
+  .Home .HomeView .Solution-Area .Solution .SolutionBox .TextBox h2 {
+    font-size: 25px;
+    color: white;
+    font-weight: 600;
+  }
+  .Home .HomeView .SNS-Area {
+    margin-top: 30px;
+    margin-bottom: 50px;
+    min-width: 890px;
+    width: 70%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .Home .HomeView .SNS-Area .TextBox {
+    padding-top: 15px;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .Home .HomeView .SNS-Area h1 {
+    font-size: 24px;
+    font-weight: 600;
+  }
+  .Home .HomeView .SNS-Area span {
+    font-size: 16px;
+  }
+  .Home .HomeView .SNS-Area .more {
+    color: rgb(103, 207, 255);
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .Home .HomeView .SNS-Area .Object {
+    width: 100%;
+    min-width: 890px;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    -webkit-column-gap: 20px;
+       -moz-column-gap: 20px;
+            column-gap: 20px;
+    row-gap: 20px;
+  }
+  .Home .HomeView .SNS-Area .Object .ObjectBox:nth-child(1) .PopBox,
+.Home .HomeView .SNS-Area .Object .ObjectBox:nth-child(2) .PopBox,
+.Home .HomeView .SNS-Area .Object .ObjectBox:nth-child(3) .PopBox {
+    top: 0px;
+    left: 30px;
+    position: absolute;
+    width: 10%;
+    height: 20%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .Home .HomeView .SNS-Area .Object .ObjectBox:nth-child(1) .PopBox h2,
+.Home .HomeView .SNS-Area .Object .ObjectBox:nth-child(2) .PopBox h2,
+.Home .HomeView .SNS-Area .Object .ObjectBox:nth-child(3) .PopBox h2 {
+    font-size: 20px;
+    color: white;
+    z-index: 1000;
+  }
+  .Home .HomeView .SNS-Area .Object .ObjectBox {
+    width: 100%;
+    padding-bottom: 90%;
+    position: relative;
+  }
+  .Home .HomeView .SNS-Area .Object .ObjectBox .BoxImg {
+    border-radius: 30px;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: fill;
+       object-fit: fill;
+    position: absolute;
+    top: 0;
+  }
+  .Home .HomeView .SNS-Area .Object .ObjectBox .PopBox {
+    display: none;
+  }
+  .Home .HomeView .SNS-Area .Object .ObjectBox .TextBox {
+    bottom: 20px;
+    left: 20px;
+    position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    width: 70%;
+    height: 30%;
+  }
+  .Home .HomeView .SNS-Area .Object .ObjectBox .TextBox h2 {
+    font-size: 20px;
+    color: white;
+  }
 }

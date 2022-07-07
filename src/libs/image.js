@@ -19,6 +19,7 @@ export default {
   hlaf_arrow: require("../assets/images/half-arrow.png"),
   phone: require("../assets/images/phone.png"),
   snsflag: require("../assets/images/snsflag.png"),
+  sns: require("../assets/images/sns.jpg"),
   i_youtube: require("../assets/images/youtube.png"),
   i_naverBlog: require("../assets/images/naverBlog.png"),
   i_facebook: require("../assets/images/facebook.png"),
@@ -31,4 +32,8 @@ export default {
   interior: require("../assets/images/interior.gif"),
   building: require("../assets/images/building.gif"),
   banner: require("../assets/images/banner.png"),
+
+  request: require("../assets/images/request.png"),
+  login: require("../assets/images/login.png"),
+  categori: require("../assets/images/categori.png"),
 };

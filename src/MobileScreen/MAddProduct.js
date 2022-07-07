@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import "../Styles/AddProduct.css";
+
 import DaumPostcode from "react-daum-postcode";
 import axios from "axios";
 
 const API_KEY = process.env.REACT_APP_KAKAO_REST_API_KEY;
 
-function AddProduct() {
+function MAddProduct() {
   const [addrFind, setAddrFind] = useState(false);
   const [finalAddr, setFinalAddr] = useState();
   const [latLng, setLatLng] = useState({}); //x,y 좌표값 보낼 때 latLng 같이 보내기
@@ -82,6 +82,7 @@ function AddProduct() {
             <button onClick={findAddr}> 검색 </button>
           </div>
           <div className="addPd-Contraction">
+            {/* addPd-Contraction -> rentType*/}
             <span>계약 형태 : </span>
             <ul>
               <li>
@@ -107,9 +108,9 @@ function AddProduct() {
               <li>
                 <input
                   type="radio"
-                  value="Trading"
+                  value="trading"
                   name="contraction"
-                  id="Trading"
+                  id="trading"
                   onChange={contractionHandle}
                 />{" "}
                 매매
@@ -118,6 +119,7 @@ function AddProduct() {
           </div>
           <div>시설 tag</div>
           <div className="addPd-building">
+            {/* addPd-building ->  buildingType*/}
             <span>건물 종류 : </span>
             <ul>
               <li>
@@ -127,7 +129,7 @@ function AddProduct() {
                   name="building"
                   id="apartment"
                   onChange={buildingHandle}
-                />{" "}
+                />
                 아파트
               </li>
               <li>
@@ -137,7 +139,7 @@ function AddProduct() {
                   name="building"
                   id="vila"
                   onChange={buildingHandle}
-                />{" "}
+                />
                 빌라
               </li>
               <li>
@@ -147,12 +149,13 @@ function AddProduct() {
                   name="building"
                   id="house"
                   onChange={buildingHandle}
-                />{" "}
+                />
                 단독주택
               </li>
             </ul>
           </div>
           <div className="addPd-houseType">
+            {/* roomType*/}
             <span>방 구조 : </span>
             <ul>
               <li>
@@ -239,4 +242,4 @@ function AddProduct() {
   );
 }
 
-export default AddProduct;
+export default MAddProduct;

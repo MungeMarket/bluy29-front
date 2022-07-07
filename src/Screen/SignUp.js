@@ -4,8 +4,6 @@ import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import DaumPostcode from "react-daum-postcode";
 import { gql, useMutation } from "@apollo/client";
-import { faL } from "@fortawesome/free-solid-svg-icons";
-import { createImmutableStateInvariantMiddleware } from "@reduxjs/toolkit";
 
 const SIGN_UP = gql`
   mutation signUpMutation(
@@ -44,11 +42,11 @@ function SignUp() {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [passwordCheck, setPasswordCheck] = useState("");
-  const [passwordExtra, setPasswordExtra] = useState(false); //비밀번호 형식 확인
+  //const [passwordExtra, setPasswordExtra] = useState(false); //비밀번호 형식 확인
   const [passworCheckExtra, setPassworCheckExtra] = useState(false); //비밀번호확인 형식 확인
   const [nickName, setNickName] = useState("");
   const [magree, setMAgree] = useState(true);
-  const [addr, setAddr] = useState("");
+  //const [addr, setAddr] = useState("");
   const [addrDetail, setAddrDetail] = useState("");
   const [zonecode, setZonecode] = useState(""); //우편번호
   const [finalAddr, setFinalAddr] = useState(""); //주소
@@ -56,9 +54,17 @@ function SignUp() {
 
   const [signUpMutation, { data, loading, error }] = useMutation(SIGN_UP);
   useEffect(() => {
-    pwCheck();
+    if (password === passwordCheck) {
+      setPassworCheckExtra(true);
+      console.log("같다");
+    } else {
+      setPassworCheckExtra(false);
+      console.log("다르다");
+    }
   }, [password, passwordCheck]);
   const SignUpHandler = () => {
+    //회원가입 정보 확인
+
     console.log(
       "id:",
       idEmail + "@" + email,
@@ -110,16 +116,6 @@ function SignUp() {
     { label: "Outlook", value: "outlook.com" },
     { label: "iCloud", value: "icloud.com" },
   ];
-  const pwCheck = () => {
-    if (password == passwordCheck) {
-      setPassworCheckExtra(true);
-      console.log("같다");
-    } else {
-      setPassworCheckExtra(false);
-      console.log("다르다");
-    }
-  };
-  const emailCheck = () => {};
 
   const pwCheckHandler = (e) => {
     setPasswordCheck(e.target.value);
@@ -132,7 +128,7 @@ function SignUp() {
 
   const emailChoice = (e) => {
     console.log("@" + e.value);
-    if (e.value == "none") {
+    if (e.value === "none") {
       setEmailDisable(false);
       setEmail("");
     } else {

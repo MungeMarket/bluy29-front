@@ -1,6 +1,7 @@
 import React from "react";
 import image from "../libs/image";
 import "../Styles/Footer.css";
+//import "../Styles/MFooter.css";
 
 function Footer() {
   if (
@@ -32,8 +33,8 @@ function Footer() {
             </h4>
             <h4>
               사업자 등록번호:782-87-01904 통신판매업:제2020-충북 청주 2893호
-              주소:충북 청주시 상당구 용암북로160번길 25 삼풍빌딩 4층
             </h4>
+            <h4>주소:충북 청주시 상당구 용암북로160번길 25 삼풍빌딩 4층</h4>
             <h4>Copyright(c) 2022 mungemarket All Rights Reserved</h4>
           </div>
         </div>

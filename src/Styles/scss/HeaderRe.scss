@@ -1,124 +1,132 @@
 @import "../scss/Variables.scss";
 
-.Head {
-  min-width: $MINWIDTH;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 80px;
-  .Head-View {
-    width: 100%;
-    height: 50px;
-    position: fixed;
-    z-index: 10000;
+@media (min-width: 900px) {
+  .Head {
     min-width: $MINWIDTH;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: white;
-    .sigong {
+    margin-bottom: 80px;
+    .Head-View {
       width: 100%;
-      height: 50%;
-      background-color: rgb(101, 205, 231);
+      height: 50px;
+      position: fixed;
+      z-index: 10000;
+      min-width: $MINWIDTH;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: white;
+      .sigong {
+        width: 100%;
+        height: 50%;
+        background-color: rgb(101, 205, 231);
+      }
+      .Head-Mobile {
+        display: none;
+      }
+      .Head-Header {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 3fr 1fr 1fr 2fr;
+        column-gap: 20px;
+        min-width: $MINWIDTH;
+        width: 70%;
+        height: 50px;
+        align-items: center;
+        div {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          height: 100%;
+          min-width: 75px;
+        }
+        a {
+          color: $blackColor;
+          font-size: 15px;
+          text-decoration: none;
+          font-family: $bluy-Font;
+        }
+        .sigong {
+          min-width: 120px;
+          background-color: rgb(141, 206, 243);
+          width: 80%;
+          height: 80%;
+          border-radius: 30px;
+          text-align: center;
+          display: flex;
+          justify-content: center;
+          font-weight: 600;
+          a {
+            width: 60%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+          }
+          span {
+            color: white;
+          }
+        }
+      }
+      .Head-Header-map {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 4fr 1fr 1fr 2fr;
+        column-gap: 20px;
+        min-width: $MINWIDTH;
+        width: 70%;
+        height: 50px;
+        align-items: center;
+        div {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          height: 100%;
+          min-width: 75px;
+        }
+        a {
+          color: $blackColor;
+          font-size: 15px;
+          text-decoration: none;
+          font-family: $bluy-Font;
+        }
+        .sigong {
+          min-width: 120px;
+          background-color: rgb(141, 206, 243);
+          width: 80%;
+          height: 80%;
+          border-radius: 30px;
+          text-align: center;
+          display: flex;
+          justify-content: center;
+          font-weight: 600;
+          a {
+            width: 60%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+          }
+          span {
+            color: white;
+          }
+        }
+      }
     }
 
-    .Head-Header {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 4fr 1fr 1fr 2fr;
-      column-gap: 20px;
+    .Head-subHeader {
       min-width: $MINWIDTH;
+      position: absolute;
+      top: 50px;
       width: 70%;
-      height: 50px;
-      align-items: center;
-      div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 100%;
-      }
-      a {
-        color: $blackColor;
-        font-size: 15px;
-        text-decoration: none;
-        font-family: $bluy-Font;
-      }
-      .sigong {
-        background-color: rgb(141, 206, 243);
-        width: 80%;
-        height: 80%;
-        border-radius: 30px;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        font-weight: 600;
-        a {
-          width: 60%;
-          display: flex;
-          justify-content: space-evenly;
-          align-items: center;
-        }
-        span {
-          color: white;
-        }
-      }
+      height: 30px;
     }
-    .Head-Header-map {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 4fr 1fr 1fr 2fr;
-      column-gap: 20px;
-      min-width: $MINWIDTH;
-      width: 70%;
-      height: 50px;
-      align-items: center;
-      div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 100%;
-      }
-      a {
-        color: $blackColor;
-        font-size: 15px;
-        text-decoration: none;
-        font-family: $bluy-Font;
-      }
-      .sigong {
-        background-color: rgb(141, 206, 243);
-        width: 80%;
-        height: 80%;
-        border-radius: 30px;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        font-weight: 600;
-        a {
-          width: 60%;
-          display: flex;
-          justify-content: space-evenly;
-          align-items: center;
-        }
-        span {
-          color: white;
-        }
-      }
+    .Head-subHeader-map {
+      position: absolute;
+      top: 50px;
+      width: 100%;
+      background-color: aqua;
+      height: 30px;
     }
-  }
-
-  .Head-subHeader {
-    min-width: $MINWIDTH;
-    position: absolute;
-    top: 50px;
-    width: 70%;
-    height: 30px;
-  }
-  .Head-subHeader-map {
-    position: absolute;
-    top: 50px;
-    width: 100%;
-    background-color: aqua;
-    height: 30px;
   }
 }

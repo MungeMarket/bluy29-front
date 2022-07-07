@@ -8,7 +8,7 @@ import {
   CustomOverlayMap,
 } from "react-kakao-maps-sdk";
 
-function LandMap() {
+function MLandMap() {
   const mapList = {
     positions: [
       {
@@ -25,7 +25,7 @@ function LandMap() {
     console.log(mapList.positions[0].lng);
   }, []);
   return (
-    <div className="Map">
+    <div className="MapView">
       <div className="Map-body">
         <div>
           <span>hello kakaoMap</span>
@@ -47,8 +47,8 @@ function LandMap() {
           }}
           style={{
             // 지도의 크기
-            width: "80%",
-            height: window.screen.height - 80,
+            width: "150vh",
+            height: "100vh",
           }}
           level={7} // 지도의 확대 레벨
         >
@@ -56,13 +56,13 @@ function LandMap() {
             averageCenter={true} // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정
             minLevel={10} // 클러스터 할 최소 지도 레벨
           >
-            <MapMarker // 마커를 생성합니다
+            {/* <MapMarker // 마커를 생성합니다
               position={{
                 // 마커가 표시될 위치입니다
                 lat: 36.5993,
                 lng: 127.5258,
               }}
-            />
+            /> */}
             {mapList.positions.map((pos, idx) => (
               <CustomOverlayMap
                 key={`${pos.lat}-${pos.lng}`}
@@ -92,4 +92,4 @@ function LandMap() {
   );
 }
 
-export default LandMap;
+export default MLandMap;

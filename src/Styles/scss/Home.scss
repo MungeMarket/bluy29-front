@@ -1,280 +1,291 @@
 @import "../scss/Variables.scss";
-
-.Home {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  .Banner {
-    //468 * 1920
-    width: 100%;
+@media (min-width: 900px) {
+  .Home {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    position: relative;
-
-    .slick-slider {
-      min-width: $MINWIDTH;
+    align-items: center;
+    .MHome {
+      width: 0%;
+      height: 0%;
+      display: none;
+    }
+    .HomeView {
       width: 100%;
       height: 100%;
-      .slick-list {
-        height: 100%;
-        .slick-track {
-          div {
-            width: 100%;
-            padding-bottom: 24%;
-            position: inherit;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
 
-            img {
-              position: absolute;
-              top: 0;
-              min-width: $MINWIDTH;
+      .Banner {
+        //468 * 1920
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        position: relative;
+
+        .slick-slider {
+          min-width: $MINWIDTH;
+          width: 100%;
+          .slick-list {
+            .slick-track {
+              .imgView {
+                width: 100%;
+                padding-bottom: 24%;
+                position: inherit;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                img {
+                  position: absolute;
+                  top: 0;
+                  min-width: $MINWIDTH;
+                  width: 100%;
+                  height: 100%;
+                  min-width: none;
+
+                  object-fit: cover;
+                }
+              }
+            }
+          }
+        }
+
+        .nextArrow {
+          opacity: 0;
+        }
+
+        .bottom {
+          width: 100%;
+          height: 40px;
+          position: absolute;
+          bottom: 0px;
+          opacity: 70%;
+          display: flex;
+          justify-content: center;
+          background-color: azure;
+          .btn {
+            width: 70%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            div {
               width: 100%;
-              height: 100%;
-              min-width: none;
-
-              object-fit: cover;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+            div:nth-child(2) {
+              border-left: 1px black solid;
+            }
+            div:nth-child(3) {
+              border-left: 1px black solid;
+            }
+            div:nth-child(4) {
+              border-left: 1px black solid;
             }
           }
         }
       }
-    }
-
-    .nextArrow {
-      opacity: 0;
-    }
-
-    .bottom {
-      width: 100%;
-      height: 40px;
-      position: absolute;
-      bottom: 0px;
-      opacity: 70%;
-      display: flex;
-      justify-content: center;
-      background-color: azure;
-      .btn {
+      .main-Btn {
+        margin-top: 30px;
         width: 70%;
-        height: 100%;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        div {
-          width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+        min-width: $MINWIDTH;
 
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-        div:nth-child(2) {
-          border-left: 1px black solid;
-        }
-        div:nth-child(3) {
-          border-left: 1px black solid;
-        }
-        div:nth-child(4) {
-          border-left: 1px black solid;
+        .BtnBox {
+          width: 48%;
+          padding-bottom: 30%;
+          background-color: aqua;
+          border-radius: 30px;
+          position: relative;
+
+          .BoxImg {
+            border-radius: 30px;
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+            position: absolute;
+            top: 0;
+          }
+          .TextBox {
+            bottom: 30px;
+            left: 30px;
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            color: white;
+            width: 70%;
+            height: 20%;
+
+            h1 {
+              font-family: $bluy-Font;
+              font-size: 30px;
+            }
+            span {
+              font-family: $bluy-Font;
+              font-size: 15px;
+            }
+            div {
+              display: flex;
+              align-items: center;
+            }
+          }
         }
       }
-    }
-  }
-  .main-Btn {
-    margin-top: 30px;
-    width: 70%;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 30px;
-    min-width: $MINWIDTH;
-
-    .BtnBox {
-      width: 48%;
-      padding-bottom: 30%;
-      background-color: aqua;
-      border-radius: 30px;
-      position: relative;
-
-      .BoxImg {
-        border-radius: 30px;
-        width: 100%;
-        height: 100%;
-        object-fit: fill;
-        position: absolute;
-        top: 0;
-      }
-      .TextBox {
-        bottom: 30px;
-        left: 30px;
-        position: absolute;
+      .Solution-Area {
+        min-width: $MINWIDTH;
+        width: 70%;
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
-        color: white;
-        width: 70%;
-        height: 20%;
-
+        justify-content: space-between;
+        .TextBox {
+          padding-top: 15px;
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+        }
         h1 {
-          font-family: $bluy-Font;
-          font-size: 30px;
+          font-size: 24px;
+          font-weight: 600;
         }
         span {
-          font-family: $bluy-Font;
-          font-size: 15px;
+          font-size: 16px;
         }
-        div {
-          display: flex;
-          align-items: center;
+        .more {
+          color: rgb(103, 207, 255);
+          font-size: 16px;
+          font-weight: 600;
         }
-      }
-    }
-  }
-  .Solution-Area {
-    min-width: $MINWIDTH;
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    .TextBox {
-      padding-top: 15px;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-    }
-    h1 {
-      font-size: 24px;
-      font-weight: 600;
-    }
-    span {
-      font-size: 16px;
-    }
-    .more {
-      color: rgb(103, 207, 255);
-      font-size: 16px;
-      font-weight: 600;
-    }
 
-    .Solution {
-      margin-top: 20px;
-      width: 100%;
-      min-width: $MINWIDTH;
-
-      display: flex;
-      justify-content: space-between;
-      .SolutionBox {
-        width: 32%;
-        padding-bottom: 25%;
-        position: relative;
-        .BoxImg {
-          border-radius: 30px;
+        .Solution {
+          margin-top: 20px;
           width: 100%;
-          height: 100%;
-          object-fit: fill;
-          position: absolute;
-          top: 0;
-        }
-        .TextBox {
-          bottom: 25px;
-          left: 25px;
-          position: absolute;
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-end;
+          min-width: $MINWIDTH;
 
-          width: 70%;
-          height: 30%;
-          h2 {
-            font-size: 25px;
-            color: white;
-            font-weight: 600;
+          display: flex;
+          justify-content: space-between;
+          .SolutionBox {
+            width: 32%;
+            padding-bottom: 25%;
+            position: relative;
+            .BoxImg {
+              border-radius: 30px;
+              width: 100%;
+              height: 100%;
+              object-fit: fill;
+              position: absolute;
+              top: 0;
+            }
+            .TextBox {
+              bottom: 25px;
+              left: 25px;
+              position: absolute;
+              display: flex;
+              flex-direction: column;
+              justify-content: flex-end;
+
+              width: 70%;
+              height: 30%;
+              h2 {
+                font-size: 25px;
+                color: white;
+                font-weight: 600;
+              }
+            }
           }
         }
       }
-    }
-  }
 
-  .SNS-Area {
-    margin-top: 30px;
-    margin-bottom: 50px;
-    min-width: $MINWIDTH;
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    .TextBox {
-      padding-top: 15px;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-    }
-    h1 {
-      font-size: 24px;
-      font-weight: 600;
-    }
-    span {
-      font-size: 16px;
-    }
-    .more {
-      color: rgb(103, 207, 255);
-      font-size: 16px;
-      font-weight: 600;
-    }
-
-    .Object {
-      width: 100%;
-      min-width: $MINWIDTH;
-      margin-top: 20px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      column-gap: 20px;
-      row-gap: 20px;
-      .ObjectBox:nth-child(1),
-      .ObjectBox:nth-child(2),
-      .ObjectBox:nth-child(3) {
-        .PopBox {
-          top: 0px;
-          left: 30px;
-          position: absolute;
-          width: 10%;
-          height: 20%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          h2 {
-            font-size: 20px;
-            color: white;
-            z-index: 1000;
-          }
-        }
-      }
-      .ObjectBox {
-        width: 100%;
-        padding-bottom: 90%;
-        position: relative;
-        .BoxImg {
-          border-radius: 30px;
-          width: 100%;
-          height: 100%;
-          object-fit: fill;
-          position: absolute;
-          top: 0;
-        }
-        .PopBox {
-          display: none;
-        }
+      .SNS-Area {
+        margin-top: 30px;
+        margin-bottom: 50px;
+        min-width: $MINWIDTH;
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         .TextBox {
-          bottom: 20px;
-          left: 20px;
-          position: absolute;
+          padding-top: 15px;
+          width: 100%;
           display: flex;
-          flex-direction: column;
-          justify-content: flex-end;
+          justify-content: space-between;
+        }
+        h1 {
+          font-size: 24px;
+          font-weight: 600;
+        }
+        span {
+          font-size: 16px;
+        }
+        .more {
+          color: rgb(103, 207, 255);
+          font-size: 16px;
+          font-weight: 600;
+        }
 
-          width: 70%;
-          height: 30%;
-          h2 {
-            font-size: 20px;
-            color: white;
+        .Object {
+          width: 100%;
+          min-width: $MINWIDTH;
+          margin-top: 20px;
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          column-gap: 20px;
+          row-gap: 20px;
+          .ObjectBox:nth-child(1),
+          .ObjectBox:nth-child(2),
+          .ObjectBox:nth-child(3) {
+            .PopBox {
+              top: 0px;
+              left: 30px;
+              position: absolute;
+              width: 10%;
+              height: 20%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              h2 {
+                font-size: 20px;
+                color: white;
+                z-index: 1000;
+              }
+            }
+          }
+          .ObjectBox {
+            width: 100%;
+            padding-bottom: 90%;
+            position: relative;
+            .BoxImg {
+              border-radius: 30px;
+              width: 100%;
+              height: 100%;
+              object-fit: fill;
+              position: absolute;
+              top: 0;
+            }
+            .PopBox {
+              display: none;
+            }
+            .TextBox {
+              bottom: 20px;
+              left: 20px;
+              position: absolute;
+              display: flex;
+              flex-direction: column;
+              justify-content: flex-end;
+
+              width: 70%;
+              height: 30%;
+              h2 {
+                font-size: 20px;
+                color: white;
+              }
+            }
           }
         }
       }

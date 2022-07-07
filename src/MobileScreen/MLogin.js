@@ -1,7 +1,6 @@
 import React from "react";
-import "../Styles/Login.css";
 
-function Login() {
+function MLogin() {
   return (
     <div className="login">
       <div className="login-body">
@@ -40,4 +39,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default MLogin;

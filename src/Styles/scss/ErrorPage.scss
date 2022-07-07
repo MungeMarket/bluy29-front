@@ -1,0 +1,26 @@
+@import "./Variables.scss";
+
+@media (max-width: 900px) {
+  .Error {
+    width: 100vw;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      font-size: 40px;
+    }
+  }
+}
+.Error {
+  width: 100vw;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    font-size: 40px;
+  }
+}

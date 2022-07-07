@@ -1,7 +1,7 @@
 import React from "react";
 
-function About() {
-  return <div>About</div>;
+function MAbout() {
+  return <div>MAbout</div>;
 }
 
-export default About;
+export default MAbout;
