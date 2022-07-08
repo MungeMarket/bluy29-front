@@ -19,6 +19,7 @@
     display: none;
   }
   .Home .MHome {
+    margin-top: 102px;
     width: 100%;
   }
   .Home .MHome .slide {
@@ -76,18 +77,51 @@
             align-items: center;
     margin-top: 40px;
   }
-  .Home .MHome .Main-Btn div {
+  .Home .MHome .Main-Btn .Btn-Img {
     position: relative;
     width: 90%;
     padding-bottom: 40%;
     margin-bottom: 40px;
   }
-  .Home .MHome .Main-Btn div img {
+  .Home .MHome .Main-Btn .Btn-Img .img {
     width: 100%;
     height: 100%;
     position: absolute;
     -o-object-fit: cover;
        object-fit: cover;
+  }
+  .Home .MHome .Main-Btn .Btn-Img .TextBox {
+    bottom: 30px;
+    left: 30px;
+    position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    color: white;
+    width: 70%;
+    height: 40%;
+  }
+  .Home .MHome .Main-Btn .Btn-Img .TextBox h1 {
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 28px;
+  }
+  .Home .MHome .Main-Btn .Btn-Img .TextBox span {
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 13px;
+  }
+  .Home .MHome .Main-Btn .Btn-Img .TextBox div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .Home .MHome .Solution-Area .Solution-View {
     width: 100%;
@@ -107,7 +141,6 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    background-color: azure;
   }
   .Home .MHome .Solution-Area .Solution-View .Solution-TextBox h1 {
     font-size: 23px;
@@ -121,13 +154,17 @@
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding-bottom: 15px;
   }
   .Home .MHome .Solution-Area .Solution-View .Solution-TextBox .Solution-Text .more {
     color: rgb(103, 207, 255);
     font-weight: 500;
   }
   .Home .MHome .Solution-Area .Solution-View .Solution-TextBox .Solution-Text span {
-    font-size: 17px;
+    font-size: 13px;
     margin-bottom: 20px;
   }
   .Home .MHome .Solution-Area .slick-slider {
@@ -230,13 +267,17 @@
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding-bottom: 15px;
   }
   .Home .MHome .Sns-View .Sns-TextBox .Sns-Text .more {
     color: rgb(103, 207, 255);
     font-weight: 500;
   }
   .Home .MHome .Sns-View .Sns-TextBox .Sns-Text span {
-    font-size: 17px;
+    font-size: 13px;
     margin-bottom: 20px;
   }
   .Home .MHome .Sns-View .Object {

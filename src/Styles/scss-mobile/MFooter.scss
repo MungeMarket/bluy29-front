@@ -1,9 +1,95 @@
-@import "./Variables.scss";
-
+@import "../scss/Variables.scss";
 @media (max-width: 900px) {
   .footer {
+    position: absolute;
+    bottom: -1;
+    background-color: rgb(53, 53, 53);
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+
     .footer-footer {
       display: none;
+    }
+
+    .Mfooter {
+      width: 90%;
+      height: 100%;
+      background-color: rgb(53, 53, 53);
+
+      .title {
+        padding-top: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        width: 100%;
+        height: 30%;
+
+        h3 {
+          color: white;
+          font-size: 18px;
+        }
+        .title-phone {
+          display: flex;
+          h1 {
+            font-size: 45px;
+            color: white;
+            font-weight: 500;
+          }
+          .title-phone-img {
+            width: 40px;
+            padding-bottom: 40px;
+            position: relative;
+            img {
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              object-fit: fill;
+            }
+          }
+        }
+      }
+      .contact {
+        width: 80%;
+        height: 10%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        div {
+          width: 15%;
+          height: 0;
+          padding-bottom: 15%;
+          position: relative;
+
+          img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            object-fit: fill;
+          }
+        }
+      }
+      .detail-company {
+        width: 100%;
+        height: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        div {
+          height: 50%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+        }
+        h4 {
+          letter-spacing: 1px;
+          color: white;
+
+          font-weight: 300;
+        }
+      }
     }
   }
 }

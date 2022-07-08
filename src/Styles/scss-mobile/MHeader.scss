@@ -7,18 +7,18 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 80px;
+    margin-bottom: 102px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10000;
     .Head-View {
       width: 100%;
-      left: 0;
-      height: 50px;
-      position: absolute;
-      z-index: 10000;
+      height: 60px;
       display: flex;
       flex-direction: column;
       align-items: center;
       .Head-Mobile {
-        min-width: $M-MINWIDTH;
         width: 100%;
         height: 100%;
         .Top {
@@ -26,12 +26,13 @@
           height: 100%;
           display: flex;
           justify-content: space-between;
-          margin-left: 20px;
+
           .icon {
             position: relative;
             width: 43px;
             padding-bottom: 43px;
             img {
+              padding-left: 20px;
               border-radius: 7px;
               position: absolute;
               width: 100%;
@@ -44,10 +45,10 @@
             height: 100%;
             display: flex;
             justify-content: space-evenly;
-            margin-right: 20px;
+            padding-right: 20px;
             div {
               position: relative;
-              width: 30%;
+              width: 20%;
               padding-bottom: 20%;
               img {
                 width: 100%;
@@ -59,18 +60,22 @@
           }
         }
         .Bottom {
+          padding: 5px 0;
+          border-top: 1px solid rgb(112, 112, 112);
+          border-bottom: 1px solid rgb(112, 112, 112);
           display: grid;
           grid-template-columns: repeat(4, 1fr);
           column-gap: 10px;
           div {
-            min-width: 100px;
-            width: 100%;
+            min-width: 80px;
+            width: 90%;
             height: 30px;
             display: flex;
             justify-content: center;
             align-items: center;
-            span {
-              font-size: 19px;
+            h4 {
+              color: black;
+              font-size: 14px;
               font-weight: 500;
             }
           }
@@ -78,14 +83,17 @@
       }
       .Head-Header {
         display: none;
+        width: 0;
+        height: 0;
       }
       .Head-Header-map {
         display: none;
+        width: 0;
+        height: 0;
       }
     }
 
     .Head-subHeader {
-      min-width: $MINWIDTH;
       position: absolute;
       top: 50px;
       width: 70%;

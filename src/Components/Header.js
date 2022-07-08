@@ -1,6 +1,6 @@
 import React from "react";
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import image from "../libs/image";
 import "../Styles/HeaderRe.css";
 import "../Styles/MHeader.css";
@@ -23,32 +23,48 @@ function Header() {
         <div className="Head-Mobile">
           <div className="Top">
             <div className="icon">
-              <img src={image.i_icon}></img>
+              <a href="/">
+                <img src={image.i_icon}></img>
+              </a>
             </div>
             <div className="btn">
               <div>
-                <img src={image.request}></img>
+                <a href="/request">
+                  <img src={image.request}></img>
+                </a>
               </div>
               <div>
-                <img src={image.login}></img>
+                <a href="/mypage">
+                  <img src={image.login}></img>
+                </a>
               </div>
               <div>
-                <img src={image.categori}></img>
+                <a href="/menu">
+                  <img src={image.categori}></img>
+                </a>
               </div>
             </div>
           </div>
           <div className="Bottom">
+            <a href="/market">
+              <div>
+                <h4>펫 인테리어</h4>
+              </div>
+            </a>
             <div>
-              <span>펫 인테리어</span>
+              <a href="/landmap">
+                <h4>부동산 정보</h4>
+              </a>
             </div>
             <div>
-              <span>부동산 정보</span>
+              <a href="/addproduct">
+                <h4>부동산 등록</h4>
+              </a>
             </div>
             <div>
-              <span>부동산 등록</span>
-            </div>
-            <div>
-              <span>시공 후기</span>
+              <a href="/sns">
+                <h4>시공 후기</h4>
+              </a>
             </div>
           </div>
         </div>
@@ -91,14 +107,6 @@ function Header() {
           </div>
         </div>
       </div>
-
-      <div
-        className={
-          window.location.pathname === "/landmap"
-            ? "Head-subHeader-map"
-            : "Head-subHeader"
-        }
-      ></div>
     </div>
   );
 }

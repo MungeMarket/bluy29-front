@@ -13,14 +13,15 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    margin-bottom: 80px;
+    margin-bottom: 102px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10000;
   }
   .Head .Head-View {
     width: 100%;
-    left: 0;
-    height: 50px;
-    position: absolute;
-    z-index: 10000;
+    height: 60px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -33,7 +34,6 @@
             align-items: center;
   }
   .Head .Head-View .Head-Mobile {
-    min-width: 400px;
     width: 100%;
     height: 100%;
   }
@@ -46,7 +46,6 @@
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    margin-left: 20px;
   }
   .Head .Head-View .Head-Mobile .Top .icon {
     position: relative;
@@ -54,6 +53,7 @@
     padding-bottom: 43px;
   }
   .Head .Head-View .Head-Mobile .Top .icon img {
+    padding-left: 20px;
     border-radius: 7px;
     position: absolute;
     width: 100%;
@@ -70,11 +70,11 @@
     -webkit-box-pack: space-evenly;
         -ms-flex-pack: space-evenly;
             justify-content: space-evenly;
-    margin-right: 20px;
+    padding-right: 20px;
   }
   .Head .Head-View .Head-Mobile .Top .btn div {
     position: relative;
-    width: 30%;
+    width: 20%;
     padding-bottom: 20%;
   }
   .Head .Head-View .Head-Mobile .Top .btn div img {
@@ -85,6 +85,9 @@
     position: absolute;
   }
   .Head .Head-View .Head-Mobile .Bottom {
+    padding: 5px 0;
+    border-top: 1px solid rgb(112, 112, 112);
+    border-bottom: 1px solid rgb(112, 112, 112);
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     -webkit-column-gap: 10px;
@@ -92,8 +95,8 @@
             column-gap: 10px;
   }
   .Head .Head-View .Head-Mobile .Bottom div {
-    min-width: 100px;
-    width: 100%;
+    min-width: 80px;
+    width: 90%;
     height: 30px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -105,18 +108,22 @@
         -ms-flex-align: center;
             align-items: center;
   }
-  .Head .Head-View .Head-Mobile .Bottom div span {
-    font-size: 19px;
+  .Head .Head-View .Head-Mobile .Bottom div h4 {
+    color: black;
+    font-size: 14px;
     font-weight: 500;
   }
   .Head .Head-View .Head-Header {
     display: none;
+    width: 0;
+    height: 0;
   }
   .Head .Head-View .Head-Header-map {
     display: none;
+    width: 0;
+    height: 0;
   }
   .Head .Head-subHeader {
-    min-width: 890px;
     position: absolute;
     top: 50px;
     width: 70%;

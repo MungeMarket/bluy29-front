@@ -20,6 +20,16 @@ export default {
   phone: require("../assets/images/phone.png"),
   snsflag: require("../assets/images/snsflag.png"),
   sns: require("../assets/images/sns.jpg"),
+  // 수정 부분
+  sns_1: require("../assets/images/sns_1.jpg"),
+  sns_2: require("../assets/images/sns_2.jpg"),
+  sns_3: require("../assets/images/sns_3.jpg"),
+  sns_4: require("../assets/images/sns_4.jpg"),
+  sns_5: require("../assets/images/sns_5.jpg"),
+  sns_6: require("../assets/images/sns_6.jpg"),
+  sns_7: require("../assets/images/sns_7.jpg"),
+  sns_8: require("../assets/images/sns_8.jpg"),
+
   i_youtube: require("../assets/images/youtube.png"),
   i_naverBlog: require("../assets/images/naverBlog.png"),
   i_facebook: require("../assets/images/facebook.png"),

@@ -59,27 +59,39 @@ function Home() {
         </div>
         <div className="main-Btn">
           <div className="BtnBox">
-            <img className="BoxImg" src={image.interior}></img>
-            <div className="TextBox">
-              <div>
-                <h1>펫 인테리어 </h1>
-                <span>&nbsp;&nbsp;&nbsp;&nbsp; </span>
-                <img src={image.hlaf_arrow} width="40px" height={"15px"}></img>
+            <a href="/market">
+              <img className="BoxImg" src={image.interior}></img>
+              <div className="TextBox">
+                <div>
+                  <h1>펫 인테리어 </h1>
+                  <span>&nbsp;&nbsp;&nbsp;&nbsp; </span>
+                  <img
+                    src={image.hlaf_arrow}
+                    width="40px"
+                    height={"15px"}
+                  ></img>
+                </div>
+                <span>우리집 반려동물과 오래오래 함께 사는 방법</span>
               </div>
-              <span>우리집 반려동물과 오래오래 함께 사는 방법</span>
-            </div>
+            </a>
           </div>
+
           <div className="BtnBox">
-            {"  "}
-            <img className="BoxImg" src={image.building}></img>
-            <div className="TextBox">
-              <div>
-                <h1>부동산 정보</h1>
-                <span>&nbsp;&nbsp;&nbsp;&nbsp; </span>
-                <img src={image.hlaf_arrow} width="40px" height={"15px"}></img>
+            <a href="/landmap">
+              <img className="BoxImg" src={image.building}></img>
+              <div className="TextBox">
+                <div>
+                  <h1>부동산 정보</h1>
+                  <span>&nbsp;&nbsp;&nbsp;&nbsp; </span>
+                  <img
+                    src={image.hlaf_arrow}
+                    width="40px"
+                    height={"15px"}
+                  ></img>
+                </div>
+                <span>반려동물 입주 가능 부동산 정보를 한눈에!</span>
               </div>
-              <span>반려동물 입주 가능 부동산 정보를 한눈에!</span>
-            </div>
+            </a>
           </div>
         </div>
 
@@ -91,22 +103,28 @@ function Home() {
           </div>
           <div className="Solution">
             <div className="SolutionBox">
-              <img className="BoxImg" src={image.solution1}></img>
-              <div className="TextBox">
-                <h2>주거공간</h2>
-              </div>
+              <a href="/market">
+                <img className="BoxImg" src={image.solution1}></img>
+                <div className="TextBox">
+                  <h2>주거공간</h2>
+                </div>
+              </a>
             </div>
             <div className="SolutionBox">
-              <img className="BoxImg" src={image.solution2}></img>
-              <div className="TextBox">
-                <h2>상업공간</h2>
-              </div>
+              <a href="/market">
+                <img className="BoxImg" src={image.solution2}></img>
+                <div className="TextBox">
+                  <h2>상업공간</h2>
+                </div>
+              </a>
             </div>
             <div className="SolutionBox">
-              <img className="BoxImg" src={image.solution3}></img>
-              <div className="TextBox">
-                <h2>기타공간</h2>
-              </div>
+              <a href="/market">
+                <img className="BoxImg" src={image.solution3}></img>
+                <div className="TextBox">
+                  <h2>기타공간</h2>
+                </div>
+              </a>
             </div>
           </div>
         </div>
@@ -119,19 +137,19 @@ function Home() {
           </div>
           <div className="Object">
             <div className="ObjectBox">
-              <img className="BoxImg" src={image.sns}></img>
+              <img className="BoxImg" src={image.sns_1}></img>
               <div className="TextBox">
-                <h2>Bluy29</h2>
+                <h2>Love****</h2>
               </div>
               <div className="PopBox">
                 <img className="BoxImg" src={image.snsflag}></img>
-                <h2>1</h2>
+                <h2>A_Lon****</h2>
               </div>
             </div>
             <div className="ObjectBox">
-              <img className="BoxImg" src={image.sns}></img>
+              <img className="BoxImg" src={image.sns_2}></img>
               <div className="TextBox">
-                <h2>Bluy29</h2>
+                <h2>Easy****</h2>
               </div>
               <div className="PopBox">
                 <img className="BoxImg" src={image.snsflag}></img>
@@ -139,9 +157,9 @@ function Home() {
               </div>
             </div>
             <div className="ObjectBox">
-              <img className="BoxImg" src={image.sns}></img>
+              <img className="BoxImg" src={image.sns_3}></img>
               <div className="TextBox">
-                <h2>Bluy29</h2>
+                <h2>blue****</h2>
               </div>
               <div className="PopBox">
                 <img className="BoxImg" src={image.snsflag}></img>
@@ -149,6 +167,51 @@ function Home() {
               </div>
             </div>
             <div className="ObjectBox">
+              <img className="BoxImg" src={image.sns_4}></img>
+              <div className="TextBox">
+                <h2>cheo****</h2>
+              </div>
+              <div className="PopBox">
+                <h2>1</h2>
+              </div>
+            </div>
+            <div className="ObjectBox">
+              <img className="BoxImg" src={image.sns_5}></img>
+              <div className="TextBox">
+                <h2>actu****</h2>
+              </div>
+              <div className="PopBox">
+                <h2>1</h2>
+              </div>
+            </div>
+            <div className="ObjectBox">
+              <img className="BoxImg" src={image.sns_6}></img>
+              <div className="TextBox">
+                <h2>b__a****</h2>
+              </div>
+              <div className="PopBox">
+                <h2>1</h2>
+              </div>
+            </div>
+            <div className="ObjectBox">
+              <img className="BoxImg" src={image.sns_7}></img>
+              <div className="TextBox">
+                <h2>acce****</h2>
+              </div>
+              <div className="PopBox">
+                <h2>1</h2>
+              </div>
+            </div>
+            <div className="ObjectBox">
+              <img className="BoxImg" src={image.sns_8}></img>
+              <div className="TextBox">
+                <h2>song****</h2>
+              </div>
+              <div className="PopBox">
+                <h2>1</h2>
+              </div>
+            </div>
+            {/* <div className="ObjectBox">
               <img className="BoxImg" src={image.sns}></img>
               <div className="TextBox">
                 <h2>Bluy29</h2>
@@ -165,52 +228,7 @@ function Home() {
               <div className="PopBox">
                 <h2>1</h2>
               </div>
-            </div>
-            <div className="ObjectBox">
-              <img className="BoxImg" src={image.sns}></img>
-              <div className="TextBox">
-                <h2>Bluy29</h2>
-              </div>
-              <div className="PopBox">
-                <h2>1</h2>
-              </div>
-            </div>
-            <div className="ObjectBox">
-              <img className="BoxImg" src={image.sns}></img>
-              <div className="TextBox">
-                <h2>Bluy29</h2>
-              </div>
-              <div className="PopBox">
-                <h2>1</h2>
-              </div>
-            </div>
-            <div className="ObjectBox">
-              <img className="BoxImg" src={image.sns}></img>
-              <div className="TextBox">
-                <h2>Bluy29</h2>
-              </div>
-              <div className="PopBox">
-                <h2>1</h2>
-              </div>
-            </div>
-            <div className="ObjectBox">
-              <img className="BoxImg" src={image.sns}></img>
-              <div className="TextBox">
-                <h2>Bluy29</h2>
-              </div>
-              <div className="PopBox">
-                <h2>1</h2>
-              </div>
-            </div>
-            <div className="ObjectBox">
-              <img className="BoxImg" src={image.sns}></img>
-              <div className="TextBox">
-                <h2>Bluy29</h2>
-              </div>
-              <div className="PopBox">
-                <h2>1</h2>
-              </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

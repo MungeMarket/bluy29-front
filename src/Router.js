@@ -35,7 +35,7 @@ function router() {
           <Route path="/login" element={<ErrorPage />} />
           <Route path="/signup" element={<ErrorPage />} />
           <Route path="/addProduct" element={<ErrorPage />} />
-          <Route path="/market" element={<Market />} />
+          <Route path="/market" element={<ErrorPage />} />
           <Route path="/myInfo" element={<ErrorPage />} />
           <Route path="/*" element={<ErrorPage />} />
         </Routes>

@@ -9,6 +9,7 @@
       display: none;
     }
     .MHome {
+      margin-top: 102px;
       width: 100%;
       .slide {
         //468 * 1920
@@ -50,17 +51,42 @@
         justify-content: center;
         align-items: center;
         margin-top: 40px;
-        div {
+        .Btn-Img {
           position: relative;
           width: 90%;
           padding-bottom: 40%;
           margin-bottom: 40px;
 
-          img {
+          .img {
             width: 100%;
             height: 100%;
             position: absolute;
             object-fit: cover;
+          }
+
+          .TextBox {
+            bottom: 30px;
+            left: 30px;
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            color: white;
+            width: 70%;
+            height: 40%;
+
+            h1 {
+              font-family: $bluy-Font;
+              font-size: 28px;
+            }
+            span {
+              font-family: $bluy-Font;
+              font-size: 13px;
+            }
+            div {
+              display: flex;
+              align-items: center;
+            }
           }
         }
       }
@@ -73,7 +99,6 @@
             width: 90%;
             display: flex;
             flex-direction: column;
-            background-color: azure;
             h1 {
               font-size: 23px;
               font-weight: 500;
@@ -84,12 +109,15 @@
             .Solution-Text {
               display: flex;
               justify-content: space-between;
+
+              align-items: center;
+              padding-bottom: 15px;
               .more {
                 color: rgb(103, 207, 255);
                 font-weight: 500;
               }
               span {
-                font-size: 17px;
+                font-size: 13px;
                 margin-bottom: 20px;
               }
             }
@@ -156,6 +184,7 @@
           width: 90%;
           display: flex;
           flex-direction: column;
+
           h1 {
             font-size: 23px;
             font-weight: 500;
@@ -166,12 +195,14 @@
           .Sns-Text {
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            padding-bottom: 15px;
             .more {
               color: rgb(103, 207, 255);
               font-weight: 500;
             }
             span {
-              font-size: 17px;
+              font-size: 13px;
               margin-bottom: 20px;
             }
           }
