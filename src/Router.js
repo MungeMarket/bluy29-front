@@ -17,7 +17,7 @@ function router() {
       <Header />
 
       <Router>
-        {/* <Routes>
+        <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/landmap" element={<LandMap />} />
@@ -27,8 +27,8 @@ function router() {
           <Route path="/market" element={<Market />} />
           <Route path="/myInfo" element={<MyInfo />} />
           <Route path="/*" element={<ErrorPage />} />
-        </Routes> */}
-        <Routes>
+        </Routes>
+        {/* <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<ErrorPage />} />
           <Route path="/landmap" element={<ErrorPage />} />
@@ -38,7 +38,7 @@ function router() {
           <Route path="/market" element={<ErrorPage />} />
           <Route path="/myInfo" element={<ErrorPage />} />
           <Route path="/*" element={<ErrorPage />} />
-        </Routes>
+        </Routes> */}
       </Router>
       <Footer />
     </>

@@ -85,6 +85,7 @@
     position: absolute;
   }
   .Head .Head-View .Head-Mobile .Bottom {
+    font-family: "Noto Sans KR", sans-serif;
     padding: 5px 0;
     border-top: 1px solid rgb(112, 112, 112);
     border-bottom: 1px solid rgb(112, 112, 112);
@@ -109,6 +110,7 @@
             align-items: center;
   }
   .Head .Head-View .Head-Mobile .Bottom div h4 {
+    font-family: "Noto Sans KR", sans-serif;
     color: black;
     font-size: 14px;
     font-weight: 500;

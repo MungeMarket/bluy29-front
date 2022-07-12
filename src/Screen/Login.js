@@ -1,18 +1,67 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../Styles/Login.css";
+import { gql, useMutation } from "@apollo/client";
+
+const LOG_IN = gql`
+  mutation logInMutation($id: String!, $pw: String!) {
+    login(input: { id: $id, pw: $pw }) {
+      status
+      error
+      token
+    }
+  }
+`;
 
 function Login() {
+  const [id, setId] = useState("");
+  const [pw, setPw] = useState("");
+  const [loginInfo, setLoginInfo] = useState([]);
+  const [signUpMutation, { data, loading, error }] = useMutation(LOG_IN);
+
+  useEffect(() => {
+    console.log(loginInfo);
+  }, [loading]);
+  const loginHandle = () => {
+    signUpMutation({
+      variables: {
+        id: id,
+        pw: pw,
+      },
+    });
+
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>Error...</div>;
+    setLoginInfo(data);
+  };
+
+  const idHandle = (e) => {
+    console.log(e.target.value);
+    setId(e.target.value);
+  };
+  const pwHandle = (e) => {
+    console.log(e.target.value);
+    setPw(e.target.value);
+  };
+
   return (
     <div className="login">
       <div className="login-body">
         <div className="login-logo">로고</div>
         <div className="login-id_pw">
-          <input placeholder="이메일" className="login-id_pw-id"></input>
-          <input placeholder="비밀번호" className="login-id_pw-pw"></input>
+          <input
+            placeholder="이메일"
+            className="login-id_pw-id"
+            onChange={idHandle}
+          ></input>
+          <input
+            placeholder="비밀번호"
+            className="login-id_pw-pw"
+            onChange={pwHandle}
+          ></input>
         </div>
         <div className="login-btnVIew">
           <div className="login-login_btn">
-            <button> 로그인 </button>
+            <button onClick={loginHandle}> 로그인 </button>
           </div>
           <div className="login-login_info">
             <div className="login-login_info-body">

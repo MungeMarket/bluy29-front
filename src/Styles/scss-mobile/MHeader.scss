@@ -60,6 +60,7 @@
           }
         }
         .Bottom {
+          font-family: $bluy-Font;
           padding: 5px 0;
           border-top: 1px solid rgb(112, 112, 112);
           border-bottom: 1px solid rgb(112, 112, 112);
@@ -74,6 +75,7 @@
             justify-content: center;
             align-items: center;
             h4 {
+              font-family: $bluy-Font;
               color: black;
               font-size: 14px;
               font-weight: 500;
