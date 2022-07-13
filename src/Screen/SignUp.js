@@ -4,35 +4,7 @@ import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import DaumPostcode from "react-daum-postcode";
 import { gql, useMutation } from "@apollo/client";
-
-const SIGN_UP = gql`
-  mutation signUpMutation(
-    $id: String!
-    $pw: String!
-    $nickname: String!
-    $phone: String!
-    $mAgree: Boolean!
-    $zipCode: String!
-    $addr: String!
-    $addrDetail: String!
-  ) {
-    createAccount(
-      input: {
-        id: $id
-        pw: $pw
-        nickname: $nickname
-        phone: $phone
-        mAgree: $mAgree
-        zipCode: $zipCode
-        addr: $addr
-        addrDetail: $addrDetail
-      }
-    ) {
-      status
-      error
-    }
-  }
-`;
+import { SIGN_UP } from "../GraphQL/gqlList";
 
 function SignUp() {
   const [idEmail, setIdEmail] = useState("");
@@ -52,7 +24,8 @@ function SignUp() {
   const [finalAddr, setFinalAddr] = useState(""); //주소
   const [addrFind, setAddrFind] = useState(false); //우편번호 검색 켜기
 
-  const [signUpMutation, { data, loading, error }] = useMutation(SIGN_UP);
+  const [createAccountMutation, { data, loading, error }] =
+    useMutation(SIGN_UP);
   useEffect(() => {
     if (password === passwordCheck) {
       setPassworCheckExtra(true);
@@ -62,9 +35,9 @@ function SignUp() {
       console.log("다르다");
     }
   }, [password, passwordCheck]);
+
   const SignUpHandler = () => {
     //회원가입 정보 확인
-
     console.log(
       "id:",
       idEmail + "@" + email,
@@ -84,7 +57,7 @@ function SignUp() {
       zonecode
     );
     try {
-      signUpMutation({
+      createAccountMutation({
         variables: {
           id: idEmail + "@" + email,
           pw: password,

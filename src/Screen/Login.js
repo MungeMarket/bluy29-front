@@ -1,28 +1,20 @@
 import React, { useEffect, useState } from "react";
 import "../Styles/Login.css";
 import { gql, useMutation } from "@apollo/client";
-
-const LOG_IN = gql`
-  mutation logInMutation($id: String!, $pw: String!) {
-    login(input: { id: $id, pw: $pw }) {
-      status
-      error
-      token
-    }
-  }
-`;
+import { Link } from "react-router-dom";
+import { LOG_IN } from "../GraphQL/gqlList";
 
 function Login() {
   const [id, setId] = useState("");
   const [pw, setPw] = useState("");
   const [loginInfo, setLoginInfo] = useState([]);
-  const [signUpMutation, { data, loading, error }] = useMutation(LOG_IN);
+  const [logInMutation, { data, loading, error }] = useMutation(LOG_IN);
 
   useEffect(() => {
     console.log(loginInfo);
   }, [loading]);
   const loginHandle = () => {
-    signUpMutation({
+    logInMutation({
       variables: {
         id: id,
         pw: pw,
@@ -65,7 +57,9 @@ function Login() {
           </div>
           <div className="login-login_info">
             <div className="login-login_info-body">
-              <button className="sign-up">회원가입</button>
+              <Link to="/signup">
+                <button className="sign-up">회원가입</button>{" "}
+              </Link>
               <button className="findPw">비밀번호 찾기</button>
             </div>
           </div>

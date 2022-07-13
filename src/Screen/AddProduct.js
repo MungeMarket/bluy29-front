@@ -2,15 +2,109 @@ import React, { useEffect, useState } from "react";
 import "../Styles/AddProduct.css";
 import DaumPostcode from "react-daum-postcode";
 import axios from "axios";
+import { gql, useMutation } from "@apollo/client";
+import { ADD_PRODUCT, VERIFY_TEST } from "../GraphQL/gqlList";
 
 const API_KEY = process.env.REACT_APP_KAKAO_REST_API_KEY;
+
+//토큰 지우기
+const TOKEN =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTc3ODY2MjAsImlkeCI6MSwiaWF0IjoxNjU3NzAwMjIwfQ.pLyTuFqqiF3FM6zFdHOE2-8xw9oeBNNytbGy_y5fUqE";
+//x-jwt,
+const AUTHORIZATION = "x-jwt";
 
 function AddProduct() {
   const [addrFind, setAddrFind] = useState(false);
   const [finalAddr, setFinalAddr] = useState();
   const [latLng, setLatLng] = useState({}); //x,y 좌표값 보낼 때 latLng 같이 보내기
+  const [imgList, setImgList] = useState([]); // 매물 사진
   const findAddr = () => {
     setAddrFind(true);
+  };
+  useEffect(() => {
+    verify1();
+  }, []);
+
+  const [verifyTest, { data1, loading1, error1 }] = useMutation(VERIFY_TEST, {
+    context: {
+      headers: {
+        "x-jwt": TOKEN,
+        //token
+      },
+    },
+  });
+
+  const [createHousingMutation, { data, loading, error }] = useMutation(
+    ADD_PRODUCT,
+    {
+      context: {
+        headers: {
+          "x-jwt": TOKEN,
+          //token
+        },
+      },
+    }
+  );
+
+  const verify1 = () => {
+    verifyTest();
+    console.log(data1);
+  };
+
+  const inputProduct = () => {
+    createHousingMutation({
+      variables: {
+        rentType: {
+          name: "월세",
+        },
+        deposit: 5000000,
+        monthly: 300000,
+        manageFee: 30000,
+        manageInclude: "인터넷, 수도사용료, 기타",
+        manageNotInclude: "전기료, 가스사용료",
+        parkingArea: 0,
+        shortTerm: false,
+        images: imgList,
+        housingName: "와르르멘션",
+        roomType: {
+          name: "원룸",
+        },
+        totalFloor: 5,
+        floor: "3",
+        areaSize: 25,
+        realSize: 23,
+        roomCount: 1,
+        bathRoomCount: 1,
+        direction: "NE",
+        heating: "Individual",
+        builtIn: true,
+        builtInDetail: "빌트인 주방",
+        elevator: false,
+        veranda: true,
+        availableMoveIn: "2022-07-11",
+        mainUse: "공동주택",
+        approvalDate: "2000-07-11",
+        options: [
+          {
+            name: "인터넷",
+          },
+          {
+            name: "TV",
+          },
+        ],
+        title: "첫번째 매물",
+        detailContent: "첫번째 입니다.",
+        addr: "충청북도 청주시 상당구 용정동",
+        addrDetail: "1052번지",
+        lat: 36.6288437805879,
+        long: 127.52793511481414,
+        isView: true,
+        status: true,
+      },
+    });
+
+    console.log("data : ", data);
+    console.log("error : ", error);
   };
 
   const getLatLng = async (addr) => {
@@ -62,6 +156,29 @@ function AddProduct() {
     width: "50%",
     height: "70vh",
   };
+  const onImgChange = async (event) => {
+    const formData = new FormData();
+    formData.append("file", event.target.files[0]);
+    console.log(formData);
+  };
+
+  const handleAddImages = (event) => {
+    const imageLists = event.target.files;
+    let imageUrlLists = [...imgList];
+
+    for (let i = 0; i < imageLists.length; i++) {
+      const currentImageUrl = URL.createObjectURL(imageLists[i]);
+      imageUrlLists.push(currentImageUrl);
+    }
+
+    if (imageUrlLists.length > 10) {
+      imageUrlLists = imageUrlLists.slice(0, 10);
+    }
+    console.log(imageUrlLists);
+    setImgList(imageUrlLists);
+    //setShowImages(imageUrlLists);
+  };
+
   return (
     <div className="addPd">
       {addrFind ? (
@@ -72,6 +189,9 @@ function AddProduct() {
         </div>
       ) : (
         <div className="addPd-view">
+          <div>
+            <button onClick={inputProduct}>제출</button>
+          </div>
           <div className="addPd-Name addition">
             <div>제목 : </div>
             <span>{finalAddr}</span>
@@ -81,6 +201,20 @@ function AddProduct() {
             <div>주소 : </div>
             <button onClick={findAddr}> 검색 </button>
           </div>
+
+          <label htmlFor="input-file" onChange={handleAddImages}>
+            <input
+              type="file"
+              className="imgInput"
+              id="roomImg"
+              accept="image/*"
+              name="file"
+              onChange={onImgChange}
+              multiple
+            ></input>
+            <span>사진추가</span>
+          </label>
+
           <div className="addPd-Contraction">
             {/* addPd-Contraction -> rentType*/}
             <span>계약 형태 : </span>
