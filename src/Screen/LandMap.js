@@ -90,17 +90,17 @@ function LandMap() {
 
         setInfo({
           center: {
-            lat: lat,
-            lng: lng,
+            lat: parseInt(lat),
+            lng: parseInt(lng),
           },
           level: MIN_LEVEL,
           swLatLng: {
-            lat: lat - 0.06,
-            lng: lng - 0.086,
+            lat: parseInt(lat) - 0.06,
+            lng: parseInt(lng) - 0.086,
           },
           neLatLng: {
-            lat: lat + 0.06,
-            lng: lng + 0.086,
+            lat: parseInt(lat) + 0.06,
+            lng: parseInt(lng) + 0.086,
           },
         });
         setInitPoint({ lat: lat, lng: lng });
@@ -151,7 +151,7 @@ function LandMap() {
             <span>hello kakaoMap</span>
             <ul>
               {housings.map((house) => (
-                <li>
+                <li key={house.idx}>
                   <span>
                     {house.title}
                     {house.deposit}
@@ -185,6 +185,7 @@ function LandMap() {
             level={7} // 지도의 확대 레벨
             ref={mapRef}
             onDragEnd={getMapInfo}
+            onZoomChanged={getMapInfo}
             onMouseMove={() => {
               console.log("loading...");
               setMapLoading(false);
@@ -196,13 +197,16 @@ function LandMap() {
               averageCenter={true} // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정
               minLevel={10} // 클러스터 할 최소 지도 레벨
             >
-              {/* <MapMarker // 마커를 생성합니다
-              position={{
-                // 마커가 표시될 위치입니다
-                lat: 36.5993,
-                lng: 127.5258,
-              }}
-            /> */}
+              {housings.map((house) => (
+                <MapMarker // 마커를 생성합니다
+                  key={house.idx}
+                  position={{
+                    // 마커가 표시될 위치입니다
+                    lat: house.lat,
+                    lng: house.long,
+                  }}
+                />
+              ))}
 
               {mapList.positions.map((pos, idx) => (
                 <CustomOverlayMap

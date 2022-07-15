@@ -9,6 +9,16 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  /* Chrome, Safari, Edge, Opera */
+  /* Firefox */
+}
+.addPd input::-webkit-outer-spin-button,
+.addPd input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.addPd input[type=number] {
+  -moz-appearance: textfield;
 }
 .addPd .addPd-addrSearch {
   display: -webkit-box;

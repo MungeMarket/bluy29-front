@@ -8,22 +8,30 @@ function Login() {
   const [id, setId] = useState("");
   const [pw, setPw] = useState("");
   const [loginInfo, setLoginInfo] = useState([]);
+  const [getLoading, setGetLoading] = useState(true);
   const [logInMutation, { data, loading, error }] = useMutation(LOG_IN);
 
   useEffect(() => {
+    check();
+  }, []);
+
+  const check = () => {
     console.log(loginInfo);
-  }, [loading]);
-  const loginHandle = () => {
-    logInMutation({
+  };
+
+  const getToken = async () => {
+    await logInMutation({
       variables: {
         id: id,
         pw: pw,
       },
     });
-
-    if (loading) return <div>Loading...</div>;
-    if (error) return <div>Error...</div>;
+    console.log(data);
     setLoginInfo(data);
+    setGetLoading(!getLoading);
+  };
+  const loginHandle = () => {
+    getToken();
   };
 
   const idHandle = (e) => {
@@ -60,7 +68,9 @@ function Login() {
               <Link to="/signup">
                 <button className="sign-up">회원가입</button>{" "}
               </Link>
-              <button className="findPw">비밀번호 찾기</button>
+              <button className="findPw" onClick={check}>
+                비밀번호 찾기
+              </button>
             </div>
           </div>
         </div>

@@ -10,6 +10,7 @@ import AddProduct from "./Screen/AddProduct";
 import SignUp from "./Screen/SignUp";
 import Market from "./Screen/Market";
 import MyInfo from "./Screen/MyInfo";
+import FileUpload from "./Components/FileUpload";
 
 function router() {
   return (
@@ -27,6 +28,7 @@ function router() {
           <Route path="/market" element={<Market />} />
           <Route path="/myInfo" element={<MyInfo />} />
           <Route path="/*" element={<ErrorPage />} />
+          <Route path="/test" element={<FileUpload />} />
         </Routes>
         {/* <Routes>
           <Route path="/" element={<Home />} />

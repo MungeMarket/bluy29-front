@@ -64,6 +64,7 @@ export const ADD_PRODUCT = gql`
     $roomCount: Float!
     $bathRoomCount: Float!
     $direction: Direction!
+    $security: [RentSecurityInput!]
     $heating: Hitting!
     $builtIn: Boolean!
     $builtInDetail: String!
@@ -79,8 +80,6 @@ export const ADD_PRODUCT = gql`
     $addrDetail: String
     $lat: Float!
     $long: Float!
-    $isView: Boolean!
-    $status: Boolean!
   ) {
     createHousing(
       input: {
@@ -109,6 +108,7 @@ export const ADD_PRODUCT = gql`
         builtInDetail: $builtInDetail
         elevator: $elevator
         veranda: $veranda
+        security: $security
         availableMoveIn: $availableMoveIn
         mainUse: $mainUse
         approvalDate: $approvalDate
@@ -119,8 +119,6 @@ export const ADD_PRODUCT = gql`
         addrDetail: $addrDetail
         lat: $lat
         long: $long
-        isView: $isView
-        status: $status
       }
     ) {
       status
@@ -129,7 +127,7 @@ export const ADD_PRODUCT = gql`
   }
 `;
 
-//핸드폰 인증 후
+//핸드폰 인증, 본인인증 후
 export const VERIFY_TEST = gql`
   mutation verifyTest {
     verifyPhone {
