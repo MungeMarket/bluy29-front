@@ -54,7 +54,7 @@ function AddProduct() {
   const [fileOne, setFileOne] = useState([]);
   const [fileTwo, setFileTwo] = useState([]);
   const [fileThree, setFileThree] = useState([]);
-  const [file, setFile] = useState(null);
+  const [flag, setFlag] = useState(null);
   const [totalInfo, setTotalInfo] = useState({});
   const [includeManage, setIncludeManage] = useState([]);
   const [notIncludeManage, setNotIncludeManage] = useState([]);
@@ -68,7 +68,7 @@ function AddProduct() {
     console.log("includeManage : ", includeManage);
     console.log("notIncludeManage : ", notIncludeManage);
     console.log("totalInfo : ", totalInfo);
-  }, [includeManage, notIncludeManage, totalInfo]);
+  }, [includeManage, notIncludeManage, totalInfo, flag]);
 
   const [createHousingMutation, { data, loading, error }] = useMutation(
     ADD_PRODUCT,
@@ -89,25 +89,25 @@ function AddProduct() {
         rentType: {
           name: "월세",
         },
-        deposit: 5000000,
-        monthly: 300000,
-        manageFee: 30000,
-        manageInclude: "인터넷,수도사용료,기타",
-        manageNotInclude: "전기료, 가스사용료",
+        deposit: totalInfo.deposit,
+        monthly: totalInfo.monthly,
+        manageFee: totalInfo.manageFee,
+        manageInclude: includeManage,
+        manageNotInclude: notIncludeManage,
         parkingArea: 0,
         shortTerm: false,
         images: imgList,
-        housingName: "와르르멘션",
+        housingName: totalInfo.housingName,
         roomType: {
           name: "원룸",
         },
-        totalFloor: 5,
-        floor: "3",
-        areaSize: 25,
-        realSize: 23,
-        roomCount: 1,
-        bathRoomCount: 1,
-        direction: "NE",
+        totalFloor: totalInfo.totalFloor,
+        floor: totalInfo.floor,
+        areaSize: totalInfo.areaSize,
+        realSize: totalInfo.realSize,
+        roomCount: totalInfo.roomCount,
+        bathRoomCount: totalInfo.bathRoomCount,
+        direction: totalInfo.direction,
         heating: "Individual",
         builtIn: true,
         builtInDetail: "빌트인 주방",
@@ -178,6 +178,7 @@ function AddProduct() {
     setAddrFind(false);
     setFinalAddr(fullAddress); // e.g. '서울 성동구 왕십리로2길 20 (성수동1가)'
     getLatLng(fullAddress);
+    valueClean("addr", fullAddress);
   };
 
   const postCodeStyle = {
@@ -209,9 +210,6 @@ function AddProduct() {
     }
     console.log("input : ", formData.getAll("file"));
     setImgList(formData.getAll("file"));
-
-    console.log("보내기전 data : ", formData.getAll("file"));
-    console.log("보내기전 data : ", formData);
     axios({
       method: "post",
       url: "https://bluy29.com/api/uploads/housings/",
@@ -232,11 +230,11 @@ function AddProduct() {
     console.log(notIncludeManage);
   };
 
-  const checkBox = (event) => {
+  const checkBox = async (event) => {
     if (event.target.id == "manageInclude") {
       if (event.target.checked) {
         const value = event.target.value;
-        setIncludeManage([...includeManage, value]);
+        setIncludeManage(() => [...includeManage, value]);
       } else {
         const value = event.target.value;
         const arr = new Array();
@@ -250,7 +248,8 @@ function AddProduct() {
       }
       const idText = event.target.id;
       //console.log("id, value : ", idText, valueText);
-      valueClean(idText, includeManage.join());
+      // valueClean(idText, includeManage.join());
+      //useState x같아서 따로 넣을꺼임
     } else {
       if (event.target.checked) {
         const value = event.target.value;
@@ -268,7 +267,8 @@ function AddProduct() {
       }
       const idText = event.target.id;
       //console.log("id, value : ", idText, valueText);
-      valueClean(idText, notIncludeManage.join());
+
+      //valueClean(idText, notIncludeManage.join());
     }
   };
   const totalHandle = (event) => {
@@ -280,7 +280,11 @@ function AddProduct() {
   };
 
   const valueClean = (idText, valueText) => {
-    setTotalInfo({ ...totalInfo, [idText]: valueText });
+    setFlag(!flag);
+
+    if (flag || !flag) {
+      setTotalInfo({ ...totalInfo, [idText]: valueText });
+    }
   };
 
   return (
@@ -290,7 +294,6 @@ function AddProduct() {
           <span className="addPd-addrSearch">
             <DaumPostcode onComplete={handleComplete} style={postCodeStyle} />
           </span>
-          <iframe id="iframe1" name="iframe1" style="display:none"></iframe>
         </div>
       ) : (
         <div className="addPd-view">
@@ -489,7 +492,11 @@ function AddProduct() {
           <form className="addPd-Addr addition">
             <div>주소 : </div>
             <button onClick={findAddr}> 검색 </button>
-            <input placeholder="상세주소"></input>
+            <input
+              placeholder="상세주소"
+              onChange={totalHandle}
+              id={"addrDetail"}
+            ></input>
           </form>
 
           {/* 사진 입력 */}
