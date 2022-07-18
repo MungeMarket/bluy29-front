@@ -3,6 +3,8 @@ import Slider from "react-slick";
 import image from "../libs/image";
 import { NextArrow, PrevArrow } from "../Components/Arrow";
 import Media from "react-media";
+import { useNavigate, Navigate, useParams } from "react-router-dom";
+import { token } from "../Components/Token";
 
 // Import css files
 import "../Styles/Home.css";
@@ -11,12 +13,14 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import MHome from "../MobileScreen/MHome";
 
-function Home() {
+function Home(prop) {
   const [width, setWidth] = useState();
-
+  const params = useParams();
+  console.log("params", params);
+  console.log("token : ", token);
   useEffect(() => {
     setWidth(window.innerWidth);
-    console.log(window.innerWidth);
+    //console.log(window.innerWidth);
     if (width < 550) {
       console.log("mobile");
     }

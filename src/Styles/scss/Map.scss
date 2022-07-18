@@ -1,18 +1,23 @@
 @import "../scss/Variables.scss";
 
-.MapView {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  .Map-body {
+@media (min-width: 900px) {
+  .MobileMapView {
+    display: none;
+  }
+  .MapView {
     width: 100%;
     height: 100%;
-    background-color: bisque;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+
+    .Map-body {
+      width: 100%;
+      height: 100%;
+      background-color: bisque;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 }

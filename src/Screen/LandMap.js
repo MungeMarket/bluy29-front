@@ -1,6 +1,7 @@
 /* global kakao */
 import React, { useEffect, useRef, useState } from "react";
 import "../Styles/Map.css";
+import "../Styles/MMap.css";
 import {
   Map,
   MarkerClusterer,
@@ -11,31 +12,9 @@ import {
 } from "react-kakao-maps-sdk";
 import { gql, useMutation, useQuery } from "@apollo/client";
 import { stripIgnoredCharacters } from "graphql";
-
+import MLandMap from "../MobileScreen/MLandMap";
+import { FIND_IN_MAP } from "../GraphQL/gqlList";
 const MIN_LEVEL = "10";
-const FIND_IN_MAP = gql`
-  query readMapHousingQuery(
-    $swLat: Float!
-    $swLong: Float!
-    $neLat: Float!
-    $neLong: Float!
-  ) {
-    readMapHousing(
-      input: { swLat: $swLat, swLong: $swLong, neLat: $neLat, neLong: $neLong }
-    ) {
-      error
-      status
-      totalPage
-      housings {
-        idx
-        lat
-        long
-        title
-        deposit
-      }
-    }
-  }
-`;
 
 function LandMap() {
   const mapRef = useRef();
@@ -47,7 +26,7 @@ function LandMap() {
     lat: 0,
     lng: 0,
   });
-  const { data, loading, error } = useQuery(FIND_IN_MAP, {
+  const { houseData, houseLoading, houseError } = useQuery(FIND_IN_MAP, {
     variables: initial
       ? {
           swLat: 0,
@@ -76,7 +55,8 @@ function LandMap() {
   };
   useEffect(() => {
     initMapCenter();
-    console.log(data);
+
+    //console.log(houseData);
     //getMapInfo();
   }, []);
   const initMapCenter = () => {
@@ -117,9 +97,11 @@ function LandMap() {
     return true;
   };
   const getHousingGql = () => {
-    console.log("매물 : ", data.readMapHousing.housings);
-    console.log("매물 : ", data);
-    setHousings(data.readMapHousing.housings);
+    if (houseData) {
+      console.log("매물 : ", houseData.readMapHousing.housings);
+      console.log("매물 : ", houseData);
+      setHousings(houseData.readMapHousing.housings);
+    }
   };
   const getMapInfo = () => {
     const map = mapRef.current;
@@ -144,24 +126,26 @@ function LandMap() {
     getHousingGql();
   };
   return (
-    <div className="MapView">
-      {
-        <div className="Map-body">
-          <div>
-            <span>hello kakaoMap</span>
-            <ul>
-              {housings.map((house) => (
-                <li key={house.idx}>
-                  <span>
-                    {house.title}
-                    {house.deposit}
-                    {house.idx}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          {/* <div
+    <>
+      <MLandMap initPoint={initPoint} />
+      <div className="MapView">
+        {
+          <div className="Map-body">
+            <div>
+              <span>hello kakaoMap</span>
+              <ul>
+                {housings.map((house) => (
+                  <li key={house.idx}>
+                    <span>
+                      {house.title}
+                      {house.deposit}
+                      {house.idx}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {/* <div
           className="MapContainer"
           id="map"
           style={{
@@ -171,70 +155,71 @@ function LandMap() {
           }} 
         ></div> */}
 
-          <Map // 지도를 표시할 Container
-            center={{
-              // 지도의 중심좌표
-              lat: initPoint.lat,
-              lng: initPoint.lng,
-            }}
-            style={{
-              // 지도의 크기
-              width: "70%",
-              height: "90vh",
-            }}
-            level={7} // 지도의 확대 레벨
-            ref={mapRef}
-            onDragEnd={getMapInfo}
-            onZoomChanged={getMapInfo}
-            onMouseMove={() => {
-              console.log("loading...");
-              setMapLoading(false);
-            }}
-          >
-            <ZoomControl position={kakao.maps.ControlPosition.TOPRIGHT} />
-            <MapTypeControl position={kakao.maps.ControlPosition.TOPRIGHT} />
-            <MarkerClusterer
-              averageCenter={true} // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정
-              minLevel={10} // 클러스터 할 최소 지도 레벨
+            <Map // 지도를 표시할 Container
+              center={{
+                // 지도의 중심좌표
+                lat: initPoint.lat,
+                lng: initPoint.lng,
+              }}
+              style={{
+                // 지도의 크기
+                width: "70%",
+                height: "90vh",
+              }}
+              level={7} // 지도의 확대 레벨
+              ref={mapRef}
+              onDragEnd={getMapInfo}
+              onZoomChanged={getMapInfo}
+              onMouseMove={() => {
+                console.log("loading...");
+                setMapLoading(false);
+              }}
             >
-              {housings.map((house) => (
-                <MapMarker // 마커를 생성합니다
-                  key={house.idx}
-                  position={{
-                    // 마커가 표시될 위치입니다
-                    lat: house.lat,
-                    lng: house.long,
-                  }}
-                />
-              ))}
+              <ZoomControl position={kakao.maps.ControlPosition.TOPRIGHT} />
+              <MapTypeControl position={kakao.maps.ControlPosition.TOPRIGHT} />
+              <MarkerClusterer
+                averageCenter={true} // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정
+                minLevel={10} // 클러스터 할 최소 지도 레벨
+              >
+                {/* {housings.map((house) => (
+                  <MapMarker // 마커를 생성합니다
+                    key={house.idx}
+                    position={{
+                      // 마커가 표시될 위치입니다
+                      lat: house.lat,
+                      lng: house.long,
+                    }}
+                  />
+                ))} */}
 
-              {mapList.positions.map((pos, idx) => (
-                <CustomOverlayMap
-                  key={`${pos.lat}-${pos.lng}`}
-                  position={{
-                    lat: pos.lat,
-                    lng: pos.lng,
-                  }}
-                >
-                  <div
-                    style={{
-                      color: "black",
-                      textAlign: "center",
-                      background: "white",
-                      width: "3rem",
-                      height: "3rem",
-                      borderRadius: "50%",
+                {/* {mapList.positions.map((pos, idx) => (
+                  <CustomOverlayMap
+                    key={`${pos.lat}-${pos.lng}`}
+                    position={{
+                      lat: pos.lat,
+                      lng: pos.lng,
                     }}
                   >
-                    {idx}
-                  </div>
-                </CustomOverlayMap>
-              ))}
-            </MarkerClusterer>
-          </Map>
-        </div>
-      }
-    </div>
+                    <div
+                      style={{
+                        color: "black",
+                        textAlign: "center",
+                        background: "white",
+                        width: "3rem",
+                        height: "3rem",
+                        borderRadius: "50%",
+                      }}
+                    >
+                      {idx}
+                    </div>
+                  </CustomOverlayMap>
+                ))} */}
+              </MarkerClusterer>
+            </Map>
+          </div>
+        }
+      </div>
+    </>
   );
 }
 

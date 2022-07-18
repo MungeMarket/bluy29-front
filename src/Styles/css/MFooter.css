@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap");
+@media (max-width: 900px) {
+  .footer {
+    position: absolute;
+    bottom: -1;
+    background-color: #353535;
+    width: 100%;
+    height: 70%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .footer .footer-footer {
+    display: none;
+  }
+  .footer .Mfooter {
+    width: 90%;
+    height: 100%;
+    background-color: #353535;
+  }
+  .footer .Mfooter .title {
+    padding-top: 50px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    width: 100%;
+    height: 30%;
+  }
+  .footer .Mfooter .title h3 {
+    color: white;
+    font-size: 18px;
+  }
+  .footer .Mfooter .title .title-phone {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .footer .Mfooter .title .title-phone h1 {
+    font-size: 45px;
+    color: white;
+    font-weight: 500;
+  }
+  .footer .Mfooter .title .title-phone .title-phone-img {
+    width: 40px;
+    padding-bottom: 40px;
+    position: relative;
+  }
+  .footer .Mfooter .title .title-phone .title-phone-img img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: fill;
+       object-fit: fill;
+  }
+  .footer .Mfooter .contact {
+    width: 80%;
+    height: 10%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .footer .Mfooter .contact div {
+    width: 15%;
+    height: 0;
+    padding-bottom: 15%;
+    position: relative;
+  }
+  .footer .Mfooter .contact div img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    -o-object-fit: fill;
+       object-fit: fill;
+  }
+  .footer .Mfooter .detail-company {
+    width: 100%;
+    height: 70%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .footer .Mfooter .detail-company div {
+    height: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .footer .Mfooter .detail-company h4 {
+    letter-spacing: 1px;
+    color: white;
+    font-weight: 300;
+  }
+}

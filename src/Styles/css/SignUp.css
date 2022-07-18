@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap");
+.signUp {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.signUp .addPd-addrSearch {
+  position: absolute;
+  height: 100%;
+  top: 0;
+}
+
+.signUp .signUpView {
+  width: 300px;
+  height: 150vh;
+  background-color: aqua;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.signUp .signUpView .head {
+  width: 100%;
+  background-color: beige;
+}
+
+.signUp .signUpView .head span {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.signUp .signUpView .social {
+  width: 100%;
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid #aaaaaa;
+}
+
+.signUp .signUpView .social span {
+  font-size: 14;
+  color: #444444;
+}
+
+.signUp .signUpView .social .sns-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 70%;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.signUp .signUpView .social .sns-icon div {
+  width: 40px;
+  height: 40px;
+  background-color: goldenrod;
+}
+
+.signUp .signUpView .email {
+  background-color: violet;
+  width: 100%;
+  height: 140px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.signUp .signUpView .email input {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.signUp .signUpView .email .email-input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.signUp .signUpView .email button {
+  height: 40px;
+}
+
+.signUp .signUpView .email .Dropdown-root {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.signUp .phone span {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.signUp input {
+  font-family: "Noto Sans KR", sans-serif;
+}

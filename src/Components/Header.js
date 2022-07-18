@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Route, Link } from "react-router-dom";
 import image from "../libs/image";
@@ -16,6 +16,9 @@ function Header() {
         </a>
       </div>
     );
+  else if (window.location.pathname === "/landmap") {
+    return <div></div>;
+  }
 
   return (
     <div className="Head">

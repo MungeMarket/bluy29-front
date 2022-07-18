@@ -5,6 +5,7 @@ import "react-dropdown/style.css";
 import DaumPostcode from "react-daum-postcode";
 import { gql, useMutation } from "@apollo/client";
 import { SIGN_UP } from "../GraphQL/gqlList";
+import { useNavigate, Navigate } from "react-router-dom";
 
 function SignUp() {
   const [idEmail, setIdEmail] = useState("");
@@ -23,6 +24,8 @@ function SignUp() {
   const [zonecode, setZonecode] = useState(""); //우편번호
   const [finalAddr, setFinalAddr] = useState(""); //주소
   const [addrFind, setAddrFind] = useState(false); //우편번호 검색 켜기
+
+  const navigate = useNavigate();
 
   const [createAccountMutation, { data, loading, error }] =
     useMutation(SIGN_UP);
@@ -74,6 +77,8 @@ function SignUp() {
     } catch (error) {
       console.log("회원가입에러 : ", error);
     }
+
+    navigate("/"); //회원가입 성공 시 홈으로 보내기 나중에 회원가입 완료 화면 만들기
 
     return data;
   };

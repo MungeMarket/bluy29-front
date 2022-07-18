@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "../Styles/Login.css";
+import { useNavigate, Navigate } from "react-router-dom";
+
 import { gql, useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
 import { LOG_IN } from "../GraphQL/gqlList";
+import { token } from "../Components/Token";
 
 function Login() {
   const [id, setId] = useState("");
@@ -10,6 +13,8 @@ function Login() {
   const [loginInfo, setLoginInfo] = useState([]);
   const [getLoading, setGetLoading] = useState(true);
   const [logInMutation, { data, loading, error }] = useMutation(LOG_IN);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     check();
@@ -20,6 +25,9 @@ function Login() {
   };
 
   const getToken = async () => {
+    navigate(-1);
+    token = "33";
+
     await logInMutation({
       variables: {
         id: id,
@@ -29,17 +37,17 @@ function Login() {
     console.log(data);
     setLoginInfo(data);
     setGetLoading(!getLoading);
+    if (data.status === true) {
+    }
   };
   const loginHandle = () => {
     getToken();
   };
 
   const idHandle = (e) => {
-    console.log(e.target.value);
     setId(e.target.value);
   };
   const pwHandle = (e) => {
-    console.log(e.target.value);
     setPw(e.target.value);
   };
 
@@ -54,6 +62,7 @@ function Login() {
             onChange={idHandle}
           ></input>
           <input
+            type={"password"}
             placeholder="비밀번호"
             className="login-id_pw-pw"
             onChange={pwHandle}
@@ -61,7 +70,7 @@ function Login() {
         </div>
         <div className="login-btnVIew">
           <div className="login-login_btn">
-            <button onClick={loginHandle}> 로그인 </button>
+            <button onClick={loginHandle}> 로그인</button>
           </div>
           <div className="login-login_info">
             <div className="login-login_info-body">

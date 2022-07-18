@@ -136,3 +136,28 @@ export const VERIFY_TEST = gql`
     }
   }
 `;
+
+// 부동산 매물 정보 받아오기
+export const FIND_IN_MAP = gql`
+  query readMapHousingQuery(
+    $swLat: Float!
+    $swLong: Float!
+    $neLat: Float!
+    $neLong: Float!
+  ) {
+    readMapHousing(
+      input: { swLat: $swLat, swLong: $swLong, neLat: $neLat, neLong: $neLong }
+    ) {
+      error
+      status
+      totalPage
+      housings {
+        idx
+        lat
+        long
+        title
+        deposit
+      }
+    }
+  }
+`;
