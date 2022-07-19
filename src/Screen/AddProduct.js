@@ -42,7 +42,7 @@ import {
 const API_KEY = process.env.REACT_APP_KAKAO_REST_API_KEY;
 //토큰 지우기
 const TOKEN =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTc4ODYxNjEsImlkeCI6MiwiaWF0IjoxNjU3Nzk5NzYxfQ.fCqsCr4PO2k8UUx3VQaDR8z6-5lSi9GOS28tDQj58x0";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTgzMDA4OTIsImlkeCI6MiwiaWF0IjoxNjU4MjE0NDkyfQ.mh-91EempknrqsPA2BDq76GAHHBctoRRYpCgJBpEI98";
 //x-jwt,
 const AUTHORIZATION = "x-jwt";
 function AddProduct() {
@@ -58,6 +58,26 @@ function AddProduct() {
   const [totalInfo, setTotalInfo] = useState({});
   const [includeManage, setIncludeManage] = useState([]);
   const [notIncludeManage, setNotIncludeManage] = useState([]);
+  const [btnToggle, setBtnToggle] = useState([
+    { toggle: true },
+    { toggle: true },
+    { toggle: true },
+    { toggle: true },
+    { toggle: true },
+    { toggle: true },
+    { toggle: true },
+    { toggle: true },
+  ]);
+  const [btnUnToggle, setBtnUnToggle] = useState([
+    { toggle: true },
+    { toggle: true },
+    { toggle: true },
+    { toggle: true },
+    { toggle: true },
+    { toggle: true },
+    { toggle: true },
+    { toggle: true },
+  ]);
 
   const formData = new FormData();
   const findAddr = () => {
@@ -84,31 +104,109 @@ function AddProduct() {
   const inputProduct = () => {
     console.log(imgList);
 
+    // createHousingMutation({
+    //   variables: {
+    //     rentType: {
+    //       name: "월세",
+    //     },
+    //     deposit: totalInfo.deposit,
+    //     monthly: totalInfo.monthly,
+    //     manageFee: totalInfo.manageFee,
+    //     manageInclude: includeManage,
+    //     manageNotInclude: notIncludeManage,
+    //     parkingArea: 0,
+    //     shortTerm: false,
+    //     images: imgList,
+    //     housingName: totalInfo.housingName,
+    //     roomType: {
+    //       name: "원룸",
+    //     },
+    //     totalFloor: totalInfo.totalFloor,
+    //     floor: totalInfo.floor,
+    //     areaSize: totalInfo.areaSize,
+    //     realSize: totalInfo.realSize,
+    //     roomCount: totalInfo.roomCount,
+    //     bathRoomCount: totalInfo.bathRoomCount,
+    //     direction: totalInfo.direction,
+    //     heating: totalInfo.heating,
+    //     builtIn: totalInfo.builtIn,
+    //     builtInDetail: totalInfo.builtInDetail,
+    //     elevator: totalInfo.elevator,
+    //     veranda: totalInfo.veranda,
+    //     availableMoveIn: totalInfo.availableMoveIn,
+    //     mainUse: totalInfo.mainUse,
+    //     approvalDate: totalInfo.approvalDate,
+    //     options: [
+    //       {
+    //         name: "인터넷",
+    //       },
+    //       {
+    //         name: "TV",
+    //       },
+    //     ],
+    //     security: [
+    //       {
+    //         name: "방범창",
+    //       },
+    //       {
+    //         name: "비디오폰",
+    //       },
+    //     ],
+    //     title: totalInfo.title,
+    //     detailContent: totalInfo.detailContent,
+    //     addr: totalInfo.addr,
+    //     addrDetail: totalInfo.addrDetail,
+    //     lat: latLng.lat,
+    //     long: latLng.lng,
+    //   },
+    // });
     createHousingMutation({
       variables: {
         rentType: {
           name: "월세",
         },
-        deposit: totalInfo.deposit,
-        monthly: totalInfo.monthly,
-        manageFee: totalInfo.manageFee,
-        manageInclude: includeManage,
-        manageNotInclude: notIncludeManage,
+
+        deposit: 5000000,
+        monthly: 300000,
+        manageFee: 30000,
+        manageInclude: [
+          {
+            management: {
+              name: "전기료",
+            },
+          },
+          {
+            management: {
+              name: "관리비",
+            },
+          },
+        ],
+
+        manageNotInclude: [
+          {
+            management: {
+              name: "전기료",
+            },
+          },
+        ],
+
         parkingArea: 0,
         shortTerm: false,
+
         images: imgList,
-        housingName: totalInfo.housingName,
+        housingName: "와르르멘션",
         roomType: {
           name: "원룸",
         },
-        totalFloor: totalInfo.totalFloor,
-        floor: totalInfo.floor,
-        areaSize: totalInfo.areaSize,
-        realSize: totalInfo.realSize,
-        roomCount: totalInfo.roomCount,
-        bathRoomCount: totalInfo.bathRoomCount,
-        direction: totalInfo.direction,
-        heating: "Individual",
+
+        totalFloor: 5,
+        floor: "3",
+        areaSize: 25,
+        realSize: 23,
+        roomCount: 1,
+        bathRoomCount: 1,
+        direction: "NE",
+        heating: "District",
         builtIn: true,
         builtInDetail: "빌트인 주방",
         elevator: false,
@@ -132,15 +230,14 @@ function AddProduct() {
             name: "비디오폰",
           },
         ],
-        title: "두번째 매물",
+        title: "첫번째 매물",
         detailContent: "첫번째 입니다.",
         addr: "충청북도 청주시 상당구 용정동",
         addrDetail: "1052번지",
-        lat: 36.6217437805879,
-        long: 127.50993511481414,
+        lat: 32.6465464632,
+        long: 107.546451698,
       },
     });
-
     console.log();
 
     console.log("data : ", data);
@@ -228,49 +325,9 @@ function AddProduct() {
   const check = () => {
     console.log(includeManage);
     console.log(notIncludeManage);
+    console.log(imgList);
   };
 
-  const checkBox = async (event) => {
-    if (event.target.id == "manageInclude") {
-      if (event.target.checked) {
-        const value = event.target.value;
-        setIncludeManage(() => [...includeManage, value]);
-      } else {
-        const value = event.target.value;
-        const arr = new Array();
-        includeManage.filter((index) => {
-          if (index !== value) {
-            arr.push(index);
-            //console.log(arr);
-          }
-        });
-        setIncludeManage(arr);
-      }
-      const idText = event.target.id;
-      //console.log("id, value : ", idText, valueText);
-      // valueClean(idText, includeManage.join());
-      //useState x같아서 따로 넣을꺼임
-    } else {
-      if (event.target.checked) {
-        const value = event.target.value;
-        setNotIncludeManage([...notIncludeManage, value]);
-      } else {
-        const value = event.target.value;
-        const arr = new Array();
-        notIncludeManage.filter((index) => {
-          if (index !== value) {
-            arr.push(index);
-            //console.log(arr);
-          }
-        });
-        setNotIncludeManage(arr);
-      }
-      const idText = event.target.id;
-      //console.log("id, value : ", idText, valueText);
-
-      //valueClean(idText, notIncludeManage.join());
-    }
-  };
   const totalHandle = (event) => {
     //console.log(event.target.id, " : ", event);
     const idText = event.target.id;
@@ -284,6 +341,77 @@ function AddProduct() {
 
     if (flag || !flag) {
       setTotalInfo({ ...totalInfo, [idText]: valueText });
+    }
+  };
+
+  const checkBoxDiv = (event) => {
+    console.log("value : ", event.target.className);
+    const name = event.target.id;
+    if (event.target.className == "manageTag") {
+      const value = {
+        management: {
+          name: event.target.childNodes[0].nodeValue,
+        },
+      };
+
+      setIncludeManage([...includeManage, value]);
+
+      const toggleArray = btnToggle;
+      toggleArray[name] = { toggle: false };
+      setBtnToggle(toggleArray);
+    } else {
+      let manageValue = [];
+      setIncludeManage([...includeManage]);
+      console.log("includeManage : ", includeManage);
+      for (let i = 0; i < includeManage.length; i++) {
+        if (
+          includeManage[i].management.name !=
+          event.target.childNodes[0].nodeValue
+        ) {
+          manageValue.push(includeManage[i]);
+        }
+      }
+
+      console.log("after : ", manageValue);
+      setIncludeManage(manageValue);
+      const toggleArray = btnToggle;
+      toggleArray[name] = { toggle: true };
+      setBtnToggle(toggleArray);
+    }
+  };
+  const unCheckBoxDiv = (event) => {
+    console.log("value : ", event.target.className);
+    const name = event.target.id;
+    if (event.target.className == "manageTag") {
+      const value = {
+        management: {
+          name: event.target.childNodes[0].nodeValue,
+        },
+      };
+
+      setNotIncludeManage([...notIncludeManage, value]);
+
+      const toggleArray = btnUnToggle;
+      toggleArray[name] = { toggle: false };
+      setBtnUnToggle(toggleArray);
+    } else {
+      let manageValue = [];
+      setNotIncludeManage([...notIncludeManage]);
+      console.log("notIncludeManage : ", notIncludeManage);
+      for (let i = 0; i < notIncludeManage.length; i++) {
+        if (
+          notIncludeManage[i].management.name !=
+          event.target.childNodes[0].nodeValue
+        ) {
+          manageValue.push(notIncludeManage[i]);
+        }
+      }
+
+      console.log("after : ", manageValue);
+      setNotIncludeManage(manageValue);
+      const toggleArray = btnUnToggle;
+      toggleArray[name] = { toggle: true };
+      setBtnUnToggle(toggleArray);
     }
   };
 
@@ -308,6 +436,7 @@ function AddProduct() {
               placeholder="제목"
               onChange={totalHandle}
               id={"title"}
+              value={totalInfo.title}
             ></input>
           </div>
           <div className="addPd-Name addition">
@@ -317,6 +446,7 @@ function AddProduct() {
               placeholder="상세 설명"
               onChange={totalHandle}
               id={"detailContent"}
+              value={totalInfo.detailContent}
             ></input>
           </div>
           <div>
@@ -326,6 +456,7 @@ function AddProduct() {
               type={"number"}
               onChange={totalHandle}
               id={"deposit"}
+              value={totalInfo.deposit}
             ></input>
           </div>
           <div>
@@ -335,6 +466,7 @@ function AddProduct() {
               type={"number"}
               onChange={totalHandle}
               id={"price"}
+              value={totalInfo.price}
             ></input>
           </div>
           <div>
@@ -344,6 +476,7 @@ function AddProduct() {
               type={"number"}
               onChange={totalHandle}
               id={"monthly"}
+              value={totalInfo.monthly}
             ></input>
           </div>
           <div>
@@ -353,131 +486,132 @@ function AddProduct() {
               type={"number"}
               onChange={totalHandle}
               id={"manageFee"}
+              value={totalInfo.manageFee}
             ></input>
           </div>
 
-          <form onChange={checkBox} id={"manageInclude"} value={"management"}>
-            <div>관리비 포함 요금 부과 항목: </div>
-            <input
-              type="checkbox"
-              id="manageInclude"
-              name="manageInclude1"
-              value="management"
-            />
-            <label> 관리비</label>
-            <input
-              type="checkbox"
-              id="manageInclude"
-              name="manageInclude2"
-              value="cleaning"
-            />
-            <label> 청소비</label>
-            <input
-              type="checkbox"
-              id="manageInclude"
-              name="manageInclude3"
-              value="elevator"
-            />
-            <label> 승강기 유지비용</label>
-            <input
-              type="checkbox"
-              id="manageInclude"
-              name="manageInclude4"
-              value="internet"
-            />
-            <label> 인터넷</label>
-            <input
-              type="checkbox"
-              id="manageInclude"
-              name="manageInclude5"
-              value="tv"
-            />
-            <label> TV</label>
-            <input
-              type="checkbox"
-              id="manageInclude"
-              name="manageInclude6"
-              value="eletronic"
-            />
-            <label> 전기세</label>
-            <input
-              type="checkbox"
-              id="manageInclude"
-              name="manageInclude7"
-              value="water"
-            />
-            <label> 수도세</label>
-            <input
-              type="checkbox"
-              id="manageInclude"
-              name="manageInclude8"
-              value="gas"
-            />
-            <label> 가스비</label>
+          <label>관리비 포함 요금 부과 항목: </label>
+          <form id={"manageInclude"} className="manageInclude">
+            <div
+              id={"0"}
+              className={btnToggle[0].toggle == true ? "manageTag" : "select"}
+              onClick={checkBoxDiv}
+            >
+              관리비
+            </div>
+            <div
+              id={"1"}
+              className={btnToggle[1].toggle == true ? "manageTag" : "select"}
+              onClick={checkBoxDiv}
+            >
+              청소비
+            </div>
+            <div
+              id={"2"}
+              className={btnToggle[2].toggle == true ? "manageTag" : "select"}
+              onClick={checkBoxDiv}
+            >
+              승강기 유지비용
+            </div>
+            <div
+              id={"3"}
+              className={btnToggle[3].toggle == true ? "manageTag" : "select"}
+              onClick={checkBoxDiv}
+            >
+              인터넷
+            </div>
+            <div
+              id={"4"}
+              className={btnToggle[4].toggle == true ? "manageTag" : "select"}
+              onClick={checkBoxDiv}
+            >
+              TV
+            </div>
+            <div
+              id={"5"}
+              className={btnToggle[5].toggle == true ? "manageTag" : "select"}
+              onClick={checkBoxDiv}
+            >
+              전기세
+            </div>
+            <div
+              id={"6"}
+              className={btnToggle[6].toggle == true ? "manageTag" : "select"}
+              onClick={checkBoxDiv}
+            >
+              수도세
+            </div>
+            <div
+              id={"7"}
+              className={btnToggle[7].toggle == true ? "manageTag" : "select"}
+              onClick={checkBoxDiv}
+            >
+              가스비
+            </div>
           </form>
 
+          <label>관리비 미포함 요금 부과 항목: </label>
           <form
-            onChange={checkBox}
             id={"manageNotInclude"}
             value={"manageNotInclude"}
+            className="manageInclude"
           >
-            <div>관리비 미포함 요금 부과 항목: </div>
-            <input
-              type="checkbox"
-              id="manageNotInclude"
-              name="manageNotInclude1"
-              value="management"
-            />
-            <label> 관리비</label>
-            <input
-              type="checkbox"
-              id="manageNotInclude"
-              name="manageNotInclude2"
-              value="cleaning"
-            />
-            <label> 청소비</label>
-            <input
-              type="checkbox"
-              id="manageNotInclude"
-              name="manageNotInclude3"
-              value="elevator"
-            />
-            <label> 승강기 유지비용</label>
-            <input
-              type="checkbox"
-              id="manageNotInclude"
-              name="manageNotInclude4"
-              value="internet"
-            />
-            <label> 인터넷</label>
-            <input
-              type="checkbox"
-              id="manageNotInclude"
-              name="manageNotInclude5"
-              value="tv"
-            />
-            <label> TV</label>
-            <input
-              type="checkbox"
-              id="manageNotInclude"
-              name="manageNotInclude6"
-              value="eletronic"
-            />
-            <label> 전기세</label>
-            <input
-              type="checkbox"
-              id="manageNotInclude"
-              name="manageNotInclude7"
-              value="water"
-            />
-            <label> 수도세</label>
-            <input
-              type="checkbox"
-              id="manageNotInclude"
-              name="manageNotInclude8"
-              value="gas"
-            />
-            <label> 가스비</label>
+            <div
+              id={"0"}
+              className={btnUnToggle[0].toggle == true ? "manageTag" : "select"}
+              onClick={unCheckBoxDiv}
+            >
+              관리비
+            </div>
+            <div
+              id={"1"}
+              className={btnUnToggle[1].toggle == true ? "manageTag" : "select"}
+              onClick={unCheckBoxDiv}
+            >
+              청소비
+            </div>
+            <div
+              id={"2"}
+              className={btnUnToggle[2].toggle == true ? "manageTag" : "select"}
+              onClick={unCheckBoxDiv}
+            >
+              승강기 유지비용
+            </div>
+            <div
+              id={"3"}
+              className={btnUnToggle[3].toggle == true ? "manageTag" : "select"}
+              onClick={unCheckBoxDiv}
+            >
+              인터넷
+            </div>
+            <div
+              id={"4"}
+              className={btnUnToggle[4].toggle == true ? "manageTag" : "select"}
+              onClick={unCheckBoxDiv}
+            >
+              TV
+            </div>
+            <div
+              id={"5"}
+              className={btnUnToggle[5].toggle == true ? "manageTag" : "select"}
+              onClick={unCheckBoxDiv}
+            >
+              전기세
+            </div>
+            <div
+              id={"6"}
+              className={btnUnToggle[6].toggle == true ? "manageTag" : "select"}
+              onClick={unCheckBoxDiv}
+            >
+              수도세
+            </div>
+            <div
+              id={"7"}
+              className={btnUnToggle[7].toggle == true ? "manageTag" : "select"}
+              onClick={unCheckBoxDiv}
+            >
+              가스비
+            </div>
           </form>
           <div>
             <label>건물 이름 : </label>
@@ -693,73 +827,73 @@ function AddProduct() {
               </li>
             </ul>
           </form>
-          <form onChange={builtInHandle}>
+          <form onChange={totalHandle}>
             <label>빌트인 : </label>
             <input type="radio" id="builtIn" name="builtIn" value={true} />
             <label> 빌트인 있음</label>
             <input type="radio" id="builtIn" name="builtIn" value={false} />
             <label> 빌트인 없음</label>
           </form>
-          <form onChange={builtInDetailHandle}>
+          <form onChange={totalHandle}>
             <label>빌트인 정보 : </label>
-            <input placeholder="빌트인 정보 입력"></input>
+            <input placeholder="빌트인 정보 입력" id="builtInDetail"></input>
           </form>
-          <form onChange={elevatorHandle}>
+          <form onChange={totalHandle}>
             <label>엘리베이터 : </label>
-            <input type={"radio"}></input>
+            <input
+              type="radio"
+              id="elevator"
+              name="elevator"
+              value={true}
+            ></input>
             <label> 있음</label>
-            <input type={"radio"}></input>
+            <input
+              type="radio"
+              id="elevator"
+              name="elevator"
+              value={false}
+            ></input>
             <label> 없음</label>
           </form>
-          <form onChange={verandaHandle}>
+          <form onChange={totalHandle}>
             <label>베란다 : </label>
-            <input type={"radio"}></input>
+            <input
+              type={"radio"}
+              id="veranda"
+              name="veranda"
+              value={true}
+            ></input>
             <label> 있음</label>
-            <input type={"radio"}></input>
+            <input
+              type={"radio"}
+              id="veranda"
+              name="veranda"
+              value={true}
+            ></input>
             <label> 없음</label>
           </form>
-          <form onChange={availableMoveInnHandle}>
+          <form onChange={totalHandle}>
             <label>입주 가능일 : </label>
             {/* 오늘 날짜를 기본으로 지정*/}
-            <input type="date" value="2022-07-14"></input>
+            <input type="date" id="availableMoveIn"></input>
           </form>
-          <form onChange={mainUseHandle}>
+          <form onChange={totalHandle}>
             <label>주 용도 : </label>
-            <input
-              type="radio"
-              id="directionW"
-              name="directionW"
-              value="House"
-            />
+            <input type="radio" id="mainUse" name="mainUse" value="House" />
             <label> 단독주택</label>
-            <input
-              type="radio"
-              id="directionW"
-              name="directionW"
-              value="apartment"
-            />
+            <input type="radio" id="mainUse" name="mainUse" value="apartment" />
             <label> 공동주택</label>
-            <input
-              type="radio"
-              id="directionW"
-              name="directionW"
-              value="Type1"
-            />
+            <input type="radio" id="mainUse" name="mainUse" value="Type1" />
             <label> 제1종 근린생활시설</label>
-            <input
-              type="radio"
-              id="directionW"
-              name="directionW"
-              value="Type2"
-            />
+            <input type="radio" id="mainUse" name="mainUse" value="Type2" />
             <label> 제2종 근린생활시설</label>
             <label> 기타 : </label>
-            <input placeholder="기타"></input>
+            <input placeholder="기타" id="mainUse" name="mainUse"></input>
           </form>
-          <form onChange={approvalDateHandle}>
+          <form onChange={totalHandle}>
             <label>건축 일자 : </label>
             {/* 오늘 날짜를 기본으로 지정*/}
-            <input type="date" value="2022-07-14"></input>
+            <input type="date" id="approvalDate" name="approvalDate"></input>
           </form>
 
           <div>시설 tag</div>

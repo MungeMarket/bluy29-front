@@ -15,17 +15,37 @@
         position: absolute;
         top: 150px;
         right: 10px;
-        background-color: mediumspringgreen;
         z-index: 50000;
       }
     }
     .mMap-Header {
       position: absolute;
-      top: 230px;
+      top: 0px;
       width: 100%;
-      height: 5%;
+      height: 8%;
       background-color: mediumslateblue;
       z-index: 10000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .Search {
+        width: 90%;
+        height: 60%;
+        background-color: antiquewhite;
+        display: flex;
+        justify-content: space-between;
+        input {
+          width: 75%;
+          padding-left: 20px;
+        }
+        .toggler {
+          width: 10%;
+        }
+
+        .filter {
+          width: 15%;
+        }
+      }
     }
   }
 }

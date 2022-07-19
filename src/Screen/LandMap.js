@@ -181,7 +181,7 @@ function LandMap() {
                 averageCenter={true} // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정
                 minLevel={10} // 클러스터 할 최소 지도 레벨
               >
-                {/* {housings.map((house) => (
+                {housings.map((house) => (
                   <MapMarker // 마커를 생성합니다
                     key={house.idx}
                     position={{
@@ -190,7 +190,7 @@ function LandMap() {
                       lng: house.long,
                     }}
                   />
-                ))} */}
+                ))}
 
                 {/* {mapList.positions.map((pos, idx) => (
                   <CustomOverlayMap

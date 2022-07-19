@@ -1,10 +1,12 @@
 import "../Styles/MBottomHouse.css";
+import "../Styles/Map.css";
 import React, { useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
 import { animated, useSpring, config } from "react-spring";
 import { useDrag } from "react-use-gesture";
 
-const MBottomHouse = ({ visibility, visibilityToggler }) => {
+const MBottomHouse = ({ visibility, visibilityToggler, housings }) => {
+  console.log("bottom housings : ", housings);
   const sheetRef = useRef();
   const SHEET_HEIGHT = useRef();
 
@@ -66,13 +68,14 @@ const MBottomHouse = ({ visibility, visibilityToggler }) => {
   useEffect(() => {
     if (visibility) {
       setStyles({
-        minHeight: "300px",
-        maxHeight: "80vh",
+        minHeight: "500px",
+        maxHeight: "90vh",
+        height: "80%",
         config: config.stiff,
       });
     } else {
       setStyles({
-        minHeight: "10px",
+        minHeight: "50px",
         maxHeight: "10vh",
         config: {
           tension: 500,
@@ -90,18 +93,17 @@ const MBottomHouse = ({ visibility, visibilityToggler }) => {
       ref={sheetRef}
     >
       <div className="container">
-        <h1>HOLA</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab animi
-          illum saepe magni, repudiandae nulla distinctio quam iusto,
-          repellendus blanditiis numquam porro quo harum, explicabo voluptatem.
-          Facilis modi magni aperiam.
-        </p>
+        <div className="line"></div>
+        <div className="head">
+          <p>이 지역 부동산 정보 &nbsp;</p>
+          <p>{2}개</p>
+        </div>
+        {visibility && <form></form>}
       </div>
     </animated.div>
   );
 
-  return ReactDOM.createPortal(sheet, document.querySelector("body"));
+  return ReactDOM.createPortal(sheet, document.getElementById("root"));
 };
 
 export default MBottomHouse;

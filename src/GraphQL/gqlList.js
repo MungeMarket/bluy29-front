@@ -49,8 +49,8 @@ export const ADD_PRODUCT = gql`
     $monthly: Float
     $price: Float
     $manageFee: Float!
-    $manageInclude: String
-    $manageNotInclude: String
+    $manageInclude: [ManageIncludeInput!]!
+    $manageNotInclude: [ManageNotIncludeInput!]!
     $parkingArea: Float!
     $parkingFee: Float
     $shortTerm: Boolean!

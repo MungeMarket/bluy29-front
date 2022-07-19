@@ -1,7 +1,9 @@
 /* global kakao */
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../Styles/Map.css";
 import "../Styles/MMap.css";
+import { FIND_IN_MAP } from "../GraphQL/gqlList";
+import { gql, useMutation, useQuery } from "@apollo/client";
 import {
   Map,
   MarkerClusterer,
@@ -9,13 +11,67 @@ import {
   CustomOverlayMap,
 } from "react-kakao-maps-sdk";
 import MBottomHouse from "./MBottomHouse";
+const MIN_LEVEL = "10";
 
 function MLandMap(prop) {
+  const mapRef = useRef();
+  const [info, setInfo] = useState();
+  const [mapLoading, setMapLoading] = useState(false);
+  const [initial, setInitial] = useState(true);
+  const [housings, setHousings] = useState([]);
+  const [initPoint, setInitPoint] = useState({
+    lat: 0,
+    lng: 0,
+  });
   const [swipeableVisibility, setSwipeableVisibility] = useState(false);
+  useEffect(() => {
+    console.log("prop", prop);
+
+    initMapCenter();
+  }, []);
+
+  const { houseData, houseLoading, houseError } = useQuery(FIND_IN_MAP, {
+    variables: initial
+      ? {
+          swLat: 0,
+          swLong: 0,
+          neLat: 0,
+          neLong: 0,
+        }
+      : {
+          swLat: info.swLatLng.lat,
+          swLong: info.swLatLng.lng,
+          neLat: info.neLatLng.lat,
+          neLong: info.neLatLng.lng,
+        },
+  });
 
   const toggleSwipeable = () => {
     console.log("Toggle visibility");
     setSwipeableVisibility(!swipeableVisibility);
+  };
+
+  const getMapInfo = () => {
+    console.log("gql :", houseLoading, houseError);
+    const map = mapRef.current;
+    setInfo({
+      center: {
+        lat: map.getCenter().getLat(),
+        lng: map.getCenter().getLng(),
+      },
+      level: map.getLevel(),
+      swLatLng: {
+        lat: map.getBounds().getSouthWest().getLat(),
+        lng: map.getBounds().getSouthWest().getLng(),
+      },
+      neLatLng: {
+        lat: map.getBounds().getNorthEast().getLat(),
+        lng: map.getBounds().getNorthEast().getLng(),
+      },
+    });
+    setMapLoading(true);
+    console.log("drag finish", info);
+    getHousingGql();
   };
   const mapList = {
     positions: [
@@ -29,19 +85,65 @@ function MLandMap(prop) {
       },
     ],
   };
-  useEffect(() => {
-    console.log("prop", prop);
-  }, []);
 
+  const getHousingGql = () => {
+    if (houseData) {
+      console.log("매물 : ", houseData.readMapHousing.housings);
+      console.log("매물 : ", houseData);
+      //setHousings(houseData.readMapHousing.housings);
+    }
+  };
+
+  const initMapCenter = () => {
+    // 현재 위치값 받아오기.
+    // HTML5의 geolocation으로 사용할 수 있는지 확인합니다
+    if (navigator.geolocation) {
+      // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+      navigator.geolocation.getCurrentPosition(function (position) {
+        const lat = position.coords.latitude, // 위도
+          lng = position.coords.longitude; // 경도
+
+        setInfo({
+          center: {
+            lat: parseInt(lat),
+            lng: parseInt(lng),
+          },
+          level: MIN_LEVEL,
+          swLatLng: {
+            lat: parseInt(lat) - 0.007,
+            lng: parseInt(lng) - 0.0056,
+          },
+          neLatLng: {
+            lat: parseInt(lat) + 0.006,
+            lng: parseInt(lng) + 0.0056,
+          },
+        });
+        setInitPoint({ lat: lat, lng: lng });
+        console.log(initPoint);
+        setMapLoading(true);
+        setInitial(false);
+      });
+    } else {
+      // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+      // lat: 36.59933075229118,
+      // lng: 127.52583998406159,
+      setInitPoint({ lat: 36.59933075229118, lng: 127.52583998406159 });
+    }
+    return true;
+  };
   return (
     <div className="MobileMapView">
       <div className="mMap-body">
         <div className="mMap-Header">
-          <span>hello kakaoMap</span>
-          Swipeable bottom sheet
-          <button className="toggler" onClick={toggleSwipeable}>
-            toggleSwipeable
-          </button>
+          <div className="Search">
+            <button className="toggler" onClick={toggleSwipeable}>
+              검색
+            </button>
+            <input type={"text"} placeholder="지역 검색"></input>
+            <button className="filter" onClick={toggleSwipeable}>
+              필터
+            </button>
+          </div>
         </div>
         <div className="cneterBtn">
           <button>click</button>
@@ -65,13 +167,20 @@ function MLandMap(prop) {
           style={{
             // 지도의 크기
             width: "100vw",
-            height: "90vh",
+            height: "88vh",
           }}
-          level={7} // 지도의 확대 레벨
+          level={5} // 지도의 확대 레벨
+          ref={mapRef}
+          onDragEnd={getMapInfo}
+          onZoomChanged={getMapInfo}
+          onMouseMove={() => {
+            console.log("loading...");
+            setMapLoading(false);
+          }}
         >
           <MarkerClusterer
             averageCenter={true} // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정
-            minLevel={10} // 클러스터 할 최소 지도 레벨
+            minLevel={8} // 클러스터 할 최소 지도 레벨
           >
             {/* <MapMarker // 마커를 생성합니다
               position={{
@@ -108,6 +217,7 @@ function MLandMap(prop) {
       <MBottomHouse
         visibility={swipeableVisibility}
         visibilityToggler={setSwipeableVisibility}
+        data={housings}
       />
     </div>
   );

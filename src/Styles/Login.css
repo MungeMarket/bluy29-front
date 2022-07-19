@@ -47,6 +47,11 @@
       -ms-flex-direction: column;
           flex-direction: column;
 }
+.login .login-body .login-id_pw span {
+  padding-top: 10px;
+  font-size: 15px;
+  font-weight: 500;
+}
 .login .login-body .login-btnVIew {
   width: 100%;
   height: 100px;

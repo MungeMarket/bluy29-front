@@ -28,7 +28,6 @@ function router() {
           <Route path="/market" element={<Market />} />
           <Route path="/myInfo" element={<MyInfo />} />
           <Route path="/*" element={<ErrorPage />} />
-          <Route path="/test" element={<FileUpload />} />
         </Routes>
         {/* <Routes>
           <Route path="/" element={<Home />} />

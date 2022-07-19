@@ -26,6 +26,11 @@
     .login-id_pw {
       display: flex;
       flex-direction: column;
+      span {
+        padding-top: 10px;
+        font-size: 15px;
+        font-weight: 500;
+      }
     }
     .login-btnVIew {
       width: 100%;
