@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import Media from "react-media";
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Route, Link } from "react-router-dom";
 import image from "../libs/image";
@@ -16,7 +17,7 @@ function Header() {
         </a>
       </div>
     );
-  else if (window.location.pathname === "/landmap") {
+  else if (window.location.pathname === "/landmap" && 1) {
     return <div></div>;
   }
 
