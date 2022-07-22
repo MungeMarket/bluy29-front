@@ -10,7 +10,11 @@ function Header() {
   const [hideHeader, setHideHeader] = useState(false);
 
   const handleResize = () => {
-    if (window.innerWidth < 900 && window.location.pathname === "/landmap") {
+    if (
+      window.innerWidth < 900 &&
+      (window.location.pathname === "/landmap" ||
+        window.location.pathname === "/addproduct")
+    ) {
       setHideHeader(true);
     } else {
       setHideHeader(false);
@@ -18,6 +22,7 @@ function Header() {
   };
 
   useEffect(() => {
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);

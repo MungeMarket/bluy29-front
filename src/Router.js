@@ -20,13 +20,13 @@ function router() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/about" element={<ErrorPage />} />
           <Route path="/landmap" element={<LandMap />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/addProduct" element={<AddProduct />} />
-          <Route path="/market" element={<Market />} />
-          <Route path="/myInfo" element={<MyInfo />} />
+          <Route path="/market" element={<ErrorPage />} />
+          <Route path="/myInfo" element={<ErrorPage />} />
           <Route path="/*" element={<ErrorPage />} />
         </Routes>
         {/* <Routes>

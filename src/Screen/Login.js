@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "../Styles/Login.css";
-import { useNavigate, Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { gql, useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
 import { LOG_IN } from "../GraphQL/gqlList";
-import { token } from "../Components/Token";
 
 function Login() {
   const [id, setId] = useState("");
@@ -29,7 +28,7 @@ function Login() {
     if (data != undefined) {
       console.log(data);
       if (data.login.status === true) {
-        //navigate(-1);
+        navigate(-1);
       } else {
         setLoginError(data.login.error);
       }

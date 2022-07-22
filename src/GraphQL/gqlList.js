@@ -137,7 +137,7 @@ export const VERIFY_TEST = gql`
   }
 `;
 
-// 부동산 매물 정보 받아오기
+// 부동산 매물 정보 받아오기 (Map)
 export const FIND_IN_MAP = gql`
   query readMapHousingQuery(
     $swLat: Float!
@@ -145,18 +145,163 @@ export const FIND_IN_MAP = gql`
     $neLat: Float!
     $neLong: Float!
   ) {
-    readMapHousing(
+    readMapHousingForMap(
       input: { swLat: $swLat, swLong: $swLong, neLat: $neLat, neLong: $neLong }
     ) {
       error
       status
-      totalPage
       housings {
         idx
         lat
         long
+      }
+    }
+  }
+`;
+
+// 부동산 매물 정보 받아오기 (List)
+export const FIND_IN_MAP_FOR_LIST = gql`
+  query readMapHousingListQuery(
+    $page: Float
+    $swLat: Float!
+    $swLong: Float!
+    $neLat: Float!
+    $neLong: Float!
+    $rentTypeIdx: Float
+    $roomTypeIdx: Float
+    $depositMax: Float
+    $depositMin: Float
+    $monthlyMax: Float
+    $monthlyMin: Float
+    $priceMax: Float
+    $priceMin: Float
+    $manageFeeMax: Float
+    $manageFeeMin: Float
+    $realSizeMax: Float
+    $realSizeMin: Float
+  ) {
+    readMapHousingForList(
+      input: {
+        page: $page
+        swLat: $swLat
+        swLong: $swLong
+        neLat: $neLat
+        neLong: $neLong
+        rentTypeIdx: $rentTypeIdx
+        roomTypeIdx: $roomTypeIdx
+        depositMax: $depositMax
+        depositMin: $depositMin
+        monthlyMax: $monthlyMax
+        monthlyMin: $monthlyMin
+        priceMax: $priceMax
+        priceMin: $priceMin
+        manageFeeMax: $manageFeeMax
+        manageFeeMin: $manageFeeMin
+        realSizeMax: $realSizeMax
+        realSizeMin: $realSizeMin
+      }
+    ) {
+      error
+      status
+      housings {
         title
+        idx
+        lat
+        long
+        manageFee
+        floor
+        realSize
+        detailContent
+        addr
+        manageInclude {
+          management {
+            name
+          }
+        }
+        options {
+          name
+        }
+        monthly
         deposit
+        roomType {
+          name
+        }
+        images {
+          imageUrl
+        }
+        rentType {
+          name
+        }
+      }
+    }
+  }
+`;
+
+// 부동산 매물 정보 받아오기 (One)
+export const FIND_ONE_HOUSE = gql`
+  query readOneHousingQuery($idx: Float!) {
+    readOneHousing(input: { idx: $idx }) {
+      error
+      status
+      housing {
+        idx
+        createAt
+        updateAt
+        rentType {
+          name
+        }
+        deposit
+        monthly
+        price
+        manageFee
+        manageInclude {
+          management {
+            name
+          }
+        }
+        manageNotInclude {
+          management {
+            name
+          }
+        }
+        parkingArea
+        parkingFee
+        shortTerm
+        images {
+          imageUrl
+        }
+        housingName
+        roomType {
+          name
+        }
+        totalFloor
+        floor
+        areaSize
+        realSize
+        roomCount
+        bathRoomCount
+        direction
+        heating
+        builtIn
+        builtInDetail
+        elevator
+        veranda
+        availableMoveIn
+        mainUse
+        approvalDate
+        options {
+          name
+        }
+        security {
+          name
+        }
+        title
+        detailContent
+        addr
+        addrDetail
+        isView
+        viewCount
+        likeCount
       }
     }
   }

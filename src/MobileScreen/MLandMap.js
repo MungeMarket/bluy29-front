@@ -3,14 +3,15 @@ import React, { useEffect, useRef, useState } from "react";
 import "../Styles/Map.css";
 import "../Styles/MMap.css";
 import { FIND_IN_MAP } from "../GraphQL/gqlList";
-import { gql, useMutation, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import {
   Map,
   MarkerClusterer,
   MapMarker,
   CustomOverlayMap,
 } from "react-kakao-maps-sdk";
-import MBottomHouse from "./MBottomHouse";
+import { HouseModal } from "../Components/HouseModal";
+import { useNavigate } from "react-router-dom";
 const MIN_LEVEL = "10";
 
 function MLandMap(prop) {
@@ -19,6 +20,15 @@ function MLandMap(prop) {
   const [mapLoading, setMapLoading] = useState(false);
   const [initial, setInitial] = useState(true);
   const [housings, setHousings] = useState([]);
+  const [center, setCenter] = useState({
+    // 지도의 초기 위치
+    center: { lat: 33.452613, lng: 126.570888 },
+    // 지도 위치 변경시 panto를 이용할지에 대해서 정의
+    isPanto: false,
+  });
+
+  const navigate = useNavigate();
+
   const [initPoint, setInitPoint] = useState({
     lat: 0,
     lng: 0,
@@ -29,8 +39,11 @@ function MLandMap(prop) {
 
     initMapCenter();
   }, []);
+  useEffect(() => {
+    console.log("Mapdatadata : ", data);
+  }, [info]);
 
-  const { houseData, houseLoading, houseError } = useQuery(FIND_IN_MAP, {
+  const { data, loading, error } = useQuery(FIND_IN_MAP, {
     variables: initial
       ? {
           swLat: 0,
@@ -39,20 +52,19 @@ function MLandMap(prop) {
           neLong: 0,
         }
       : {
-          swLat: info.swLatLng.lat,
-          swLong: info.swLatLng.lng,
-          neLat: info.neLatLng.lat,
-          neLong: info.neLatLng.lng,
+          swLat: parseFloat(info.swLatLng.lat),
+          swLong: parseFloat(info.swLatLng.lng),
+          neLat: parseFloat(info.neLatLng.lat),
+          neLong: parseFloat(info.neLatLng.lng),
         },
   });
 
   const toggleSwipeable = () => {
-    console.log("Toggle visibility");
-    setSwipeableVisibility(!swipeableVisibility);
+    navigate(-1);
   };
 
   const getMapInfo = () => {
-    console.log("gql :", houseLoading, houseError);
+    console.log("gql :", loading, error);
     const map = mapRef.current;
     setInfo({
       center: {
@@ -73,53 +85,53 @@ function MLandMap(prop) {
     console.log("drag finish", info);
     getHousingGql();
   };
-  const mapList = {
-    positions: [
-      {
-        lat: 36.59933075229118,
-        lng: 127.52583998406159,
-      },
-      {
-        lat: 36.59835668706214,
-        lng: 127.52536526611102,
-      },
-    ],
-  };
+  // const mapList = {
+  //   positions: [
+  //     {
+  //       lat: 36.59933075229118,
+  //       lng: 127.52583998406159,
+  //     },
+  //     {
+  //       lat: 36.59835668706214,
+  //       lng: 127.52536526611102,
+  //     },
+  //   ],
+  // };
 
-  const getHousingGql = () => {
-    if (houseData) {
-      console.log("매물 : ", houseData.readMapHousing.housings);
-      console.log("매물 : ", houseData);
-      //setHousings(houseData.readMapHousing.housings);
+  const getHousingGql = async () => {
+    if (await data) {
+      //console.log("매물 : ", data.readMapHousing.data);
+      console.log("매물 : ", data.readMapHousingForMap.housings);
+      setHousings(data.readMapHousingForMap.housings);
     }
   };
 
-  const initMapCenter = () => {
+  const initMapCenter = async () => {
     // 현재 위치값 받아오기.
     // HTML5의 geolocation으로 사용할 수 있는지 확인합니다
-    if (navigator.geolocation) {
+    if (navigator.geolocation !== null) {
       // GeoLocation을 이용해서 접속 위치를 얻어옵니다
-      navigator.geolocation.getCurrentPosition(function (position) {
+      await navigator.geolocation.getCurrentPosition(function (position) {
         const lat = position.coords.latitude, // 위도
           lng = position.coords.longitude; // 경도
-
+        getHousingGql();
         setInfo({
           center: {
-            lat: parseInt(lat),
-            lng: parseInt(lng),
+            lat: parseFloat(lat),
+            lng: parseFloat(lng),
           },
           level: MIN_LEVEL,
           swLatLng: {
-            lat: parseInt(lat) - 0.007,
-            lng: parseInt(lng) - 0.0056,
+            lat: parseFloat(lat) - 0.006,
+            lng: parseFloat(lng) - 0.0056,
           },
           neLatLng: {
-            lat: parseInt(lat) + 0.006,
-            lng: parseInt(lng) + 0.0056,
+            lat: parseFloat(lat) + 0.006,
+            lng: parseFloat(lng) + 0.0056,
           },
         });
         setInitPoint({ lat: lat, lng: lng });
-        console.log(initPoint);
+        console.log("좌표 가져오기 완료");
         setMapLoading(true);
         setInitial(false);
       });
@@ -180,21 +192,26 @@ function MLandMap(prop) {
         >
           <MarkerClusterer
             averageCenter={true} // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정
-            minLevel={8} // 클러스터 할 최소 지도 레벨
+            minLevel={1} // 클러스터 할 최소 지도 레벨
           >
-            {/* <MapMarker // 마커를 생성합니다
-              position={{
-                // 마커가 표시될 위치입니다
-                lat: 36.5993,
-                lng: 127.5258,
-              }}
-            /> */}
-            {mapList.positions.map((pos, idx) => (
+            {housings.map((pos, idx) => (
+              <MapMarker // 마커를 생성합니다
+                key={idx}
+                position={{
+                  // 마커가 표시될 위치입니다
+                  lat: pos.lat,
+                  lng: pos.long,
+                }}
+              />
+            ))}
+            {/* {console.log("data : ", data)} */}
+
+            {housings.map((pos, idx) => (
               <CustomOverlayMap
-                key={`${pos.lat}-${pos.lng}`}
+                key={idx}
                 position={{
                   lat: pos.lat,
-                  lng: pos.lng,
+                  lng: pos.long,
                 }}
               >
                 <div
@@ -214,11 +231,13 @@ function MLandMap(prop) {
           </MarkerClusterer>
         </Map>
       </div>
-      <MBottomHouse
+
+      {info && <HouseModal info={info} />}
+      {/* <MBottomHouse
         visibility={swipeableVisibility}
         visibilityToggler={setSwipeableVisibility}
-        data={housings}
-      />
+        location={info}
+      /> */}
     </div>
   );
 }

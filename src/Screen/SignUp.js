@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
-import "../Styles/SignUp.css";
+//import "../Styles/SignUp.css";
+import "../Styles/MSignUp.css";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import DaumPostcode from "react-daum-postcode";
-import { gql, useMutation } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { SIGN_UP } from "../GraphQL/gqlList";
-import { useNavigate, Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import MSignUp from "../MobileScreen/MSignUp";
 
 function SignUp() {
   const [idEmail, setIdEmail] = useState("");
@@ -133,8 +135,6 @@ function SignUp() {
 
   const phoneHandler = (e) => {
     setPhone(e.target.value.replace(/[^0-9]/g, ""));
-
-    console.log("제거");
   };
 
   const nickNameHandler = (e) => {
@@ -163,12 +163,133 @@ function SignUp() {
     setZonecode(data.zonecode);
   };
   const postCodeStyle = {
-    width: "50%",
-    height: "70vh",
+    width: "100%",
+    height: "100vh",
   };
   const findAddr = () => {
     setAddrFind(true);
   };
+  return (
+    <div className="join-m">
+      {addrFind && (
+        <div className="addPd-addrSearch">
+          <span>
+            <DaumPostcode onComplete={handleComplete} style={postCodeStyle} />
+          </span>
+        </div>
+      )}
+      <div className="join-form">
+        <div className="input-box">
+          <label for="id">이메일</label>
+          <input
+            type="email"
+            name="id"
+            id="id"
+            placeholder="이메일 주소를 입력해주세요"
+            onChange={idHandler}
+            value={email}
+          />
+        </div>
+        <div className="input-box">
+          <label for="pw">비밀번호</label>
+          <input
+            type="password"
+            name="pw"
+            id="pw"
+            placeholder="8~12자 영문,숫자,특수문자"
+            onChange={pwHandler}
+            value={password}
+          />
+        </div>
+        <div className="input-box">
+          <label for="pwConfirm">비밀번호확인</label>
+          <input
+            type="password"
+            name="pwConfirm"
+            id="pwConfirm"
+            placeholder="8~12자 영문,숫자,특수문자"
+            onChange={pwCheckHandler}
+            value={passwordCheck}
+          />
+        </div>
+        <div className="input-box">
+          <label for="nickname">닉네임</label>
+          <input
+            type="text"
+            name="nickname"
+            id="nickname"
+            placeholder="닉네임을 입력해주세요"
+            onChange={nickNameHandler}
+            value={nickName}
+          />
+        </div>
+        <div className="input-box">
+          <label for="phone">휴대폰번호</label>
+          <input
+            type="text"
+            name="phone"
+            id="phone"
+            placeholder="- 없이 숫자만 입력해주세요"
+            onChange={phoneHandler}
+            value={phone}
+          />
+        </div>
+        <div className="zip-code">
+          <button onClick={findAddr}>주소검색</button>
+          <input type="text" name="zipCode" value={zonecode} />
+        </div>
+        <input type="text" className="addr" name="addr" value={finalAddr} />
+        <div className="input-box">
+          <label for="addrDetail">상세주소</label>
+          <input
+            type="text"
+            name="addrDetail"
+            id="addrDetail"
+            placeholder="상세주소를 입력해주세요"
+            onChange={addrDetailHandler}
+            value={addrDetail}
+          />
+        </div>
+        <div className="agree-box">
+          <div className="agree-title-line">
+            <div>약관동의</div>
+            <div className="all-agree">
+              전체동의
+              <input type={"checkbox"} checked={true}></input>
+            </div>
+          </div>
+          <div className="agree">
+            <div>
+              개인정보 처리방침에 동의
+              <span className="highright">(필수)</span>
+            </div>
+            <div>
+              <input type={"checkbox"} checked={true}></input>
+            </div>
+          </div>
+          <div className="agree">
+            <div>
+              이용약관에 동의
+              <span className="highright">(필수)</span>
+            </div>
+            <div>
+              <input type={"checkbox"} checked={true}></input>
+            </div>
+          </div>
+          <div className="agree">
+            <div>
+              부동산 정보 및 인테리어 마케팅 수신에 동의
+              <span className="highright">(필수)</span>
+            </div>
+            <div>
+              <input type={"checkbox"} checked={true}></input>
+            </div>
+          </div>
+        </div>
+        <button className="join-btn">가입완료</button>
+      </div>
+    </div>
+  );
 
   return (
     <div className="signUp">

@@ -58,7 +58,12 @@ function Home(prop) {
         <div className="main-Btn">
           <div className="BtnBox">
             <a href="/market">
-              <img className="BoxImg" src={image.interior}></img>
+              <img
+                art="BoxImg"
+                className="BoxImg"
+                src={image.interior}
+                alt="BoxImg"
+              ></img>
               <div className="TextBox">
                 <div>
                   <h1>펫 인테리어 </h1>
@@ -76,7 +81,7 @@ function Home(prop) {
 
           <div className="BtnBox">
             <a href="/landmap">
-              <img className="BoxImg" src={image.building}></img>
+              <img art="BoxImg" className="BoxImg" src={image.building}></img>
               <div className="TextBox">
                 <div>
                   <h1>부동산 정보</h1>
