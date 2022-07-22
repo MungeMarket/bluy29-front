@@ -1,6 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap");
 @media (min-width: 900px) {
-  .MobileMapView {
+  .MobileMapView,
+.swipeable-bottom-sheet {
+    display: none;
+  }
+  .Head {
     display: none;
   }
   .MapView {

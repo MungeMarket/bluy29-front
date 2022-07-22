@@ -14,10 +14,6 @@ function MHome() {
 
   useEffect(() => {
     setWidth(window.screen.availWidth);
-    console.log(window.screen.availWidth);
-    if (width < 550) {
-      console.log("mobile");
-    }
   }, [window.screen.availWidth]);
 
   const settings = {

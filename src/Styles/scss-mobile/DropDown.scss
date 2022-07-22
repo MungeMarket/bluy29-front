@@ -1,0 +1,17 @@
+drop-enter {
+  opacity: 0;
+  transform: translate(-50%, -30px);
+}
+.drop-enter-active {
+  opacity: 1;
+  transition: opacity 300ms, transform 300ms;
+  transform: translate(-50%);
+}
+.drop-exit {
+  opacity: 1;
+}
+.drop-exit-active {
+  opacity: 0;
+
+  transition: opacity 300ms, transform 300ms;
+}

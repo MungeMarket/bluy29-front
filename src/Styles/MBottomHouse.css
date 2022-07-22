@@ -1,7 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap");
 .swipeable-bottom-sheet {
-  background-color: rgba(0, 0, 255, 0.3);
   position: fixed;
+  background-color: azure;
   bottom: 0;
   width: 100%;
   z-index: 1000;
+  font-family: "Noto Sans KR", sans-serif;
+}
+.swipeable-bottom-sheet .container {
+  height: 90vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.swipeable-bottom-sheet .container .line {
+  border-radius: 4px;
+  margin-top: 10px;
+  width: 12%;
+  height: 5px;
+  background-color: #cccccc;
+  border-bottom: 2px soid black;
+}
+.swipeable-bottom-sheet .container .head {
+  width: 100%;
+  background-color: aqua;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 8%;
+  background-color: rgba(240, 248, 255, 0.4);
+}
+.swipeable-bottom-sheet .container .head p {
+  font-size: 18px;
+  font-weight: 500;
+}
+.swipeable-bottom-sheet .container .holeHouse {
+  width: 100%;
+  height: 100%;
+}
+.swipeable-bottom-sheet .container .holeHouse .hide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.swipeable-bottom-sheet .container .holeHouse .hide .filter-bar {
+  width: 100%;
+  height: 7%;
+  background-color: aqua;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.swipeable-bottom-sheet .container .holeHouse .hide .houseView {
+  width: 100%;
+}
+.swipeable-bottom-sheet .container .holeHouse .hide .houseView .house {
+  width: 100%;
+  height: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.swipeable-bottom-sheet .container .holeHouse .hide .houseView .house .img {
+  width: 50%;
+  height: 300px;
+  background-color: cornflowerblue;
+}
+.swipeable-bottom-sheet .container .holeHouse .hide .houseView .house .info {
+  width: 50%;
+  height: 300px;
+  background-color: aliceblue;
 }

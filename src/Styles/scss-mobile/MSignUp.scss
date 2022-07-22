@@ -1,0 +1,137 @@
+@import "../scss/Variables.scss";
+
+.join-m {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $bluy-Font;
+  position: relative;
+  .addPd-addrSearch {
+    width: 100vw;
+    position: absolute;
+    height: 100vh;
+    top: 0;
+  }
+  .join-form {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    input {
+      border: none;
+    }
+    input:focus {
+      outline: none;
+    }
+    .input-box {
+      width: 100%;
+      height: 40px;
+      margin-bottom: 18px;
+      border: 1px solid #dbdbdb;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-sizing: border-box;
+      label {
+        font-size: 14px;
+      }
+      input {
+        width: 70%;
+        height: 18px;
+        float: right;
+      }
+    }
+    .zip-code {
+      width: 100%;
+      height: 40px;
+      margin-bottom: 18px;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-sizing: border-box;
+      button {
+        background-color: #ffffff;
+        border: 1.5px solid $primary;
+        color: $primary;
+        font-weight: 600;
+        height: 42px;
+        border-radius: 5px;
+      }
+      input {
+        width: 78%;
+        height: 38px;
+        background-color: #f8f8fa;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+      }
+    }
+    .addr {
+      width: 100%;
+      height: 40px;
+      background-color: #f8f8fa;
+      border: 1px solid #e0e0e0;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+    }
+    .agree-box {
+      margin-top: 25px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      font-size: 14px;
+      img {
+        width: 20px;
+        height: 20px;
+        margin-left: 5px;
+        float: right;
+      }
+      .agree-title-line {
+        width: 100%;
+        height: 20px;
+        border-bottom: 1px solid #ececec;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0px 10px 10px 10px;
+        font-weight: 600;
+        box-sizing: border-box;
+      }
+      .all-agree {
+        display: flex;
+        align-items: center;
+        color: $primary;
+      }
+      .agree {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 8px 0;
+        padding: 0 10px;
+        width: 100%;
+        box-sizing: border-box;
+        .highright {
+          color: $primary;
+          margin-left: 3px;
+        }
+      }
+    }
+    .join-btn {
+      margin-top: 20px;
+      background-color: $primary;
+      color: #ffffff;
+      width: 100%;
+      height: 40px;
+      border: none;
+      border-radius: 3px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+  }
+}

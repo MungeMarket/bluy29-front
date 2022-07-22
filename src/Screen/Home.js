@@ -4,7 +4,6 @@ import image from "../libs/image";
 import { NextArrow, PrevArrow } from "../Components/Arrow";
 import Media from "react-media";
 import { useNavigate, Navigate, useParams } from "react-router-dom";
-import { token } from "../Components/Token";
 
 // Import css files
 import "../Styles/Home.css";
@@ -16,14 +15,9 @@ import MHome from "../MobileScreen/MHome";
 function Home(prop) {
   const [width, setWidth] = useState();
   const params = useParams();
-  console.log("params", params);
-  console.log("token : ", token);
+
   useEffect(() => {
     setWidth(window.innerWidth);
-    //console.log(window.innerWidth);
-    if (width < 550) {
-      console.log("mobile");
-    }
   }, [window.innerWidth]);
 
   const settings = {
@@ -64,7 +58,12 @@ function Home(prop) {
         <div className="main-Btn">
           <div className="BtnBox">
             <a href="/market">
-              <img className="BoxImg" src={image.interior}></img>
+              <img
+                art="BoxImg"
+                className="BoxImg"
+                src={image.interior}
+                alt="BoxImg"
+              ></img>
               <div className="TextBox">
                 <div>
                   <h1>펫 인테리어 </h1>
@@ -82,7 +81,7 @@ function Home(prop) {
 
           <div className="BtnBox">
             <a href="/landmap">
-              <img className="BoxImg" src={image.building}></img>
+              <img art="BoxImg" className="BoxImg" src={image.building}></img>
               <div className="TextBox">
                 <div>
                   <h1>부동산 정보</h1>
@@ -147,7 +146,7 @@ function Home(prop) {
               </div>
               <div className="PopBox">
                 <img className="BoxImg" src={image.snsflag}></img>
-                <h2>A_Lon****</h2>
+                <h2>1</h2>
               </div>
             </div>
             <div className="ObjectBox">

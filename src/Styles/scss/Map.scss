@@ -1,7 +1,11 @@
 @import "../scss/Variables.scss";
 
 @media (min-width: 900px) {
-  .MobileMapView {
+  .MobileMapView,
+  .swipeable-bottom-sheet {
+    display: none;
+  }
+  .Head {
     display: none;
   }
   .MapView {

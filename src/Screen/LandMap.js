@@ -6,12 +6,10 @@ import {
   Map,
   MarkerClusterer,
   MapMarker,
-  CustomOverlayMap,
   MapTypeControl,
   ZoomControl,
 } from "react-kakao-maps-sdk";
-import { gql, useMutation, useQuery } from "@apollo/client";
-import { stripIgnoredCharacters } from "graphql";
+import { useQuery } from "@apollo/client";
 import MLandMap from "../MobileScreen/MLandMap";
 import { FIND_IN_MAP } from "../GraphQL/gqlList";
 const MIN_LEVEL = "10";
@@ -41,24 +39,14 @@ function LandMap() {
           neLong: info.neLatLng.lng,
         },
   });
-  const mapList = {
-    positions: [
-      {
-        lat: 36.59933075229118,
-        lng: 127.52583998406159,
-      },
-      {
-        lat: 36.59835668706214,
-        lng: 127.52536526611102,
-      },
-    ],
-  };
+
   useEffect(() => {
     initMapCenter();
 
     //console.log(houseData);
     //getMapInfo();
   }, []);
+  useEffect(() => {}, [mapLoading]);
   const initMapCenter = () => {
     // 현재 위치값 받아오기.
     // HTML5의 geolocation으로 사용할 수 있는지 확인합니다
@@ -84,7 +72,7 @@ function LandMap() {
           },
         });
         setInitPoint({ lat: lat, lng: lng });
-        console.log(initPoint);
+
         setMapLoading(true);
         setInitial(false);
       });
@@ -99,7 +87,6 @@ function LandMap() {
   const getHousingGql = () => {
     if (houseData) {
       console.log("매물 : ", houseData.readMapHousing.housings);
-      console.log("매물 : ", houseData);
       setHousings(houseData.readMapHousing.housings);
     }
   };
@@ -181,7 +168,7 @@ function LandMap() {
                 averageCenter={true} // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정
                 minLevel={10} // 클러스터 할 최소 지도 레벨
               >
-                {/* {housings.map((house) => (
+                {housings.map((house) => (
                   <MapMarker // 마커를 생성합니다
                     key={house.idx}
                     position={{
@@ -190,7 +177,7 @@ function LandMap() {
                       lng: house.long,
                     }}
                   />
-                ))} */}
+                ))}
 
                 {/* {mapList.positions.map((pos, idx) => (
                   <CustomOverlayMap
