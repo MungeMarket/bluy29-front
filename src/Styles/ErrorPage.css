@@ -17,6 +17,7 @@
     font-size: 40px;
   }
 }
+
 .Error {
   width: 100vw;
   height: 60vh;
@@ -30,6 +31,7 @@
       -ms-flex-align: center;
           align-items: center;
 }
+
 .Error h1 {
   font-size: 40px;
 }

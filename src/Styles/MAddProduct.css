@@ -11,17 +11,16 @@
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    height: 180vh;
-    background-color: #aaaaaa;
+    height: 300vh;
     /* Chrome, Safari, Edge, Opera */
     /* Firefox */
   }
   .MaddPd input::-webkit-outer-spin-button,
-.MaddPd input::-webkit-inner-spin-button {
+  .MaddPd input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
-  .MaddPd input[type=number] {
+  .MaddPd input[type="number"] {
     -moz-appearance: textfield;
   }
   .MaddPd .addPd-Name {
@@ -49,14 +48,13 @@
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    width: 70%;
+    width: 100%;
   }
   .MaddPd .addPd-view {
     width: 90%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    grid-template-rows: repeat(auto-fill, minmax(60px, auto));
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -70,19 +68,22 @@
   }
   .MaddPd .addPd-view .manageInclude {
     width: 80%;
-    height: 10%;
+    height: 200px;
+    display: -ms-grid;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 0.3fr);
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
+    -ms-grid-rows: (0.4fr)[2];
+        grid-template-rows: repeat(2, 0.4fr);
     -webkit-column-gap: 5px;
-       -moz-column-gap: 5px;
             column-gap: 5px;
     row-gap: 5px;
   }
   .MaddPd .addPd-view .manageInclude .manageTag {
+    margin-top: 10px;
     width: 100%;
     height: 100%;
-    background-color: antiquewhite;
+    background-color: #a0c5fd;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -94,9 +95,10 @@
             align-items: center;
   }
   .MaddPd .addPd-view .manageInclude .select {
+    margin-top: 10px;
     width: 100%;
     height: 100%;
-    background-color: mediumaquamarine;
+    background-color: #4861ec;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -131,7 +133,7 @@
     height: 100%;
     font-size: 17px;
     font-weight: 500;
-    background-color: rgb(152, 159, 255);
+    background-color: #989fff;
   }
   .MaddPd .addPd-view .addPd-Addr input {
     height: 30%;
@@ -154,7 +156,7 @@
             align-items: center;
   }
   .MaddPd .addPd-view .Photo input {
-    background-color: rgb(152, 159, 255);
+    background-color: #989fff;
     width: 100%;
     height: 100%;
   }
@@ -176,7 +178,99 @@
             align-items: center;
   }
   .MaddPd .addPd-view .shorTerm form ul {
-    width: 50%;
+    width: 60%;
+  }
+  .MaddPd .addPd-view .direction {
+    width: 80%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .MaddPd .addPd-view .direction .dropDown {
+    width: 70%;
+  }
+  .MaddPd .addPd-view .builtInDetail {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 80%;
+    height: 3%;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 2fr 4fr;
+        grid-template-columns: 2fr 4fr;
+  }
+  .MaddPd .addPd-view .builtInDetail .detail {
+    width: 70;
+  }
+  .MaddPd .addPd-view .builtIn {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 80%;
+    height: 3%;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 2fr 2fr 2fr;
+        grid-template-columns: 2fr 2fr 2fr;
+  }
+  .MaddPd .addPd-view .availableMoveIn {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 80%;
+    height: 3%;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 2fr 3fr;
+        grid-template-columns: 2fr 3fr;
+  }
+  .MaddPd .addPd-view .mainUse {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 80%;
+    height: 3%;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .MaddPd .addPd-view .addPd-houseType {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .MaddPd .addPd-view .parking {
+    width: 80%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 3%;
+  }
+  .MaddPd .addPd-view .submit {
+    width: 80%;
+    height: 3%;
+  }
+  .MaddPd .addPd-view .submit button {
+    width: 100%;
+    height: 100%;
+    background-color: #7070ec;
+    font-size: 19px;
   }
   .MaddPd .addition {
     display: -webkit-box;
@@ -184,10 +278,10 @@
     display: flex;
   }
   .MaddPd .addPd-Contraction,
-.MaddPd .addPd-building,
-.MaddPd .addPd-houseType,
-.MaddPd .addpd-price,
-.MaddPd .addPd-isparking {
+  .MaddPd .addPd-building,
+  .MaddPd .addPd-houseType,
+  .MaddPd .addpd-price,
+  .MaddPd .addPd-isparking {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;

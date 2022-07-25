@@ -31,7 +31,8 @@ function Header() {
   }, []);
   if (
     window.location.pathname === "/login" ||
-    window.location.pathname === "/signup"
+    window.location.pathname === "/signup" ||
+    window.location.pathname === "/addproduct"
   ) {
     return (
       <div className="Head-login">
@@ -40,11 +41,6 @@ function Header() {
         </a>
       </div>
     );
-<<<<<<< HEAD
-  else if (window.location.pathname === "/landmap" && 1) {
-    return <div></div>;
-=======
->>>>>>> 859fcd4b3c37489b1aabc6e3fd0173a436de22d2
   }
   return (
     <div className="Head">

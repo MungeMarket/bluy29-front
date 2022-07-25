@@ -7,8 +7,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    height: 180vh;
-    background-color: #aaaaaa;
+    height: 300vh;
 
     /* Chrome, Safari, Edge, Opera */
     input::-webkit-outer-spin-button,
@@ -36,37 +35,37 @@
     .addPd-addrSearch {
       display: flex;
       justify-content: center;
-      width: 70%;
+      width: 100%;
     }
     .addPd-view {
       width: 90%;
       display: flex;
-
-      grid-template-rows: repeat(auto-fill, minmax(60px, auto));
       flex-direction: column;
       justify-content: space-evenly;
       align-items: center;
 
       .manageInclude {
         width: 80%;
-        height: 10%;
+        height: 200px;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(2, 0.3fr);
+        grid-template-rows: repeat(2, 0.4fr);
         column-gap: 5px;
         row-gap: 5px;
         .manageTag {
+          margin-top: 10px;
           width: 100%;
           height: 100%;
-          background-color: antiquewhite;
+          background-color: rgb(160, 197, 253);
           display: flex;
           justify-content: center;
           align-items: center;
         }
         .select {
+          margin-top: 10px;
           width: 100%;
           height: 100%;
-          background-color: mediumaquamarine;
+          background-color: rgb(72, 97, 236);
           display: flex;
           justify-content: center;
           align-items: center;
@@ -118,8 +117,69 @@
           justify-content: space-between;
           align-items: center;
           ul {
-            width: 50%;
+            width: 60%;
           }
+        }
+      }
+      .direction {
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .dropDown {
+          width: 70%;
+        }
+      }
+      .builtInDetail {
+        align-items: center;
+        width: 80%;
+        height: 3%;
+        display: grid;
+        grid-template-columns: 2fr 4fr;
+        .detail {
+          width: 70;
+        }
+      }
+      .builtIn {
+        align-items: center;
+        width: 80%;
+        height: 3%;
+        display: grid;
+        grid-template-columns: 2fr 2fr 2fr;
+      }
+      .availableMoveIn {
+        align-items: center;
+        width: 80%;
+        height: 3%;
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+      }
+      .mainUse {
+        display: flex;
+        width: 80%;
+        height: 3%;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .addPd-houseType {
+        display: flex;
+      }
+      .parking {
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 3%;
+      }
+      .submit {
+        width: 80%;
+        height: 3%;
+
+        button {
+          width: 100%;
+          height: 100%;
+          background-color: rgb(112, 112, 236);
+          font-size: 19px;
         }
       }
     }

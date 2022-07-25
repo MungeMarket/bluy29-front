@@ -95,8 +95,10 @@
   .Home .HomeView .Banner .bottom .btn {
     width: 70%;
     height: 100%;
+    display: -ms-grid;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
   }
   .Home .HomeView .Banner .bottom .btn div {
     width: 100%;
@@ -212,7 +214,7 @@
     font-size: 16px;
   }
   .Home .HomeView .Solution-Area .more {
-    color: rgb(103, 207, 255);
+    color: #67cfff;
     font-size: 16px;
     font-weight: 600;
   }
@@ -297,7 +299,7 @@
     font-size: 16px;
   }
   .Home .HomeView .SNS-Area .more {
-    color: rgb(103, 207, 255);
+    color: #67cfff;
     font-size: 16px;
     font-weight: 600;
   }
@@ -305,16 +307,17 @@
     width: 100%;
     min-width: 890px;
     margin-top: 20px;
+    display: -ms-grid;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
     -webkit-column-gap: 20px;
-       -moz-column-gap: 20px;
             column-gap: 20px;
     row-gap: 20px;
   }
   .Home .HomeView .SNS-Area .Object .ObjectBox:nth-child(1) .PopBox,
-.Home .HomeView .SNS-Area .Object .ObjectBox:nth-child(2) .PopBox,
-.Home .HomeView .SNS-Area .Object .ObjectBox:nth-child(3) .PopBox {
+  .Home .HomeView .SNS-Area .Object .ObjectBox:nth-child(2) .PopBox,
+  .Home .HomeView .SNS-Area .Object .ObjectBox:nth-child(3) .PopBox {
     top: 0px;
     left: 30px;
     position: absolute;
@@ -331,8 +334,8 @@
             align-items: center;
   }
   .Home .HomeView .SNS-Area .Object .ObjectBox:nth-child(1) .PopBox h2,
-.Home .HomeView .SNS-Area .Object .ObjectBox:nth-child(2) .PopBox h2,
-.Home .HomeView .SNS-Area .Object .ObjectBox:nth-child(3) .PopBox h2 {
+  .Home .HomeView .SNS-Area .Object .ObjectBox:nth-child(2) .PopBox h2,
+  .Home .HomeView .SNS-Area .Object .ObjectBox:nth-child(3) .PopBox h2 {
     font-size: 20px;
     color: white;
     z-index: 1000;

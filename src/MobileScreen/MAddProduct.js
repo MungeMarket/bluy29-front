@@ -3,8 +3,9 @@ import "../Styles/AddProduct.css";
 import "../Styles/MAddProduct.css";
 import DaumPostcode from "react-daum-postcode";
 import axios from "axios";
-import { gql, useMutation } from "@apollo/client";
-import { ADD_PRODUCT, VERIFY_TEST } from "../GraphQL/gqlList";
+import Dropdown from "react-dropdown";
+import { useMutation } from "@apollo/client";
+import { ADD_PRODUCT } from "../GraphQL/gqlList";
 
 const API_KEY = process.env.REACT_APP_KAKAO_REST_API_KEY;
 //토큰 지우기
@@ -121,7 +122,7 @@ function MAddProduct() {
       ],
       title: totalInfo.title,
       detailContent: totalInfo.detailContent,
-      addr: latLng.address_name,
+      addr: totalInfo.addr,
       addrDetail: totalInfo.addrDetail,
       lat: parseFloat(latLng.y),
       long: parseFloat(latLng.x),
@@ -179,7 +180,7 @@ function MAddProduct() {
         ],
         title: totalInfo.title,
         detailContent: totalInfo.detailContent,
-        addr: latLng.address_name,
+        addr: totalInfo.addr,
         addrDetail: totalInfo.addrDetail,
         lat: parseFloat(latLng.y),
         long: parseFloat(latLng.x),
@@ -227,11 +228,6 @@ function MAddProduct() {
     width: "50%",
     height: "70vh",
   };
-  const onImgChange = async (event) => {
-    const formData = new FormData();
-    formData.append("file", event.target.files[0]);
-    console.log("formData : ", formData);
-  };
 
   const onChangePicture = (e) => {
     let i;
@@ -263,9 +259,132 @@ function MAddProduct() {
       setImgList(res.data.images);
     });
   };
+  const houseType = ["원룸", "투룸", "투베이", "쓰리룸", "아파트", "단독주택"];
+  const houseTypeDefaultOption = houseType[0];
+  const dropDownHouseTypeHandle = (event) => {
+    console.log(event);
+    let houseType;
+    switch (event.value) {
+      case "원룸":
+        houseType = "원룸";
+        break;
+      case "투룸":
+        houseType = "투룸";
+        break;
+      case "투베이":
+        houseType = "투베이";
+        break;
+      case "쓰리룸":
+        houseType = "쓰리룸";
+        break;
+      case "아파트":
+        houseType = "아파트";
+        break;
+      case "단독추택":
+        houseType = "단독추택";
+        break;
+
+      default:
+        houseType = "원룸";
+        break;
+    }
+    valueClean("roomType", { name: houseType });
+  };
+  const useOptions = [
+    "단독주택",
+    "공동주택",
+    "제1종 근린생활시설",
+    "제2종 근린생활시설",
+    "기타",
+  ];
+  const useDefaultOption = useOptions[0];
+
+  const dropDownUseHandle = (event) => {
+    console.log(event);
+    let mainUse;
+    switch (event.value) {
+      case "단독주택":
+        mainUse = "단독주택";
+        break;
+      case "공동주택":
+        mainUse = "공동주택";
+        break;
+      case "제1종 근린생활시설":
+        mainUse = "제1종 근린생활시";
+        break;
+      case "제2종 근린생활시설":
+        mainUse = "제2종 근린생활시설";
+        break;
+      case "기타":
+        mainUse = "";
+        break;
+
+      default:
+        mainUse = "단독주택";
+        break;
+    }
+    valueClean("mainUse", mainUse);
+  };
+
+  const heatOptions = ["개별 난방", "중앙 난방", "지역 난방"];
+  const heatingdefaultOption = heatOptions[0];
+  const dropDownHeatOptionsHandle = (event) => {
+    console.log(event);
+    let heating;
+    switch (event.value) {
+      case "개별 난방":
+        heating = "Individual";
+        break;
+      case "중앙 난방":
+        heating = "Central";
+        break;
+      case "지역 난방":
+        heating = "District";
+        break;
+
+      default:
+        heating = "Individual";
+        break;
+    }
+    valueClean("heating", heating);
+  };
+
+  const options = ["북", "동", "남", "서", "북동", "남동", "남서", "북서"];
+  const defaultOption = options[0];
+  const dropDownHandle = (event) => {
+    console.log(event);
+    let direction;
+    switch (event.value) {
+      case "북":
+        direction = "N";
+        break;
+      case "동":
+        direction = "E";
+        break;
+      case "남":
+        direction = "S";
+        break;
+      case "서":
+        direction = "W";
+        break;
+      case "북동":
+        direction = "NE";
+        break;
+      case "남서":
+        direction = "SE";
+        break;
+      case "남동":
+        direction = "SW";
+        break;
+      case "북동":
+        direction = "NW";
+        break;
+    }
+    valueClean("direction", direction);
+  };
 
   const totalHandle = (event) => {
-    //console.log(event.target.id, " : ", event);
+    console.log(event.target.id, " : ", event);
     const idText = event.target.id;
     const valueText = event.target.value;
     //console.log("id, value : ", idText, valueText);
@@ -368,9 +487,6 @@ function MAddProduct() {
         </div>
       ) : (
         <div className="addPd-view">
-          <div>
-            <button onClick={inputProduct}>제출</button>
-          </div>
           <div className="addPd-Name addition">
             <span>제목 : </span>
 
@@ -742,247 +858,135 @@ function MAddProduct() {
             <label>개</label>
           </div>
 
-          <div onChange={totalHandle}>
+          <div className="direction" onChange={totalHandle}>
             <label>방향 : </label>
-            <ul>
-              <li>
-                <input type="radio" id="direction" name="direction" value="N" />
-                <label> 북</label>
-              </li>
-              <li>
-                <input type="radio" id="direction" name="direction" value="E" />
-                <label> 동</label>
-              </li>
-              <li>
-                <input type="radio" id="direction" name="direction" value="S" />
-                <label> 남</label>
-              </li>
-              <li>
-                <input type="radio" id="direction" name="direction" value="W" />
-                <label> 서</label>
-              </li>
-              <li>
-                <input
-                  type="radio"
-                  id="direction"
-                  name="direction"
-                  value="NE"
-                />
-                <label> 북동</label>
-              </li>
-              <li>
-                <input
-                  type="radio"
-                  id="direction"
-                  name="direction"
-                  value="SE"
-                />
-                <label> 남동</label>
-              </li>
-              <li>
-                <input
-                  type="radio"
-                  id="direction"
-                  name="direction"
-                  value="SW"
-                />
-                <label> 남서</label>
-              </li>
-              <li>
-                <input
-                  type="radio"
-                  id="direction"
-                  name="direction"
-                  value="NW"
-                />
-                <label> 북서</label>
-              </li>
-            </ul>
+
+            <Dropdown
+              className={"dropDown"}
+              options={options}
+              value={defaultOption}
+              onChange={dropDownHandle}
+              placeholder="Select an option"
+            />
           </div>
 
-          <div onChange={totalHandle}>
-            <ul>
-              <li>
-                <label>난방 종류 : </label>
-                <input
-                  type="radio"
-                  id="heating"
-                  name="heating"
-                  value="Individual"
-                />
-                <label> 개별 난방</label>
-              </li>
-              <li>
-                <input
-                  type="radio"
-                  id="heating"
-                  name="heating"
-                  value="Central"
-                />
-                <label> 중앙 난방</label>
-              </li>
-              <li>
-                <input
-                  type="radio"
-                  id="heating"
-                  name="heating"
-                  value="District"
-                />
-                <label> 직역 난방</label>
-              </li>
-            </ul>
+          <div className="direction" onChange={totalHandle}>
+            <label>난방 종류 : </label>
+            <Dropdown
+              className={"dropDown"}
+              options={heatOptions}
+              value={heatingdefaultOption}
+              onChange={dropDownHeatOptionsHandle}
+              placeholder="Select an option"
+            />
           </div>
 
-          <div onChange={totalHandle}>
+          <div onChange={totalHandle} className="builtIn">
             <label>빌트인 : </label>
-            <input type="radio" id="builtIn" name="builtIn" value={true} />
-            <label> 빌트인 있음</label>
-            <input type="radio" id="builtIn" name="builtIn" value={false} />
-            <label> 빌트인 없음</label>
+            <div>
+              <input type="radio" id="builtIn" name="builtIn" value={true} />
+              <label> 빌트인 있음</label>
+            </div>
+            <div>
+              <input type="radio" id="builtIn" name="builtIn" value={false} />
+              <label> 빌트인 없음</label>
+            </div>
           </div>
 
-          <div onChange={totalHandle}>
+          <div onChange={totalHandle} className="builtInDetail">
             <label>빌트인 정보 : </label>
-            <input placeholder="빌트인 정보 입력" id="builtInDetail"></input>
+            <input
+              placeholder="빌트인 정보 입력"
+              id="builtInDetail"
+              className="detail"
+            ></input>
           </div>
 
-          <div onChange={totalHandle}>
+          <div onChange={totalHandle} className="builtIn">
             <label>엘리베이터 : </label>
-            <input
-              type="radio"
-              id="elevator"
-              name="elevator"
-              value={true}
-            ></input>
-            <label> 있음</label>
-            <input
-              type="radio"
-              id="elevator"
-              name="elevator"
-              value={false}
-            ></input>
-            <label> 없음</label>
+            <div>
+              <input
+                type="radio"
+                id="elevator"
+                name="elevator"
+                value={true}
+              ></input>
+              <label> 있음</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                id="elevator"
+                name="elevator"
+                value={false}
+              ></input>
+              <label> 없음</label>
+            </div>
           </div>
 
-          <div onChange={totalHandle}>
+          <div onChange={totalHandle} className="builtIn">
             <label>베란다 : </label>
-            <input
-              type={"radio"}
-              id="veranda"
-              name="veranda"
-              value={true}
-            ></input>
-            <label> 있음</label>
-            <input
-              type={"radio"}
-              id="veranda"
-              name="veranda"
-              value={true}
-            ></input>
-            <label> 없음</label>
+            <div>
+              <input
+                type={"radio"}
+                id="veranda"
+                name="veranda"
+                value={true}
+              ></input>
+              <label> 있음</label>
+            </div>
+            <div>
+              <input
+                type={"radio"}
+                id="veranda"
+                name="veranda"
+                value={true}
+              ></input>
+              <label> 없음</label>
+            </div>
           </div>
 
-          <div onChange={totalHandle}>
+          <div onChange={totalHandle} className="availableMoveIn">
             <label>입주 가능일 : </label>
             {/* 오늘 날짜를 기본으로 지정*/}
             <input type="date" id="availableMoveIn"></input>
           </div>
-
-          <div onChange={totalHandle}>
-            <label>주 용도 : </label>
-            <input type="radio" id="mainUse" name="mainUse" value="House" />
-            <label> 단독주택</label>
-            <input type="radio" id="mainUse" name="mainUse" value="apartment" />
-            <label> 공동주택</label>
-            <input type="radio" id="mainUse" name="mainUse" value="Type1" />
-            <label> 제1종 근린생활시설</label>
-            <input type="radio" id="mainUse" name="mainUse" value="Type2" />
-            <label> 제2종 근린생활시설</label>
-            <label> 기타 : </label>
-            <input placeholder="기타" id="mainUse" name="mainUse"></input>
-          </div>
-
-          <div onChange={totalHandle}>
+          <div onChange={totalHandle} className="availableMoveIn">
             <label>건축 일자 : </label>
             {/* 오늘 날짜를 기본으로 지정*/}
             <input type="date" id="approvalDate" name="approvalDate"></input>
           </div>
+          <div onChange={totalHandle} className="mainUse">
+            <label>주 용도 : </label>
+            <Dropdown
+              className={"dropDown"}
+              options={useOptions}
+              value={useDefaultOption}
+              onChange={dropDownUseHandle}
+              placeholder="Select an option"
+            />
 
-          <span>시설 tag</span>
-
-          <div onChange={totalHandle} className="addPd-houseType">
-            {/* roomType*/}
-            <span>방 구조 : </span>
-            <ul>
-              <li>
-                <input
-                  type="radio"
-                  value="oneRoom"
-                  name="roomType"
-                  id="roomType"
-                />{" "}
-                원룸
-              </li>
-              <li>
-                <input
-                  type="radio"
-                  value="twoRoom"
-                  name="roomType"
-                  id="roomType"
-                />{" "}
-                투룸
-              </li>
-              <li>
-                <input
-                  type="radio"
-                  value="twoBay"
-                  name="roomType"
-                  id="roomType"
-                />{" "}
-                투베이
-              </li>
-              <li>
-                <input
-                  type="radio"
-                  value="threeRoom"
-                  name="roomType"
-                  id="roomType"
-                />{" "}
-                쓰리룸
-              </li>
-              <li>
-                <input
-                  type="radio"
-                  value="apartment"
-                  name="roomType"
-                  id="roomType"
-                />
-                아파트
-              </li>
-              <li>
-                <input
-                  type="radio"
-                  value="vila"
-                  name="roomType"
-                  id="roomType"
-                />
-                빌라
-              </li>
-              <li>
-                <input
-                  type="radio"
-                  value="house"
-                  name="roomType"
-                  id="roomType"
-                />
-                단독주택
-              </li>
-            </ul>
+            <input
+              placeholder="기타"
+              id="mainUse"
+              name="mainUse"
+              disabled={totalInfo.mainUse !== ""}
+            ></input>
           </div>
 
-          <span>주변시설 tag</span>
+          <div onChange={totalHandle} className="direction">
+            {/* roomType*/}
+            <span>방 구조 : </span>
+            <Dropdown
+              className={"dropDown"}
+              options={houseType}
+              value={houseTypeDefaultOption}
+              onChange={dropDownHouseTypeHandle}
+              placeholder="Select an option"
+            />
+          </div>
 
-          <div className="addPd-isparking" onChange={totalHandle}>
+          <div className="parking" onChange={totalHandle}>
             <span>주차 가능 여부 : </span>
             <ul>
               <li>
@@ -1013,8 +1017,9 @@ function MAddProduct() {
               </li>
             </ul>
           </div>
-
-          <div>매물등록</div>
+          <div className="submit">
+            <button onClick={inputProduct}>제출</button>
+          </div>
         </div>
       )}
     </div>

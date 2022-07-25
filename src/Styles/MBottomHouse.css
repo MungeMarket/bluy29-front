@@ -7,6 +7,7 @@
   z-index: 1000;
   font-family: "Noto Sans KR", sans-serif;
 }
+
 .swipeable-bottom-sheet .container {
   height: 90vh;
   display: -webkit-box;
@@ -20,6 +21,7 @@
       -ms-flex-align: center;
           align-items: center;
 }
+
 .swipeable-bottom-sheet .container .line {
   border-radius: 4px;
   margin-top: 10px;
@@ -28,6 +30,7 @@
   background-color: #cccccc;
   border-bottom: 2px soid black;
 }
+
 .swipeable-bottom-sheet .container .head {
   width: 100%;
   background-color: aqua;
@@ -43,14 +46,17 @@
   height: 8%;
   background-color: rgba(240, 248, 255, 0.4);
 }
+
 .swipeable-bottom-sheet .container .head p {
   font-size: 18px;
   font-weight: 500;
 }
+
 .swipeable-bottom-sheet .container .holeHouse {
   width: 100%;
   height: 100%;
 }
+
 .swipeable-bottom-sheet .container .holeHouse .hide {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -64,6 +70,7 @@
       -ms-flex-align: center;
           align-items: center;
 }
+
 .swipeable-bottom-sheet .container .holeHouse .hide .filter-bar {
   width: 100%;
   height: 7%;
@@ -78,9 +85,11 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
+
 .swipeable-bottom-sheet .container .holeHouse .hide .houseView {
   width: 100%;
 }
+
 .swipeable-bottom-sheet .container .holeHouse .hide .houseView .house {
   width: 100%;
   height: 300px;
@@ -88,11 +97,13 @@
   display: -ms-flexbox;
   display: flex;
 }
+
 .swipeable-bottom-sheet .container .holeHouse .hide .houseView .house .img {
   width: 50%;
   height: 300px;
   background-color: cornflowerblue;
 }
+
 .swipeable-bottom-sheet .container .holeHouse .hide .houseView .house .info {
   width: 50%;
   height: 300px;

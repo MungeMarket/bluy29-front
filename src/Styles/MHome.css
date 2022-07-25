@@ -160,7 +160,7 @@
     padding-bottom: 15px;
   }
   .Home .MHome .Solution-Area .Solution-View .Solution-TextBox .Solution-Text .more {
-    color: rgb(103, 207, 255);
+    color: #67cfff;
     font-weight: 500;
   }
   .Home .MHome .Solution-Area .Solution-View .Solution-TextBox .Solution-Text span {
@@ -273,7 +273,7 @@
     padding-bottom: 15px;
   }
   .Home .MHome .Sns-View .Sns-TextBox .Sns-Text .more {
-    color: rgb(103, 207, 255);
+    color: #67cfff;
     font-weight: 500;
   }
   .Home .MHome .Sns-View .Sns-TextBox .Sns-Text span {
@@ -282,10 +282,11 @@
   }
   .Home .MHome .Sns-View .Object {
     width: 90%;
+    display: -ms-grid;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
     -webkit-column-gap: 20px;
-       -moz-column-gap: 20px;
             column-gap: 20px;
     row-gap: 20px;
   }

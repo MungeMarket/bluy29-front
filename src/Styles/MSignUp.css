@@ -14,12 +14,14 @@
   font-family: "Noto Sans KR", sans-serif;
   position: relative;
 }
+
 .join-m .addPd-addrSearch {
   width: 100vw;
   position: absolute;
   height: 100vh;
   top: 0;
 }
+
 .join-m .join-form {
   width: 400px;
   display: -webkit-box;
@@ -33,12 +35,15 @@
       -ms-flex-align: center;
           align-items: center;
 }
+
 .join-m .join-form input {
   border: none;
 }
+
 .join-m .join-form input:focus {
   outline: none;
 }
+
 .join-m .join-form .input-box {
   width: 100%;
   height: 40px;
@@ -57,14 +62,17 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
+
 .join-m .join-form .input-box label {
   font-size: 14px;
 }
+
 .join-m .join-form .input-box input {
   width: 70%;
   height: 18px;
   float: right;
 }
+
 .join-m .join-form .zip-code {
   width: 100%;
   height: 40px;
@@ -82,14 +90,16 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
+
 .join-m .join-form .zip-code button {
   background-color: #ffffff;
-  border: 1.5px solid rgb(31, 114, 238);
-  color: rgb(31, 114, 238);
+  border: 1.5px solid #1f72ee;
+  color: #1f72ee;
   font-weight: 600;
   height: 42px;
   border-radius: 5px;
 }
+
 .join-m .join-form .zip-code input {
   width: 78%;
   height: 38px;
@@ -97,6 +107,7 @@
   border: 1px solid #e0e0e0;
   border-radius: 5px;
 }
+
 .join-m .join-form .addr {
   width: 100%;
   height: 40px;
@@ -107,6 +118,7 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
+
 .join-m .join-form .agree-box {
   margin-top: 25px;
   width: 100%;
@@ -122,12 +134,14 @@
           align-items: flex-start;
   font-size: 14px;
 }
+
 .join-m .join-form .agree-box img {
   width: 20px;
   height: 20px;
   margin-left: 5px;
   float: right;
 }
+
 .join-m .join-form .agree-box .agree-title-line {
   width: 100%;
   height: 20px;
@@ -146,6 +160,7 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
+
 .join-m .join-form .agree-box .all-agree {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -153,8 +168,9 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: rgb(31, 114, 238);
+  color: #1f72ee;
 }
+
 .join-m .join-form .agree-box .agree {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -171,13 +187,15 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
+
 .join-m .join-form .agree-box .agree .highright {
-  color: rgb(31, 114, 238);
+  color: #1f72ee;
   margin-left: 3px;
 }
+
 .join-m .join-form .join-btn {
   margin-top: 20px;
-  background-color: rgb(31, 114, 238);
+  background-color: #1f72ee;
   color: #ffffff;
   width: 100%;
   height: 40px;

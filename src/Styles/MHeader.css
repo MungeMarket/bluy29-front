@@ -87,12 +87,13 @@
   .Head .Head-View .Head-Mobile .Bottom {
     font-family: "Noto Sans KR", sans-serif;
     padding: 5px 0;
-    border-top: 1px solid rgb(112, 112, 112);
-    border-bottom: 1px solid rgb(112, 112, 112);
+    border-top: 1px solid #707070;
+    border-bottom: 1px solid #707070;
+    display: -ms-grid;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
     -webkit-column-gap: 10px;
-       -moz-column-gap: 10px;
             column-gap: 10px;
   }
   .Head .Head-View .Head-Mobile .Bottom div {

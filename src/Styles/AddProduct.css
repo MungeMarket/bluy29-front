@@ -17,11 +17,11 @@
     /* Firefox */
   }
   .addPd input::-webkit-outer-spin-button,
-.addPd input::-webkit-inner-spin-button {
+  .addPd input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
-  .addPd input[type=number] {
+  .addPd input[type="number"] {
     -moz-appearance: textfield;
   }
   .addPd .addPd-addrSearch {
@@ -55,11 +55,13 @@
   .addPd .addPd-view .manageInclude {
     width: 80%;
     height: 10%;
+    display: -ms-grid;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 0.3fr);
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
+    -ms-grid-rows: (0.3fr)[2];
+        grid-template-rows: repeat(2, 0.3fr);
     -webkit-column-gap: 5px;
-       -moz-column-gap: 5px;
             column-gap: 5px;
     row-gap: 5px;
   }
@@ -97,10 +99,10 @@
     display: flex;
   }
   .addPd .addPd-Contraction,
-.addPd .addPd-building,
-.addPd .addPd-houseType,
-.addPd .addpd-price,
-.addPd .addPd-isparking {
+  .addPd .addPd-building,
+  .addPd .addPd-houseType,
+  .addPd .addpd-price,
+  .addPd .addPd-isparking {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
